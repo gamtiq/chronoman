@@ -1,0 +1,21 @@
+{
+    "name": "chronoman",
+    "repo": "gamtiq/chronoman",
+    "description": "Utility class to simplify use of timers created by setTimeout",
+    "version": "0.0.1",
+    "keywords": [
+        "setTimeout",
+        "setInterval",
+        "timer",
+        "timeout",
+        "management",
+        "utility"
+    ],
+    "dependencies": {},
+    "development": {},
+    "license": "MIT",
+    "main": "chronoman.js",
+    "scripts": [
+        "chronoman.js"
+    ]
+}
