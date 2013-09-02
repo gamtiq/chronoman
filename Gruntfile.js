@@ -37,15 +37,36 @@ module.exports = function(grunt) {
                     destination: "doc"
                 }
             }
+        },
+        
+        uglify: {
+            minify: {
+                src: "dist/chronoman.js",
+                dest: "dist/chronoman.min.js"
+            }
+        },
+        
+        umd: {
+            dist: {
+                template: "unit",
+                src: "chronoman.js",
+                dest: "dist/chronoman.js",
+                objectToExport: "Timer",
+                globalAlias: "Chronoman"
+            }
         }
         
     });
     
     // Plugins
     grunt.loadNpmTasks("grunt-contrib-jshint");
+    grunt.loadNpmTasks("grunt-contrib-uglify");
     grunt.loadNpmTasks("grunt-jsdoc");
+    grunt.loadNpmTasks("grunt-umd");
     
     // Tasks
+    grunt.registerTask("build", ["umd", "uglify"]);
     grunt.registerTask("doc", ["jsdoc"]);
     grunt.registerTask("default", ["jshint"]);
+    grunt.registerTask("all", ["jshint", "build", "doc"]);
 };

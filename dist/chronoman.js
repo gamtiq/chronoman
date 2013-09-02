@@ -1,31 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <title>JSDoc: Source: chronoman.js</title>
-    
-    <script src="scripts/prettify/prettify.js"> </script>
-    <script src="scripts/prettify/lang-css.js"> </script>
-    <!--[if lt IE 9]>
-      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
-    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
-</head>
 
-<body>
-
-<div id="main">
-    
-    <h1 class="page-title">Source: chronoman.js</h1>
-    
-    
-
-
-    
-    <section>
-        <article>
-            <pre class="prettyprint source"><code>/**
+(function(root, factory) {
+    if(typeof exports === 'object') {
+        module.exports = factory(require, exports, module);
+    }
+    else if(typeof define === 'function' && define.amd) {
+        define(['require', 'exports', 'module'], factory);
+    }
+    else {
+        var req = function(id) {return root[id];},
+            exp = root,
+            mod = {exports: exp};
+        root.Chronoman = factory(req, exp, mod);
+    }
+}(this, function(require, exports, module) {
+/**
  * @module chronoman
  * 
  * @author Denis Sikuler
@@ -38,38 +26,38 @@
  * @param {Object} [initValue]
  *      Specifies initial property values. Keys are property names, their values are values of corresponding properties.
  *      The following keys (properties) can be specified:
- *      &lt;table>
- *          &lt;tr>
- *              &lt;th>Name&lt;/th>
- *              &lt;th>Type&lt;/th>
- *              &lt;th>Description&lt;/th>
- *          &lt;/tr>
- *          &lt;tr>
- *              &lt;td>action&lt;/td>
- *              &lt;td>Function&lt;/td>
- *              &lt;td>Related action that should be executed after time period is elapsed.&lt;/td>
- *          &lt;/tr>
- *          &lt;tr>
- *              &lt;td>active&lt;/td>
- *              &lt;td>Boolean&lt;/td>
- *              &lt;td>Whether timer usage should be immediately started.&lt;/td>
- *          &lt;/tr>
- *          &lt;tr>
- *              &lt;td>passToAction&lt;/td>
- *              &lt;td>Boolean&lt;/td>
- *              &lt;td>Whether the timer instance should be passed into action function when the function is called.&lt;/td>
- *          &lt;/tr>
- *          &lt;tr>
- *              &lt;td>period&lt;/td>
- *              &lt;td>Integer&lt;/td>
- *              &lt;td>Time period in milliseconds that is used to schedule related action execution.&lt;/td>
- *          &lt;/tr>
- *          &lt;tr>
- *              &lt;td>recurrent&lt;/td>
- *              &lt;td>Boolean&lt;/td>
- *              &lt;td>Whether related action should be executed repeatedly.&lt;/td>
- *          &lt;/tr>
- *      &lt;/table>
+ *      <table>
+ *          <tr>
+ *              <th>Name</th>
+ *              <th>Type</th>
+ *              <th>Description</th>
+ *          </tr>
+ *          <tr>
+ *              <td>action</td>
+ *              <td>Function</td>
+ *              <td>Related action that should be executed after time period is elapsed.</td>
+ *          </tr>
+ *          <tr>
+ *              <td>active</td>
+ *              <td>Boolean</td>
+ *              <td>Whether timer usage should be immediately started.</td>
+ *          </tr>
+ *          <tr>
+ *              <td>passToAction</td>
+ *              <td>Boolean</td>
+ *              <td>Whether the timer instance should be passed into action function when the function is called.</td>
+ *          </tr>
+ *          <tr>
+ *              <td>period</td>
+ *              <td>Integer</td>
+ *              <td>Time period in milliseconds that is used to schedule related action execution.</td>
+ *          </tr>
+ *          <tr>
+ *              <td>recurrent</td>
+ *              <td>Boolean</td>
+ *              <td>Whether related action should be executed repeatedly.</td>
+ *          </tr>
+ *      </table>
  * @constructor
  */
 var Timer = function Timer(initValue) {
@@ -139,7 +127,7 @@ Timer.prototype.getPeriod = function() {
  * @param {Integer} nPeriod
  *      Time period in milliseconds.
  * @return {Object}
- *      Reference to &lt;code>this&lt;/code> object.
+ *      Reference to <code>this</code> object.
  * @method
  * @see {@link module:chronoman~Timer#_period _period}
  */
@@ -162,7 +150,7 @@ Timer.prototype._recurrent = false;
  * Test whether related action should be executed repeatedly.
  *
  * @return {Boolean}
- *      &lt;code>true&lt;/code>, if related action should be executed repeatedly, otherwise &lt;code>false&lt;/code>.
+ *      <code>true</code>, if related action should be executed repeatedly, otherwise <code>false</code>.
  * @method
  * @see {@link module:chronoman~Timer#_recurrent _recurrent}
  */
@@ -174,9 +162,9 @@ Timer.prototype.isRecurrent = function() {
  * Set or cancel repeating of related action execution.
  *
  * @param {Boolean} bRecurrent
- *      &lt;code>true&lt;/code>, if action should be executed repeatedly, &lt;code>false&lt;/code>, if action repeating should be off.
+ *      <code>true</code>, if action should be executed repeatedly, <code>false</code>, if action repeating should be off.
  * @return {Object}
- *      Reference to &lt;code>this&lt;/code> object.
+ *      Reference to <code>this</code> object.
  * @method
  * @see {@link module:chronoman~Timer#_recurrent _recurrent}
  */
@@ -199,7 +187,7 @@ Timer.prototype._timeoutId = null;
  * Schedule related action execution.
  *
  * @return {Object}
- *      Reference to &lt;code>this&lt;/code> object.
+ *      Reference to <code>this</code> object.
  * @method
  * @protected
  * @see {@link module:chronoman~Timer#_clearTimeout _clearTimeout}
@@ -221,7 +209,7 @@ Timer.prototype._setTimeout = function() {
  * Cancel execution of scheduled action.
  *
  * @return {Object}
- *      Reference to &lt;code>this&lt;/code> object.
+ *      Reference to <code>this</code> object.
  * @method
  * @protected
  * @see {@link module:chronoman~Timer#_setTimeout _setTimeout}
@@ -249,7 +237,7 @@ Timer.prototype._active = false;
  * Test whether timer is in use.
  *
  * @return {Boolean}
- *      &lt;code>true&lt;/code>, if timer is in use, otherwise &lt;code>false&lt;/code>.
+ *      <code>true</code>, if timer is in use, otherwise <code>false</code>.
  * @method
  * @see {@link module:chronoman~Timer#_active _active}
  */
@@ -260,13 +248,13 @@ Timer.prototype.isActive = function() {
 /**
  * Set or cancel timer usage.
  * Depending of this schedules related action execution or cancels action execution.
- * &lt;br>
- * Consecutive calling with &lt;code>bActive = true&lt;/code> leads to related action execution delaying.
+ * <br>
+ * Consecutive calling with <code>bActive = true</code> leads to related action execution delaying.
  *
  * @param {Boolean} bActive
- *      &lt;code>true&lt;/code> to schedule related action execution, &lt;code>false&lt;/code> to cancel action execution.
+ *      <code>true</code> to schedule related action execution, <code>false</code> to cancel action execution.
  * @return {Object}
- *      Reference to &lt;code>this&lt;/code> object.
+ *      Reference to <code>this</code> object.
  * @method
  * @see {@link module:chronoman~Timer#_active _active}
  * @see {@link module:chronoman~Timer#execute execute}
@@ -286,10 +274,10 @@ Timer.prototype.setActive = function(bActive) {
  * Start timer usage (make it active).
  *
  * @param {Integer} [nPeriod]
- *      Time period in milliseconds that is used to schedule related action execution (new value for &lt;code>period&lt;/code> property).
- *      The current value of &lt;code>period&lt;/code> property is used by default.
+ *      Time period in milliseconds that is used to schedule related action execution (new value for <code>period</code> property).
+ *      The current value of <code>period</code> property is used by default.
  * @return {Object}
- *      Reference to &lt;code>this&lt;/code> object.
+ *      Reference to <code>this</code> object.
  * @method
  * @see {@link module:chronoman~Timer#setActive setActive}
  * @see {@link module:chronoman~Timer#setPeriod setPeriod}
@@ -307,7 +295,7 @@ Timer.prototype.start = function(nPeriod) {
  * Stop timer usage (make it inactive).
  *
  * @return {Object}
- *      Reference to &lt;code>this&lt;/code> object.
+ *      Reference to <code>this</code> object.
  * @method
  * @see {@link module:chronoman~Timer#setActive setActive}
  * @see {@link module:chronoman~Timer#start start}
@@ -318,7 +306,7 @@ Timer.prototype.stop = function() {
 
 /**
  * Related action that should be executed after time period is elapsed.
- * &lt;br>
+ * <br>
  * The timer instance to which the action is associated will be passed as function's parameter.
  *
  * @protected
@@ -345,7 +333,7 @@ Timer.prototype.getAction = function() {
  * @param {Function} action
  *      Function that represents action.
  * @return {Object}
- *      Reference to &lt;code>this&lt;/code> object.
+ *      Reference to <code>this</code> object.
  * @method
  * @see {@link module:chronoman~Timer#_action _action}
  */
@@ -355,7 +343,7 @@ Timer.prototype.setAction = function(action) {
 };
 
 /**
- * Indicates whether the timer instance (&lt;code>this&lt;/code>) should be passed into action function when the function is called.
+ * Indicates whether the timer instance (<code>this</code>) should be passed into action function when the function is called.
  * 
  * @protected
  * @type {boolean}
@@ -367,7 +355,7 @@ Timer.prototype._passToAction = false;
  * Test whether the timer instance should be passed into action function when the function is called.
  *
  * @return {Boolean}
- *      &lt;code>true&lt;/code>, if the timer instance should be passed, otherwise &lt;code>false&lt;/code>.
+ *      <code>true</code>, if the timer instance should be passed, otherwise <code>false</code>.
  * @method
  * @see {@link module:chronoman~Timer#_passToAction _passToAction}
  */
@@ -379,10 +367,10 @@ Timer.prototype.isPassToAction = function() {
  * Set or cancel passing of timer instance into action function.
  *
  * @param {Boolean} bPass
- *      &lt;code>true&lt;/code>, if the timer instance should be passed into action function, 
- *      &lt;code>false&lt;/code>, if the instance should not be passed.
+ *      <code>true</code>, if the timer instance should be passed into action function, 
+ *      <code>false</code>, if the instance should not be passed.
  * @return {Object}
- *      Reference to &lt;code>this&lt;/code> object.
+ *      Reference to <code>this</code> object.
  * @method
  * @see {@link module:chronoman~Timer#_passToAction _passToAction}
  */
@@ -394,12 +382,12 @@ Timer.prototype.setPassToAction = function(bPass) {
 /**
  * Execute related action (function).
  * Schedules next execution if action should be executed repeatedly.
- * &lt;br>
+ * <br>
  * The timer instance to which the action is associated will be passed as function's parameter
- * if {@link module:chronoman~Timer#setPassToAction passToAction} property is set to &lt;code>true&lt;/code>.
+ * if {@link module:chronoman~Timer#setPassToAction passToAction} property is set to <code>true</code>.
  *
  * @return {Object}
- *      Reference to &lt;code>this&lt;/code> object.
+ *      Reference to <code>this</code> object.
  * @method
  * @see {@link module:chronoman~Timer#getAction getAction}
  * @see {@link module:chronoman~Timer#isActive isActive}
@@ -453,26 +441,6 @@ Timer.prototype.toString = function() {
 // Exports
 
 module.exports = Timer;
-</code></pre>
-        </article>
-    </section>
 
-
-
-
-</div>
-
-<nav>
-    <h2><a href="index.html">Index</a></h2><h3>Modules</h3><ul><li><a href="module-chronoman.html">chronoman</a></li></ul><h3>Classes</h3><ul><li><a href="module-chronoman-Timer.html">Timer</a></li></ul>
-</nav>
-
-<br clear="both">
-
-<footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.2.0</a> on Mon Sep 02 2013 23:41:03 GMT+0400 (MSK)
-</footer>
-
-<script> prettyPrint(); </script>
-<script src="scripts/linenumber.js"> </script>
-</body>
-</html>
+    return Timer;
+}));
