@@ -57,7 +57,7 @@ var nI = 0;
 var tmrOne = new Timer({
     period: 1000,
     action: function(timer) {
-        console.log("---> Timer one. ", timer);
+        console.log("---> Timer one. ", timer);   // timer is undefined because passToAction is false by default
     }
 });
 
