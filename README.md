@@ -18,6 +18,16 @@ Then:
 
     component install gamtiq/chronoman
 
+### Jam
+
+Install jam:
+
+    npm install -g jam
+
+Then:
+
+    jam install chronoman
+
 ### AMD, &lt;script&gt;
 
 Use `dist/chronoman.js` or `dist/chronoman.min.js` (minified version).
@@ -28,6 +38,14 @@ Use `dist/chronoman.js` or `dist/chronoman.min.js` (minified version).
 
 ```js
 var Timer = require("chronoman");
+```
+
+### Jam
+
+```js
+require(["chronoman"], function(Timer) {
+    ...
+});
 ```
 
 ### AMD
