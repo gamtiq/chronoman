@@ -2,7 +2,7 @@
     "name": "chronoman",
     "repo": "gamtiq/chronoman",
     "description": "Utility class to simplify use of timers created by setTimeout",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "keywords": [
         "setTimeout",
         "setInterval",

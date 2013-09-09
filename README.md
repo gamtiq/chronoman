@@ -8,25 +8,17 @@ Utility class to simplify use of timers created by setTimeout.
 
     npm install chronoman
 
-### Component
-
-Install component:
-
-    npm install -g component
-
-Then:
+### [Component](https://github.com/component/component)
 
     component install gamtiq/chronoman
 
-### Jam
-
-Install jam:
-
-    npm install -g jam
-
-Then:
+### [Jam](http://jamjs.org)
 
     jam install chronoman
+
+### [Bower](http://bower.io)
+
+    bower install chronoman
 
 ### AMD, &lt;script&gt;
 
@@ -56,9 +48,10 @@ define(["path/to/dist/chronoman.js"], function(Timer) {
 });
 ```
 
-### &lt;script&gt;
+### Bower, &lt;script&gt;
 
 ```html
+<!-- Use bower_components/chronoman/dist/chronoman.js if the library was installed by Bower -->
 <script type="text/javascript" src="path/to/dist/chronoman.js"></script>
 <script type="text/javascript">
     // сhronoman is available via Chronoman field of window object
