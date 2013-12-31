@@ -2,6 +2,8 @@
 
 Utility class to simplify use of timers created by setTimeout.
 
+[![NPM version](https://badge.fury.io/js/chronoman.png)](http://badge.fury.io/js/chronoman)
+
 ## Installation
 
 ### Node
