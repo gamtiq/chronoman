@@ -52,7 +52,8 @@ module.exports = function(grunt) {
                 src: "chronoman.js",
                 dest: "dist/chronoman.js",
                 objectToExport: "Timer",
-                globalAlias: "Chronoman"
+                globalAlias: "Chronoman",
+                indent: "    "
             }
         }
         
