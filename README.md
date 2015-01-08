@@ -10,7 +10,7 @@ Utility class to simplify use of timers created by setTimeout.
 
     npm install chronoman
 
-### [Component](https://github.com/component/component)
+### [Component](https://github.com/componentjs/component)
 
     component install gamtiq/chronoman
 
