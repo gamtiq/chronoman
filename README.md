@@ -22,6 +22,10 @@ Utility class to simplify use of timers created by setTimeout.
 
     bower install chronoman
 
+### [JSPM](http://jspm.io)
+
+    jspm install chronoman
+
 ### [SPM](http://spmjs.io)
 
     spm install chronoman
@@ -32,7 +36,7 @@ Use `dist/chronoman.js` or `dist/chronoman.min.js` (minified version).
 
 ## Usage
 
-### Node, Component, SPM
+### Node, Component, JSPM, SPM
 
 ```js
 var Timer = require("chronoman");
@@ -42,6 +46,14 @@ var Timer = require("chronoman");
 
 ```js
 require(["chronoman"], function(Timer) {
+    ...
+});
+```
+
+### JSPM
+
+```js
+System.import("chronoman").then(function(Timer) {
     ...
 });
 ```
