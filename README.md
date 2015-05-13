@@ -42,6 +42,12 @@ Use `dist/chronoman.js` or `dist/chronoman.min.js` (minified version).
 var Timer = require("chronoman");
 ```
 
+### [Duo](http://duojs.org)
+
+```js
+var Timer = require("gamtiq/chronoman");
+```
+
 ### Jam
 
 ```js
