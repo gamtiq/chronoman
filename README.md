@@ -92,22 +92,31 @@ var nI = 0;
 var tmrOne = new Timer({
     period: 1000,
     action: function(timer) {
-        console.log("---> Timer one. ", timer);   // timer is undefined because passToAction is false by default
+        console.log("---> Timer one. ", timer);
+        if (! tmrThree.isActive()) {
+            tmrThree.start();
+        }
     }
 });
 
 var tmrTwo = new Timer();
 tmrTwo.setPeriod(2000)
-    .setRecurrent(true)
+    .setRepeatQty(9)
     .setPassToAction(true)
     .setAction(function(timer) {
         nI++;
         console.log("Timer two. #", nI, timer);
-        tmrOne.setActive(! tmrOne.isActive());
-        if (nI === 10) {
-            timer.stop();
-        }
+        tmrOne.setActive(nI % 2 === 1);
     });
+
+var tmrThree = new Timer()
+                    .setPeriod(3000)
+                    .setRepeatTest(function() {
+                        return tmrTwo.isActive();
+                    });
+tmrThree.onExecute = function() {
+    console.log("* Timer three. #", this.getExecutionQty() + 1);
+};
 
 tmrTwo.start();
 ```

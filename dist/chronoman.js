@@ -57,6 +57,16 @@
      *              <td>Boolean</td>
      *              <td>Whether related action should be executed repeatedly.</td>
      *          </tr>
+     *          <tr>
+     *              <td>repeatQty</td>
+     *              <td>Integer</td>
+     *              <td>How many times related action should be repeated after first execution.</td>
+     *          </tr>
+     *          <tr>
+     *              <td>repeatTest</td>
+     *              <td>Function</td>
+     *              <td>Function that should be used to determine whether action execution should be repeated.</td>
+     *          </tr>
      *      </table>
      * @constructor
      */
@@ -88,6 +98,12 @@
             if ("recurrent" in initValue) {
                 this.setRecurrent(initValue.recurrent);
             }
+            if ("repeatQty" in initValue) {
+                this.setRepeatQty(initValue.repeatQty);
+            }
+            if ("repeatTest" in initValue) {
+                this.setRepeatTest(initValue.repeatTest);
+            }
             if ("active" in initValue) {
                 this.setActive(initValue.active);
             }
@@ -103,7 +119,7 @@
      * A related action will be executed when the period is elapsed.
      *
      * @protected
-     * @type {integer}
+     * @type {Integer}
      * @see {@link module:chronoman~Timer#execute execute}
      * @see {@link module:chronoman~Timer#setActive setActive}
      */
@@ -140,7 +156,7 @@
      * Indicates whether related action should be executed repeatedly.
      * 
      * @protected
-     * @type {boolean}
+     * @type {Boolean}
      * @see {@link module:chronoman~Timer#execute execute}
      * @see {@link module:chronoman~Timer#setActive setActive}
      */
@@ -174,10 +190,110 @@
     };
 
     /**
+     * Specifies how many times related action should be repeated after first execution.
+     *
+     * @protected
+     * @type {Integer}
+     * @see {@link module:chronoman~Timer#execute execute}
+     * @see {@link module:chronoman~Timer#setActive setActive}
+     */
+    Timer.prototype._repeatQty = 0;
+
+    /**
+     * Return the value that indicates how many times related action should be repeated after first execution.
+     *
+     * @return {Integer}
+     *      Value that indicates how many times related action should be repeated after first execution.
+     * @method
+     * @see {@link module:chronoman~Timer#_repeatQty _repeatQty}
+     */
+    Timer.prototype.getRepeatQty = function() {
+        return this._repeatQty;
+    };
+
+    /**
+     * Set how many times related action should be repeated after first execution.
+     *
+     * @param {Integer} nQty
+     *      Value that indicates how many times related action should be repeated after first execution.
+     * @return {Object}
+     *      Reference to <code>this</code> object.
+     * @method
+     * @see {@link module:chronoman~Timer#_repeatQty _repeatQty}
+     */
+    Timer.prototype.setRepeatQty = function(nQty) {
+        this._repeatQty = nQty;
+        return this;
+    };
+
+    /**
+     * Specifies function that should be called after first action execution to determine
+     * whether execution should be repeated.
+     * If the function returns a true value it means that execution will be repeated.
+     * <br>
+     * The timer instance to which the test is associated will be passed as function's parameter.
+     *
+     * @protected
+     * @type {Function}
+     * @see {@link module:chronoman~Timer#execute execute}
+     * @see {@link module:chronoman~Timer#setActive setActive}
+     */
+    Timer.prototype._repeatTest = null;
+
+    /**
+     * Return the function that is used to determine whether action execution should be repeated.
+     *
+     * @return {Function}
+     *      Function that is used to determine whether action execution should be repeated.
+     * @method
+     * @see {@link module:chronoman~Timer#_repeatTest _repeatTest}
+     */
+    Timer.prototype.getRepeatTest = function() {
+        return this._repeatTest;
+    };
+
+    /**
+     * Set the function that should be used to determine whether action execution should be repeated.
+     *
+     * @param {Function} test
+     *      Function that should be used to determine whether action execution should be repeated.
+     * @return {Object}
+     *      Reference to <code>this</code> object.
+     * @method
+     * @see {@link module:chronoman~Timer#_repeatTest _repeatTest}
+     */
+    Timer.prototype.setRepeatTest = function(test) {
+        this._repeatTest = test;
+        return this;
+    };
+
+    /**
+     * Specifies how many times action was executed.
+     *
+     * @protected
+     * @type {Integer}
+     * @see {@link module:chronoman~Timer#execute execute}
+     * @see {@link module:chronoman~Timer#setActive setActive}
+     */
+    Timer.prototype._executionQty = 0;
+
+    /**
+     * Return the value that indicates how many times action was executed.
+     *
+     * @return {Integer}
+     *      Value that indicates how many times action was executed.
+     * @method
+     * @see {@link module:chronoman~Timer#_executionQty _executionQty}
+     */
+    Timer.prototype.getExecutionQty = function() {
+        return this._executionQty;
+    };
+
+    /**
      * Timer id.
      * 
      * @protected
-     * @type {integer}
+     * @type {Integer}
      * @see {@link module:chronoman~Timer#_clearTimeout _clearTimeout}
      * @see {@link module:chronoman~Timer#_setTimeout _setTimeout}
      */
@@ -228,7 +344,7 @@
      * Indicates whether timer is in use.
      * 
      * @protected
-     * @type {boolean}
+     * @type {Boolean}
      * @see {@link module:chronoman~Timer#execute execute}
      */
     Timer.prototype._active = false;
@@ -257,10 +373,14 @@
      *      Reference to <code>this</code> object.
      * @method
      * @see {@link module:chronoman~Timer#_active _active}
+     * @see {@link module:chronoman~Timer#_executionQty _executionQty}
      * @see {@link module:chronoman~Timer#execute execute}
      */
     Timer.prototype.setActive = function(bActive) {
         "use strict";
+        if (bActive && ! this._active) {
+            this._executionQty = 0;
+        }
         this._active = bActive;
         // Consecutive calling with bActive = true leads to action execution delaying
         this._clearTimeout();
@@ -307,7 +427,8 @@
     /**
      * Related action that should be executed after time period is elapsed.
      * <br>
-     * The timer instance to which the action is associated will be passed as function's parameter.
+     * The timer instance to which the action is associated will be passed as function's parameter
+     * if {@link module:chronoman~Timer#setPassToAction passToAction} property is set to <code>true</code>.
      *
      * @protected
      * @type {Function}
@@ -346,7 +467,7 @@
      * Indicates whether the timer instance (<code>this</code>) should be passed into action function when the function is called.
      * 
      * @protected
-     * @type {boolean}
+     * @type {Boolean}
      * @see {@link module:chronoman~Timer#execute execute}
      */
     Timer.prototype._passToAction = false;
@@ -380,32 +501,71 @@
     };
 
     /**
+     * Function that should be executed after time period is elapsed.
+     * <br>
+     * The timer instance to which the function is associated will be passed as function's parameter
+     * if {@link module:chronoman~Timer#setPassToAction passToAction} property is set to <code>true</code>.
+     *
+     * @protected
+     * @type {Function}
+     * @see {@link module:chronoman~Timer#execute execute}
+     */
+    Timer.prototype.onExecute = null;
+
+    /**
      * Execute related action (function).
-     * Schedules next execution if action should be executed repeatedly.
      * <br>
      * The timer instance to which the action is associated will be passed as function's parameter
      * if {@link module:chronoman~Timer#setPassToAction passToAction} property is set to <code>true</code>.
+     * <br>
+     * Action's next execution will be scheduled when one of the following conditions is true:
+     * <ul>
+     * <li>timer is set as recurrent (see {@link module:chronoman~Timer#isRecurrent isRecurrent});
+     * <li>specified quantity of repeats is not reached (see {@link module:chronoman~Timer#getRepeatQty getRepeatQty});
+     * <li>specified repeat test is passed i.e. the test function returns true value (see {@link module:chronoman~Timer#getRepeatTest getRepeatTest});
+     * </ul>
      *
      * @return {Object}
      *      Reference to <code>this</code> object.
      * @method
+     * @see {@link module:chronoman~Timer#_active _active}
+     * @see {@link module:chronoman~Timer#_executionQty _executionQty}
      * @see {@link module:chronoman~Timer#getAction getAction}
+     * @see {@link module:chronoman~Timer#getRepeatQty getRepeatQty}
+     * @see {@link module:chronoman~Timer#getRepeatTest getRepeatTest}
      * @see {@link module:chronoman~Timer#isActive isActive}
      * @see {@link module:chronoman~Timer#isPassToAction isPassToAction}
      * @see {@link module:chronoman~Timer#isRecurrent isRecurrent}
+     * @see {@link module:chronoman~Timer#onExecute onExecute}
      */
     Timer.prototype.execute = function() {
         "use strict";
         /*jshint expr:true, laxbreak:true*/
-        var action = this.getAction();
+        var action = this.getAction(),
+            bPassToAction = this.isPassToAction(),
+            repeatTest = this.getRepeatTest(),
+            bActive;
         this._clearTimeout();
         if (action) {
-            this.isPassToAction()
+            bPassToAction
                 ? action(this)
                 : action();
         }
-        if (this.isActive() && this.isRecurrent()) {
+        if (typeof this.onExecute === "function") {
+            bPassToAction
+                ? this.onExecute(this)
+                : this.onExecute();
+        }
+        this._executionQty++;
+        bActive = this.isActive();
+        if (bActive
+                && (this.isRecurrent()
+                        || this.getRepeatQty() >= this._executionQty
+                        || (repeatTest && repeatTest(this)) ) ) {
             this._setTimeout();
+        }
+        else if (bActive) {
+            this._active = false;
         }
         return this;
     };
@@ -418,7 +578,10 @@
     Timer.prototype.dispose = function() {
         "use strict";
         this._clearTimeout();
-        this._action = null;
+        this._action =
+            this._repeatTest =
+            this.onExecute =
+                null;
     };
 
     /**
@@ -433,6 +596,8 @@
                 "active - ", this.isActive(),
                 ", period - ", this.getPeriod(),
                 ", recurrent - ", this.isRecurrent(),
+                ", repeat qty - ", this.getRepeatQty(),
+                ", repeat test - ", (this.getRepeatTest() ? "specified" : "no"),
                 ", pass to action - ", this.isPassToAction(),
                 ", action - ", (this.getAction() ? "specified" : "no")
                 ].join("");
