@@ -1,0 +1,18 @@
+<html>
+<head>
+    <title>chronoman tests</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" href="lib/mocha.css" />
+</head>
+<body>
+    <div id="mocha"></div>
+    <script src="../dist/chronoman.js"></script>
+    <script src="lib/mocha.js"></script>
+    <script src="lib/chai.js"></script>
+    <script>mocha.setup('bdd');</script>
+    <script src="chronoman.js"></script>
+    <script>
+        mocha.run();
+    </script>
+</body>
+</html>

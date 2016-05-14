@@ -25,16 +25,18 @@
   },
   "devDependencies": {
     "grunt": "~0.4.1",
-    "grunt-jsdoc": "~0.4.0",
     "grunt-contrib-jshint": "~0.6.2",
-    "grunt-umd": "~1.7.0",
-    "grunt-contrib-uglify": "~0.2.4"
+    "grunt-contrib-uglify": "~0.2.4",
+    "grunt-jsdoc": "~0.4.0",
+    "grunt-mocha-cli": "^2.1.0",
+    "grunt-umd": "~1.7.0"
   },
-  
   "jam": {
-      "main": "dist/chronoman.js"
+    "main": "dist/chronoman.js"
   },
-  "categories": ["Utilities"],
+  "categories": [
+    "Utilities"
+  ],
   "spm": {
     "main": "chronoman.js",
     "engines": {

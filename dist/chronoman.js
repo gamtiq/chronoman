@@ -25,50 +25,9 @@
      * 
      * @param {Object} [initValue]
      *      Specifies initial property values. Keys are property names, their values are values of corresponding properties.
-     *      The following keys (properties) can be specified:
-     *      <table>
-     *          <tr>
-     *              <th>Name</th>
-     *              <th>Type</th>
-     *              <th>Description</th>
-     *          </tr>
-     *          <tr>
-     *              <td>action</td>
-     *              <td>Function</td>
-     *              <td>Related action that should be executed after time period is elapsed.</td>
-     *          </tr>
-     *          <tr>
-     *              <td>active</td>
-     *              <td>Boolean</td>
-     *              <td>Whether timer usage should be immediately started.</td>
-     *          </tr>
-     *          <tr>
-     *              <td>passToAction</td>
-     *              <td>Boolean</td>
-     *              <td>Whether the timer instance should be passed into action function when the function is called.</td>
-     *          </tr>
-     *          <tr>
-     *              <td>period</td>
-     *              <td>Integer</td>
-     *              <td>Time period in milliseconds that is used to schedule related action execution.</td>
-     *          </tr>
-     *          <tr>
-     *              <td>recurrent</td>
-     *              <td>Boolean</td>
-     *              <td>Whether related action should be executed repeatedly.</td>
-     *          </tr>
-     *          <tr>
-     *              <td>repeatQty</td>
-     *              <td>Integer</td>
-     *              <td>How many times related action should be repeated after first execution.</td>
-     *          </tr>
-     *          <tr>
-     *              <td>repeatTest</td>
-     *              <td>Function</td>
-     *              <td>Function that should be used to determine whether action execution should be repeated.</td>
-     *          </tr>
-     *      </table>
+     *      See {@link module:chronoman~Timer#setProperties setProperties} for details.
      * @constructor
+     * @see {@link module:chronoman~Timer#setProperties setProperties}
      */
     var Timer = function Timer(initValue) {
         
@@ -89,27 +48,7 @@
         };
 
         if (initValue && typeof initValue === "object") {
-            if ("action" in initValue) {
-                this.setAction(initValue.action);
-            }
-            if ("period" in initValue) {
-                this.setPeriod(initValue.period);
-            }
-            if ("recurrent" in initValue) {
-                this.setRecurrent(initValue.recurrent);
-            }
-            if ("repeatQty" in initValue) {
-                this.setRepeatQty(initValue.repeatQty);
-            }
-            if ("repeatTest" in initValue) {
-                this.setRepeatTest(initValue.repeatTest);
-            }
-            if ("active" in initValue) {
-                this.setActive(initValue.active);
-            }
-            if ("passToAction" in initValue) {
-                this.setPassToAction(initValue.passToAction);
-            }
+            this.setProperties(initValue);
         }
     };
 
@@ -393,20 +332,25 @@
     /**
      * Start timer usage (make it active).
      *
-     * @param {Integer} [nPeriod]
-     *      Time period in milliseconds that is used to schedule related action execution (new value for <code>period</code> property).
+     * @param {Integer | Object} [property]
+     *      Time period in milliseconds that is used to schedule related action execution (new value for <code>period</code> property)
+     *      or object that specifies new values for timer properties (see {@link module:chronoman~Timer#setProperties setProperties}).
      *      The current value of <code>period</code> property is used by default.
      * @return {Object}
      *      Reference to <code>this</code> object.
      * @method
      * @see {@link module:chronoman~Timer#setActive setActive}
      * @see {@link module:chronoman~Timer#setPeriod setPeriod}
+     * @see {@link module:chronoman~Timer#setProperties setProperties}
      * @see {@link module:chronoman~Timer#stop stop}
      */
-    Timer.prototype.start = function(nPeriod) {
+    Timer.prototype.start = function(property) {
         "use strict";
-        if (typeof nPeriod === "number") {
-            this.setPeriod(nPeriod);
+        if (typeof property === "number") {
+            this.setPeriod(property);
+        }
+        else if (property && typeof property === "object") {
+            this.setProperties(property);
         }
         return this.setActive(true);
     };
@@ -501,6 +445,92 @@
     };
 
     /**
+     * Set timer properties.
+     *
+     * @param {Object} [propMap]
+     *      Specifies property values. Keys are property names, their values are values of corresponding properties.
+     *      The following keys (properties) can be specified:
+     *      <table>
+     *          <tr>
+     *              <th>Name</th>
+     *              <th>Type</th>
+     *              <th>Description</th>
+     *          </tr>
+     *          <tr>
+     *              <td>action</td>
+     *              <td>Function</td>
+     *              <td>Related action that should be executed after time period is elapsed.</td>
+     *          </tr>
+     *          <tr>
+     *              <td>active</td>
+     *              <td>Boolean</td>
+     *              <td>Whether timer usage should be immediately started.</td>
+     *          </tr>
+     *          <tr>
+     *              <td>passToAction</td>
+     *              <td>Boolean</td>
+     *              <td>Whether the timer instance should be passed into action function when the function is called.</td>
+     *          </tr>
+     *          <tr>
+     *              <td>period</td>
+     *              <td>Integer</td>
+     *              <td>Time period in milliseconds that is used to schedule related action execution.</td>
+     *          </tr>
+     *          <tr>
+     *              <td>recurrent</td>
+     *              <td>Boolean</td>
+     *              <td>Whether related action should be executed repeatedly.</td>
+     *          </tr>
+     *          <tr>
+     *              <td>repeatQty</td>
+     *              <td>Integer</td>
+     *              <td>How many times related action should be repeated after first execution.</td>
+     *          </tr>
+     *          <tr>
+     *              <td>repeatTest</td>
+     *              <td>Function</td>
+     *              <td>Function that should be used to determine whether action execution should be repeated.</td>
+     *          </tr>
+     *      </table>
+     * @return {Object}
+     *      Reference to <code>this</code> object.
+     * @method
+     * @see {@link module:chronoman~Timer#setAction setAction}
+     * @see {@link module:chronoman~Timer#setActive setActive}
+     * @see {@link module:chronoman~Timer#setPassToAction setPassToAction}
+     * @see {@link module:chronoman~Timer#setPeriod setPeriod}
+     * @see {@link module:chronoman~Timer#setRecurrent setRecurrent}
+     * @see {@link module:chronoman~Timer#setRepeatQty setRepeatQty}
+     * @see {@link module:chronoman~Timer#setRepeatTest setRepeatTest}
+     */
+    Timer.prototype.setProperties = function(propMap) {
+        if (propMap && typeof propMap === "object") {
+            if ("action" in propMap) {
+                this.setAction(propMap.action);
+            }
+            if ("period" in propMap) {
+                this.setPeriod(propMap.period);
+            }
+            if ("recurrent" in propMap) {
+                this.setRecurrent(propMap.recurrent);
+            }
+            if ("repeatQty" in propMap) {
+                this.setRepeatQty(propMap.repeatQty);
+            }
+            if ("repeatTest" in propMap) {
+                this.setRepeatTest(propMap.repeatTest);
+            }
+            if ("active" in propMap) {
+                this.setActive(propMap.active);
+            }
+            if ("passToAction" in propMap) {
+                this.setPassToAction(propMap.passToAction);
+            }
+        }
+        return this;
+    };
+
+    /**
      * Function that should be executed after time period is elapsed.
      * <br>
      * The timer instance to which the function is associated will be passed as function's parameter
@@ -564,7 +594,7 @@
                         || (repeatTest && repeatTest(this)) ) ) {
             this._setTimeout();
         }
-        else if (bActive) {
+        else if (bActive && ! this._timeoutId) {
             this._active = false;
         }
         return this;
@@ -599,7 +629,8 @@
                 ", repeat qty - ", this.getRepeatQty(),
                 ", repeat test - ", (this.getRepeatTest() ? "specified" : "no"),
                 ", pass to action - ", this.isPassToAction(),
-                ", action - ", (this.getAction() ? "specified" : "no")
+                ", action - ", (this.getAction() ? "specified" : "no"),
+                ", execution qty - ", this.getExecutionQty()
                 ].join("");
     };
 

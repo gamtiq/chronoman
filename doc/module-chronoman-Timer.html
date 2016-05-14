@@ -111,7 +111,7 @@
             
             
             
-            <td class="description last">Specifies initial property values. Keys are property names, their values are values of corresponding properties.     The following keys (properties) can be specified:     <table>         <tr>             <th>Name</th>             <th>Type</th>             <th>Description</th>         </tr>         <tr>             <td>action</td>             <td>Function</td>             <td>Related action that should be executed after time period is elapsed.</td>         </tr>         <tr>             <td>active</td>             <td>Boolean</td>             <td>Whether timer usage should be immediately started.</td>         </tr>         <tr>             <td>passToAction</td>             <td>Boolean</td>             <td>Whether the timer instance should be passed into action function when the function is called.</td>         </tr>         <tr>             <td>period</td>             <td>Integer</td>             <td>Time period in milliseconds that is used to schedule related action execution.</td>         </tr>         <tr>             <td>recurrent</td>             <td>Boolean</td>             <td>Whether related action should be executed repeatedly.</td>         </tr>         <tr>             <td>repeatQty</td>             <td>Integer</td>             <td>How many times related action should be repeated after first execution.</td>         </tr>         <tr>             <td>repeatTest</td>             <td>Function</td>             <td>Function that should be used to determine whether action execution should be repeated.</td>         </tr>     </table></td>
+            <td class="description last">Specifies initial property values. Keys are property names, their values are values of corresponding properties.     See <a href="module-chronoman-Timer.html#setProperties">setProperties</a> for details.</td>
         </tr>
 	
 	
@@ -142,12 +142,19 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="chronoman.js.html">chronoman.js</a>, <a href="chronoman.js.html#line58">line 58</a>
+        <a href="chronoman.js.html">chronoman.js</a>, <a href="chronoman.js.html#line17">line 17</a>
     </li></ul></dd>
     
     
     
     
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li><a href="module-chronoman-Timer.html#setProperties">setProperties</a></li>
+        </ul>
+    </dd>
     
     
     
@@ -232,7 +239,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="chronoman.js.html">chronoman.js</a>, <a href="chronoman.js.html#line422">line 422</a>
+        <a href="chronoman.js.html">chronoman.js</a>, <a href="chronoman.js.html#line367">line 367</a>
     </li></ul></dd>
     
     
@@ -303,7 +310,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="chronoman.js.html">chronoman.js</a>, <a href="chronoman.js.html#line335">line 335</a>
+        <a href="chronoman.js.html">chronoman.js</a>, <a href="chronoman.js.html#line274">line 274</a>
     </li></ul></dd>
     
     
@@ -374,7 +381,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="chronoman.js.html">chronoman.js</a>, <a href="chronoman.js.html#line263">line 263</a>
+        <a href="chronoman.js.html">chronoman.js</a>, <a href="chronoman.js.html#line202">line 202</a>
     </li></ul></dd>
     
     
@@ -447,7 +454,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="chronoman.js.html">chronoman.js</a>, <a href="chronoman.js.html#line458">line 458</a>
+        <a href="chronoman.js.html">chronoman.js</a>, <a href="chronoman.js.html#line403">line 403</a>
     </li></ul></dd>
     
     
@@ -518,7 +525,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="chronoman.js.html">chronoman.js</a>, <a href="chronoman.js.html#line111">line 111</a>
+        <a href="chronoman.js.html">chronoman.js</a>, <a href="chronoman.js.html#line50">line 50</a>
     </li></ul></dd>
     
     
@@ -591,7 +598,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="chronoman.js.html">chronoman.js</a>, <a href="chronoman.js.html#line148">line 148</a>
+        <a href="chronoman.js.html">chronoman.js</a>, <a href="chronoman.js.html#line87">line 87</a>
     </li></ul></dd>
     
     
@@ -664,7 +671,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="chronoman.js.html">chronoman.js</a>, <a href="chronoman.js.html#line185">line 185</a>
+        <a href="chronoman.js.html">chronoman.js</a>, <a href="chronoman.js.html#line124">line 124</a>
     </li></ul></dd>
     
     
@@ -737,7 +744,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="chronoman.js.html">chronoman.js</a>, <a href="chronoman.js.html#line226">line 226</a>
+        <a href="chronoman.js.html">chronoman.js</a>, <a href="chronoman.js.html#line165">line 165</a>
     </li></ul></dd>
     
     
@@ -810,7 +817,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="chronoman.js.html">chronoman.js</a>, <a href="chronoman.js.html#line285">line 285</a>
+        <a href="chronoman.js.html">chronoman.js</a>, <a href="chronoman.js.html#line224">line 224</a>
     </li></ul></dd>
     
     
@@ -837,7 +844,7 @@
         
             
 <dt>
-    <h4 class="name" id="onExecute"><span class="type-signature">&lt;protected> </span>onExecute<span class="type-signature"> :Function</span></h4>
+    <h4 class="name" id="onExecute"><span class="type-signature"></span>onExecute<span class="type-signature"> :Function</span></h4>
     
     
 </dt>
@@ -883,7 +890,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="chronoman.js.html">chronoman.js</a>, <a href="chronoman.js.html#line498">line 498</a>
+        <a href="chronoman.js.html">chronoman.js</a>, <a href="chronoman.js.html#line528">line 528</a>
     </li></ul></dd>
     
     
@@ -955,7 +962,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="chronoman.js.html">chronoman.js</a>, <a href="chronoman.js.html#line319">line 319</a>
+        <a href="chronoman.js.html">chronoman.js</a>, <a href="chronoman.js.html#line258">line 258</a>
     </li></ul></dd>
     
     
@@ -1055,7 +1062,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="chronoman.js.html">chronoman.js</a>, <a href="chronoman.js.html#line71">line 71</a>
+        <a href="chronoman.js.html">chronoman.js</a>, <a href="chronoman.js.html#line30">line 30</a>
     </li></ul></dd>
     
     
@@ -1133,7 +1140,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="chronoman.js.html">chronoman.js</a>, <a href="chronoman.js.html#line300">line 300</a>
+        <a href="chronoman.js.html">chronoman.js</a>, <a href="chronoman.js.html#line239">line 239</a>
     </li></ul></dd>
     
     
@@ -1239,7 +1246,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="chronoman.js.html">chronoman.js</a>, <a href="chronoman.js.html#line563">line 563</a>
+        <a href="chronoman.js.html">chronoman.js</a>, <a href="chronoman.js.html#line593">line 593</a>
     </li></ul></dd>
     
     
@@ -1308,7 +1315,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="chronoman.js.html">chronoman.js</a>, <a href="chronoman.js.html#line526">line 526</a>
+        <a href="chronoman.js.html">chronoman.js</a>, <a href="chronoman.js.html#line556">line 556</a>
     </li></ul></dd>
     
     
@@ -1422,7 +1429,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="chronoman.js.html">chronoman.js</a>, <a href="chronoman.js.html#line432">line 432</a>
+        <a href="chronoman.js.html">chronoman.js</a>, <a href="chronoman.js.html#line377">line 377</a>
     </li></ul></dd>
     
     
@@ -1520,7 +1527,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="chronoman.js.html">chronoman.js</a>, <a href="chronoman.js.html#line273">line 273</a>
+        <a href="chronoman.js.html">chronoman.js</a>, <a href="chronoman.js.html#line212">line 212</a>
     </li></ul></dd>
     
     
@@ -1618,7 +1625,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="chronoman.js.html">chronoman.js</a>, <a href="chronoman.js.html#line121">line 121</a>
+        <a href="chronoman.js.html">chronoman.js</a>, <a href="chronoman.js.html#line60">line 60</a>
     </li></ul></dd>
     
     
@@ -1716,7 +1723,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="chronoman.js.html">chronoman.js</a>, <a href="chronoman.js.html#line195">line 195</a>
+        <a href="chronoman.js.html">chronoman.js</a>, <a href="chronoman.js.html#line134">line 134</a>
     </li></ul></dd>
     
     
@@ -1814,7 +1821,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="chronoman.js.html">chronoman.js</a>, <a href="chronoman.js.html#line236">line 236</a>
+        <a href="chronoman.js.html">chronoman.js</a>, <a href="chronoman.js.html#line175">line 175</a>
     </li></ul></dd>
     
     
@@ -1912,7 +1919,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="chronoman.js.html">chronoman.js</a>, <a href="chronoman.js.html#line345">line 345</a>
+        <a href="chronoman.js.html">chronoman.js</a>, <a href="chronoman.js.html#line284">line 284</a>
     </li></ul></dd>
     
     
@@ -2010,7 +2017,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="chronoman.js.html">chronoman.js</a>, <a href="chronoman.js.html#line468">line 468</a>
+        <a href="chronoman.js.html">chronoman.js</a>, <a href="chronoman.js.html#line413">line 413</a>
     </li></ul></dd>
     
     
@@ -2108,7 +2115,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="chronoman.js.html">chronoman.js</a>, <a href="chronoman.js.html#line158">line 158</a>
+        <a href="chronoman.js.html">chronoman.js</a>, <a href="chronoman.js.html#line97">line 97</a>
     </li></ul></dd>
     
     
@@ -2254,7 +2261,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="chronoman.js.html">chronoman.js</a>, <a href="chronoman.js.html#line446">line 446</a>
+        <a href="chronoman.js.html">chronoman.js</a>, <a href="chronoman.js.html#line391">line 391</a>
     </li></ul></dd>
     
     
@@ -2400,7 +2407,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="chronoman.js.html">chronoman.js</a>, <a href="chronoman.js.html#line364">line 364</a>
+        <a href="chronoman.js.html">chronoman.js</a>, <a href="chronoman.js.html#line303">line 303</a>
     </li></ul></dd>
     
     
@@ -2550,7 +2557,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="chronoman.js.html">chronoman.js</a>, <a href="chronoman.js.html#line483">line 483</a>
+        <a href="chronoman.js.html">chronoman.js</a>, <a href="chronoman.js.html#line428">line 428</a>
     </li></ul></dd>
     
     
@@ -2696,7 +2703,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="chronoman.js.html">chronoman.js</a>, <a href="chronoman.js.html#line135">line 135</a>
+        <a href="chronoman.js.html">chronoman.js</a>, <a href="chronoman.js.html#line74">line 74</a>
     </li></ul></dd>
     
     
@@ -2707,6 +2714,164 @@
     <dd class="tag-see">
         <ul>
             <li><a href="module-chronoman-Timer.html#_period">_period</a></li>
+        </ul>
+    </dd>
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    Reference to <code>this</code> object.
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">Object</span>
+
+
+	</dd>
+</dl>
+
+        
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="setProperties"><span class="type-signature"></span>setProperties<span class="signature">(propMap)</span><span class="type-signature"> &rarr; {Object}</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Set timer properties.
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>propMap</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Specifies property values. Keys are property names, their values are values of corresponding properties.     The following keys (properties) can be specified:     <table>         <tr>             <th>Name</th>             <th>Type</th>             <th>Description</th>         </tr>         <tr>             <td>action</td>             <td>Function</td>             <td>Related action that should be executed after time period is elapsed.</td>         </tr>         <tr>             <td>active</td>             <td>Boolean</td>             <td>Whether timer usage should be immediately started.</td>         </tr>         <tr>             <td>passToAction</td>             <td>Boolean</td>             <td>Whether the timer instance should be passed into action function when the function is called.</td>         </tr>         <tr>             <td>period</td>             <td>Integer</td>             <td>Time period in milliseconds that is used to schedule related action execution.</td>         </tr>         <tr>             <td>recurrent</td>             <td>Boolean</td>             <td>Whether related action should be executed repeatedly.</td>         </tr>         <tr>             <td>repeatQty</td>             <td>Integer</td>             <td>How many times related action should be repeated after first execution.</td>         </tr>         <tr>             <td>repeatTest</td>             <td>Function</td>             <td>Function that should be used to determine whether action execution should be repeated.</td>         </tr>     </table></td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="chronoman.js.html">chronoman.js</a>, <a href="chronoman.js.html#line492">line 492</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li><a href="module-chronoman-Timer.html#setAction">setAction</a></li>
+        
+            <li><a href="module-chronoman-Timer.html#setActive">setActive</a></li>
+        
+            <li><a href="module-chronoman-Timer.html#setPassToAction">setPassToAction</a></li>
+        
+            <li><a href="module-chronoman-Timer.html#setPeriod">setPeriod</a></li>
+        
+            <li><a href="module-chronoman-Timer.html#setRecurrent">setRecurrent</a></li>
+        
+            <li><a href="module-chronoman-Timer.html#setRepeatQty">setRepeatQty</a></li>
+        
+            <li><a href="module-chronoman-Timer.html#setRepeatTest">setRepeatTest</a></li>
         </ul>
     </dd>
     
@@ -2842,7 +3007,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="chronoman.js.html">chronoman.js</a>, <a href="chronoman.js.html#line172">line 172</a>
+        <a href="chronoman.js.html">chronoman.js</a>, <a href="chronoman.js.html#line111">line 111</a>
     </li></ul></dd>
     
     
@@ -2988,7 +3153,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="chronoman.js.html">chronoman.js</a>, <a href="chronoman.js.html#line209">line 209</a>
+        <a href="chronoman.js.html">chronoman.js</a>, <a href="chronoman.js.html#line148">line 148</a>
     </li></ul></dd>
     
     
@@ -3134,7 +3299,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="chronoman.js.html">chronoman.js</a>, <a href="chronoman.js.html#line250">line 250</a>
+        <a href="chronoman.js.html">chronoman.js</a>, <a href="chronoman.js.html#line189">line 189</a>
     </li></ul></dd>
     
     
@@ -3191,7 +3356,7 @@
         
             
 <dt>
-    <h4 class="name" id="start"><span class="type-signature"></span>start<span class="signature">(<span class="optional">nPeriod</span>)</span><span class="type-signature"> &rarr; {Object}</span></h4>
+    <h4 class="name" id="start"><span class="type-signature"></span>start<span class="signature">(<span class="optional">property</span>)</span><span class="type-signature"> &rarr; {Object}</span></h4>
     
     
 </dt>
@@ -3235,13 +3400,16 @@
 	
         <tr>
             
-                <td class="name"><code>nPeriod</code></td>
+                <td class="name"><code>property</code></td>
             
             
             <td class="type">
             
                 
 <span class="param-type">Integer</span>
+|
+
+<span class="param-type">Object</span>
 
 
             
@@ -3261,7 +3429,7 @@
             
             
             
-            <td class="description last">Time period in milliseconds that is used to schedule related action execution (new value for <code>period</code> property).     The current value of <code>period</code> property is used by default.</td>
+            <td class="description last">Time period in milliseconds that is used to schedule related action execution     (new value for <a href="module-chronoman-Timer.html#setPeriod">period</a> property)     or object that specifies new values for timer properties (see <a href="module-chronoman-Timer.html#setProperties">setProperties</a>).     The current value of <a href="module-chronoman-Timer.html#getPeriod">period</a> property is used by default.</td>
         </tr>
 	
 	
@@ -3292,7 +3460,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="chronoman.js.html">chronoman.js</a>, <a href="chronoman.js.html#line391">line 391</a>
+        <a href="chronoman.js.html">chronoman.js</a>, <a href="chronoman.js.html#line333">line 333</a>
     </li></ul></dd>
     
     
@@ -3305,6 +3473,8 @@
             <li><a href="module-chronoman-Timer.html#setActive">setActive</a></li>
         
             <li><a href="module-chronoman-Timer.html#setPeriod">setPeriod</a></li>
+        
+            <li><a href="module-chronoman-Timer.html#setProperties">setProperties</a></li>
         
             <li><a href="module-chronoman-Timer.html#stop">stop</a></li>
         </ul>
@@ -3394,7 +3564,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="chronoman.js.html">chronoman.js</a>, <a href="chronoman.js.html#line408">line 408</a>
+        <a href="chronoman.js.html">chronoman.js</a>, <a href="chronoman.js.html#line353">line 353</a>
     </li></ul></dd>
     
     
@@ -3494,7 +3664,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="chronoman.js.html">chronoman.js</a>, <a href="chronoman.js.html#line577">line 577</a>
+        <a href="chronoman.js.html">chronoman.js</a>, <a href="chronoman.js.html#line607">line 607</a>
     </li></ul></dd>
     
     
@@ -3541,7 +3711,7 @@
 <br clear="both">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.2.0</a> on Tue Apr 19 2016 00:58:56 GMT+0400 (MSK)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.2.0</a> on Sat May 14 2016 21:40:31 GMT+0400 (MSK)
 </footer>
 
 <script> prettyPrint(); </script>

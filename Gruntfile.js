@@ -4,7 +4,15 @@ module.exports = function(grunt) {
     grunt.initConfig({
         
         jshint: {
-            files: ["*.js"],
+            gruntfile: {
+                src: "Gruntfile.js"
+            },
+            src: {
+                src: ["*.js"]
+            },
+            test: {
+                src: ["test/*.js"]
+            },
             
             options: {
                 // Enforcing
@@ -55,6 +63,10 @@ module.exports = function(grunt) {
                 globalAlias: "Chronoman",
                 indent: "    "
             }
+        },
+        
+        mochacli: {
+            all: {}
         }
         
     });
@@ -63,11 +75,13 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks("grunt-contrib-jshint");
     grunt.loadNpmTasks("grunt-contrib-uglify");
     grunt.loadNpmTasks("grunt-jsdoc");
+    grunt.loadNpmTasks("grunt-mocha-cli");
     grunt.loadNpmTasks("grunt-umd");
     
     // Tasks
     grunt.registerTask("build", ["umd", "uglify"]);
     grunt.registerTask("doc", ["jsdoc"]);
-    grunt.registerTask("default", ["jshint"]);
-    grunt.registerTask("all", ["jshint", "build", "doc"]);
+    grunt.registerTask("test", ["mochacli"]);
+    grunt.registerTask("default", ["jshint", "test"]);
+    grunt.registerTask("all", ["default", "build", "doc"]);
 };

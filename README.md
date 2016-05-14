@@ -3,6 +3,7 @@
 Utility class to simplify use of timers created by setTimeout.
 
 [![NPM version](https://badge.fury.io/js/chronoman.png)](http://badge.fury.io/js/chronoman)
+[![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
 
 ## Installation
 
@@ -131,4 +132,5 @@ This module is inspired by [qooxdoo](http://qooxdoo.org)'s `qx.event.Timer` clas
 
 ## Licence
 
-MIT
+Copyright (c) 2013-2016 Denis Sikuler  
+Licensed under the MIT license.
