@@ -36,11 +36,5 @@
   },
   "categories": [
     "Utilities"
-  ],
-  "spm": {
-    "main": "chronoman.js",
-    "engines": {
-      "seajs": "2.2.1"
-    }
-  }
+  ]
 }
