@@ -34,6 +34,7 @@ module.exports = function(grunt) {
                 boss: true,
                 
                 // Environment
+                esversion: 6,
                 node: true
             }
         },
@@ -47,6 +48,13 @@ module.exports = function(grunt) {
             }
         },
         
+        babel: {
+            dist: {
+                src: "chronoman.js",
+                dest: "dist/chronoman.common.js"
+            }
+        },
+        
         uglify: {
             minify: {
                 src: "dist/chronoman.js",
@@ -57,7 +65,7 @@ module.exports = function(grunt) {
         umd: {
             dist: {
                 template: "unit",
-                src: "chronoman.js",
+                src: "dist/chronoman.common.js",
                 dest: "dist/chronoman.js",
                 objectToExport: "Timer",
                 globalAlias: "Chronoman",
@@ -74,12 +82,13 @@ module.exports = function(grunt) {
     // Plugins
     grunt.loadNpmTasks("grunt-contrib-jshint");
     grunt.loadNpmTasks("grunt-contrib-uglify");
+    grunt.loadNpmTasks("grunt-babel");
     grunt.loadNpmTasks("grunt-jsdoc");
     grunt.loadNpmTasks("grunt-mocha-cli");
     grunt.loadNpmTasks("grunt-umd");
     
     // Tasks
-    grunt.registerTask("build", ["umd", "uglify"]);
+    grunt.registerTask("build", ["babel", "umd", "uglify"]);
     grunt.registerTask("doc", ["jsdoc"]);
     grunt.registerTask("test", ["mochacli"]);
     grunt.registerTask("default", ["jshint", "test"]);

@@ -1,9 +1,16 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
+
 /**
  * @module chronoman
  * 
  * @author Denis Sikuler
  */
-
 
 /**
  * Utility class to simplify use of timers created by setTimeout.
@@ -15,9 +22,9 @@
  * @see {@link module:chronoman~Timer#setProperties setProperties}
  */
 var Timer = function Timer(initValue) {
-    
+
     var that = this;
-    
+
     /**
      * Handle timeout's end.
      *
@@ -27,16 +34,15 @@ var Timer = function Timer(initValue) {
      * @see {@link module:chronoman~Timer#_timeoutId _timeoutId}
      * @see {@link module:chronoman~Timer#execute execute}
      */
-    this._onTimeoutEnd = function() {
+    this._onTimeoutEnd = function () {
         that._timeoutId = null;
         that.execute();
     };
 
-    if (initValue && typeof initValue === "object") {
+    if (initValue && (typeof initValue === "undefined" ? "undefined" : _typeof(initValue)) === "object") {
         this.setProperties(initValue);
     }
 };
-
 
 /**
  * Time period in milliseconds.
@@ -57,7 +63,7 @@ Timer.prototype._period = null;
  * @method
  * @see {@link module:chronoman~Timer#_period _period}
  */
-Timer.prototype.getPeriod = function() {
+Timer.prototype.getPeriod = function () {
     return this._period;
 };
 
@@ -71,7 +77,7 @@ Timer.prototype.getPeriod = function() {
  * @method
  * @see {@link module:chronoman~Timer#_period _period}
  */
-Timer.prototype.setPeriod = function(nPeriod) {
+Timer.prototype.setPeriod = function (nPeriod) {
     this._period = nPeriod;
     return this;
 };
@@ -94,7 +100,7 @@ Timer.prototype._recurrent = false;
  * @method
  * @see {@link module:chronoman~Timer#_recurrent _recurrent}
  */
-Timer.prototype.isRecurrent = function() {
+Timer.prototype.isRecurrent = function () {
     return this._recurrent;
 };
 
@@ -108,7 +114,7 @@ Timer.prototype.isRecurrent = function() {
  * @method
  * @see {@link module:chronoman~Timer#_recurrent _recurrent}
  */
-Timer.prototype.setRecurrent = function(bRecurrent) {
+Timer.prototype.setRecurrent = function (bRecurrent) {
     this._recurrent = bRecurrent;
     return this;
 };
@@ -131,7 +137,7 @@ Timer.prototype._repeatQty = 0;
  * @method
  * @see {@link module:chronoman~Timer#_repeatQty _repeatQty}
  */
-Timer.prototype.getRepeatQty = function() {
+Timer.prototype.getRepeatQty = function () {
     return this._repeatQty;
 };
 
@@ -145,7 +151,7 @@ Timer.prototype.getRepeatQty = function() {
  * @method
  * @see {@link module:chronoman~Timer#_repeatQty _repeatQty}
  */
-Timer.prototype.setRepeatQty = function(nQty) {
+Timer.prototype.setRepeatQty = function (nQty) {
     this._repeatQty = nQty;
     return this;
 };
@@ -172,7 +178,7 @@ Timer.prototype._repeatTest = null;
  * @method
  * @see {@link module:chronoman~Timer#_repeatTest _repeatTest}
  */
-Timer.prototype.getRepeatTest = function() {
+Timer.prototype.getRepeatTest = function () {
     return this._repeatTest;
 };
 
@@ -186,7 +192,7 @@ Timer.prototype.getRepeatTest = function() {
  * @method
  * @see {@link module:chronoman~Timer#_repeatTest _repeatTest}
  */
-Timer.prototype.setRepeatTest = function(test) {
+Timer.prototype.setRepeatTest = function (test) {
     this._repeatTest = test;
     return this;
 };
@@ -209,7 +215,7 @@ Timer.prototype._executionQty = 0;
  * @method
  * @see {@link module:chronoman~Timer#_executionQty _executionQty}
  */
-Timer.prototype.getExecutionQty = function() {
+Timer.prototype.getExecutionQty = function () {
     return this._executionQty;
 };
 
@@ -236,8 +242,9 @@ Timer.prototype._timeoutId = null;
  * @see {@link module:chronoman~Timer#execute execute}
  * @see {@link module:chronoman~Timer#getPeriod getPeriod}
  */
-Timer.prototype._setTimeout = function() {
+Timer.prototype._setTimeout = function () {
     "use strict";
+
     var nPeriod = this.getPeriod();
     if (typeof nPeriod === "number") {
         this._timeoutId = setTimeout(this._onTimeoutEnd, nPeriod);
@@ -255,8 +262,9 @@ Timer.prototype._setTimeout = function() {
  * @see {@link module:chronoman~Timer#_setTimeout _setTimeout}
  * @see {@link module:chronoman~Timer#_timeoutId _timeoutId}
  */
-Timer.prototype._clearTimeout = function() {
+Timer.prototype._clearTimeout = function () {
     "use strict";
+
     if (this._timeoutId) {
         clearTimeout(this._timeoutId);
         this._timeoutId = null;
@@ -281,7 +289,7 @@ Timer.prototype._active = false;
  * @method
  * @see {@link module:chronoman~Timer#_active _active}
  */
-Timer.prototype.isActive = function() {
+Timer.prototype.isActive = function () {
     return this._active;
 };
 
@@ -300,9 +308,10 @@ Timer.prototype.isActive = function() {
  * @see {@link module:chronoman~Timer#_executionQty _executionQty}
  * @see {@link module:chronoman~Timer#execute execute}
  */
-Timer.prototype.setActive = function(bActive) {
+Timer.prototype.setActive = function (bActive) {
     "use strict";
-    if (bActive && ! this._active) {
+
+    if (bActive && !this._active) {
         this._executionQty = 0;
     }
     this._active = bActive;
@@ -330,12 +339,12 @@ Timer.prototype.setActive = function(bActive) {
  * @see {@link module:chronoman~Timer#setProperties setProperties}
  * @see {@link module:chronoman~Timer#stop stop}
  */
-Timer.prototype.start = function(property) {
+Timer.prototype.start = function (property) {
     "use strict";
+
     if (typeof property === "number") {
         this.setPeriod(property);
-    }
-    else if (property && typeof property === "object") {
+    } else if (property && (typeof property === "undefined" ? "undefined" : _typeof(property)) === "object") {
         this.setProperties(property);
     }
     return this.setActive(true);
@@ -350,7 +359,7 @@ Timer.prototype.start = function(property) {
  * @see {@link module:chronoman~Timer#setActive setActive}
  * @see {@link module:chronoman~Timer#start start}
  */
-Timer.prototype.stop = function() {
+Timer.prototype.stop = function () {
     return this.setActive(false);
 };
 
@@ -374,7 +383,7 @@ Timer.prototype._action = null;
  * @method
  * @see {@link module:chronoman~Timer#_action _action}
  */
-Timer.prototype.getAction = function() {
+Timer.prototype.getAction = function () {
     return this._action;
 };
 
@@ -388,7 +397,7 @@ Timer.prototype.getAction = function() {
  * @method
  * @see {@link module:chronoman~Timer#_action _action}
  */
-Timer.prototype.setAction = function(action) {
+Timer.prototype.setAction = function (action) {
     this._action = action;
     return this;
 };
@@ -410,7 +419,7 @@ Timer.prototype._passToAction = false;
  * @method
  * @see {@link module:chronoman~Timer#_passToAction _passToAction}
  */
-Timer.prototype.isPassToAction = function() {
+Timer.prototype.isPassToAction = function () {
     return this._passToAction;
 };
 
@@ -425,7 +434,7 @@ Timer.prototype.isPassToAction = function() {
  * @method
  * @see {@link module:chronoman~Timer#_passToAction _passToAction}
  */
-Timer.prototype.setPassToAction = function(bPass) {
+Timer.prototype.setPassToAction = function (bPass) {
     this._passToAction = bPass;
     return this;
 };
@@ -489,8 +498,8 @@ Timer.prototype.setPassToAction = function(bPass) {
  * @see {@link module:chronoman~Timer#setRepeatQty setRepeatQty}
  * @see {@link module:chronoman~Timer#setRepeatTest setRepeatTest}
  */
-Timer.prototype.setProperties = function(propMap) {
-    if (propMap && typeof propMap === "object") {
+Timer.prototype.setProperties = function (propMap) {
+    if (propMap && (typeof propMap === "undefined" ? "undefined" : _typeof(propMap)) === "object") {
         if ("action" in propMap) {
             this.setAction(propMap.action);
         }
@@ -553,33 +562,26 @@ Timer.prototype.onExecute = null;
  * @see {@link module:chronoman~Timer#isRecurrent isRecurrent}
  * @see {@link module:chronoman~Timer#onExecute onExecute}
  */
-Timer.prototype.execute = function() {
+Timer.prototype.execute = function () {
     "use strict";
     /*jshint expr:true, laxbreak:true*/
+
     var action = this.getAction(),
         bPassToAction = this.isPassToAction(),
         repeatTest = this.getRepeatTest(),
         bActive;
     this._clearTimeout();
     if (action) {
-        bPassToAction
-            ? action(this)
-            : action();
+        bPassToAction ? action(this) : action();
     }
     if (typeof this.onExecute === "function") {
-        bPassToAction
-            ? this.onExecute(this)
-            : this.onExecute();
+        bPassToAction ? this.onExecute(this) : this.onExecute();
     }
     this._executionQty++;
     bActive = this.isActive();
-    if (bActive
-            && (this.isRecurrent()
-                    || this.getRepeatQty() >= this._executionQty
-                    || (repeatTest && repeatTest(this)) ) ) {
+    if (bActive && (this.isRecurrent() || this.getRepeatQty() >= this._executionQty || repeatTest && repeatTest(this))) {
         this._setTimeout();
-    }
-    else if (bActive && ! this._timeoutId) {
+    } else if (bActive && !this._timeoutId) {
         this._active = false;
     }
     return this;
@@ -590,13 +592,11 @@ Timer.prototype.execute = function() {
  *
  * @method
  */
-Timer.prototype.dispose = function() {
+Timer.prototype.dispose = function () {
     "use strict";
+
     this._clearTimeout();
-    this._action =
-        this._repeatTest =
-        this.onExecute =
-            null;
+    this._action = this._repeatTest = this.onExecute = null;
 };
 
 /**
@@ -604,21 +604,13 @@ Timer.prototype.dispose = function() {
  *
  * @method
  */
-Timer.prototype.toString = function() {
+Timer.prototype.toString = function () {
     "use strict";
-    return [
-            "Timer: ",
-            "active - ", this.isActive(),
-            ", period - ", this.getPeriod(),
-            ", recurrent - ", this.isRecurrent(),
-            ", repeat qty - ", this.getRepeatQty(),
-            ", repeat test - ", (this.getRepeatTest() ? "specified" : "no"),
-            ", pass to action - ", this.isPassToAction(),
-            ", action - ", (this.getAction() ? "specified" : "no"),
-            ", execution qty - ", this.getExecutionQty()
-            ].join("");
+
+    return ["Timer: ", "active - ", this.isActive(), ", period - ", this.getPeriod(), ", recurrent - ", this.isRecurrent(), ", repeat qty - ", this.getRepeatQty(), ", repeat test - ", this.getRepeatTest() ? "specified" : "no", ", pass to action - ", this.isPassToAction(), ", action - ", this.getAction() ? "specified" : "no", ", execution qty - ", this.getExecutionQty()].join("");
 };
 
 // Exports
 
-export default Timer;
+exports.default = Timer;
+module.exports = exports["default"];

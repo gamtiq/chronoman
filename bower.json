@@ -10,10 +10,15 @@
   "keywords": [
     "setTimeout",
     "setInterval",
+    "time",
     "timer",
     "timeout",
+    "interval",
+    "period",
+    "periodic",
     "management",
-    "utility"
+    "utility",
+    "chrono"
   ],
   "license": "MIT",
   "ignore": [

@@ -4,18 +4,23 @@
     "description": "Utility class to simplify use of timers created by setTimeout",
     "version": "0.1.0",
     "keywords": [
-        "setTimeout",
-        "setInterval",
-        "timer",
-        "timeout",
-        "management",
-        "utility"
+	    "setTimeout",
+	    "setInterval",
+	    "time",
+	    "timer",
+	    "timeout",
+	    "interval",
+	    "period",
+	    "periodic",
+	    "management",
+	    "utility",
+	    "chrono"
     ],
     "dependencies": {},
     "development": {},
     "license": "MIT",
-    "main": "chronoman.js",
+    "main": "dist/chronoman.js",
     "scripts": [
-        "chronoman.js"
+        "dist/chronoman.js"
     ]
 }

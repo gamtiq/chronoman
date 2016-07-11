@@ -7,7 +7,7 @@ describe("chronoman", function() {
     
     // node
     if (typeof chai === "undefined") {
-        Timer = require("../chronoman");
+        Timer = require("../dist/chronoman");
         expect = require("./lib/chai").expect;
     }
     // browser

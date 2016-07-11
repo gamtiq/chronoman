@@ -11,21 +11,17 @@ Utility class to simplify use of timers created by setTimeout.
 
     npm install chronoman
 
-### [Component](https://github.com/componentjs/component)
+### [JSPM](http://jspm.io)
 
-    component install gamtiq/chronoman
-
-### [Jam](http://jamjs.org)
-
-    jam install chronoman
+    jspm install chronoman
 
 ### [Bower](http://bower.io)
 
     bower install chronoman
 
-### [JSPM](http://jspm.io)
+### [Jam](http://jamjs.org)
 
-    jspm install chronoman
+    jam install chronoman
 
 ### AMD, &lt;script&gt;
 
@@ -33,7 +29,11 @@ Use `dist/chronoman.js` or `dist/chronoman.min.js` (minified version).
 
 ## Usage
 
-### Node, Component, JSPM
+### ECMAScript 6/2015
+
+import Timer from "chronoman";
+
+### Node, JSPM
 
 ```js
 var Timer = require("chronoman");
@@ -45,18 +45,18 @@ var Timer = require("chronoman");
 var Timer = require("gamtiq/chronoman");
 ```
 
-### Jam
-
-```js
-require(["chronoman"], function(Timer) {
-    ...
-});
-```
-
 ### JSPM
 
 ```js
 System.import("chronoman").then(function(Timer) {
+    ...
+});
+```
+
+### Jam
+
+```js
+require(["chronoman"], function(Timer) {
     ...
 });
 ```

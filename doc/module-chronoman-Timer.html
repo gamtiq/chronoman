@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <title>JSDoc: Class: Timer</title>
-    
+
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
     <!--[if lt IE 9]>
@@ -16,78 +16,79 @@
 <body>
 
 <div id="main">
-    
+
     <h1 class="page-title">Class: Timer</h1>
+
     
-    
+
 
 
 
 <section>
-    
+
 <header>
-    <h2>
-        <span class="ancestors"><a href="module-chronoman.html">chronoman</a>~</span>
     
-    Timer
-    </h2>
+        <h2>
+            <span class="ancestors"><a href="module-chronoman.html">chronoman</a>~</span>Timer</h2>
+        
     
-</header>  
+</header>
 
 <article>
     <div class="container-overview">
     
-    
-    
         
-<dt>
-    <h4 class="name" id="Timer"><span class="type-signature"></span>new Timer<span class="signature">(<span class="optional">initValue</span>)</span><span class="type-signature"></span></h4>
-    
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        Utility class to simplify use of timers created by setTimeout.
-    </div>
-    
 
     
+
+    <h4 class="name" id="Timer"><span class="type-signature"></span>new Timer<span class="signature">(initValue<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
+
     
+
+
+
+<div class="description">
+    Utility class to simplify use of timers created by setTimeout.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
     
-    
-    
-        <h5>Parameters:</h5>
-        
 
 <table class="params">
     <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-		
-		<th>Type</th>
-		
-		
-		<th>Argument</th>
-		
-		
-		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
         <tr>
             
                 <td class="name"><code>initValue</code></td>
             
-            
+
             <td class="type">
             
                 
@@ -96,58 +97,68 @@
 
             
             </td>
-            
+
             
                 <td class="attributes">
                 
                     &lt;optional><br>
                 
-                    
+
                 
-                    
+
                 
                 </td>
             
+
             
-            
-            
+
             <td class="description last">Specifies initial property values. Keys are property names, their values are values of corresponding properties.     See <a href="module-chronoman-Timer.html#setProperties">setProperties</a> for details.</td>
         </tr>
-	
-	
-	</tbody>
+
+    
+    </tbody>
 </table>
-    
-    
-    
+
+
+
+
+
+
 <dl class="details">
-    
-        
-    
-    
+
     
 
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
-    
+
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
         <a href="chronoman.js.html">chronoman.js</a>, <a href="chronoman.js.html#line17">line 17</a>
     </li></ul></dd>
     
+
     
-    
-    
+
     
     <dt class="tag-see">See:</dt>
     <dd class="tag-see">
@@ -156,95 +167,103 @@
         </ul>
     </dd>
     
-    
+
     
 </dl>
 
-    
-    
 
-    
 
-    
-    
-    
-    
-    
-    
-    
-</dd>
+
+
+
+
+
+
+
+
+
+
+
+
 
     
     </div>
+
     
+
     
+
     
+
+     
+
     
-    
-    
-    
-    
-    
-    
-    
+
     
         <h3 class="subsection-title">Members</h3>
+
         
-        <dl>
             
-<dt>
-    <h4 class="name" id="_action"><span class="type-signature">&lt;protected> </span>_action<span class="type-signature"> :Function</span></h4>
-    
-    
-</dt>
-<dd>
-    
-    <div class="description">
-        Related action that should be executed after time period is elapsed.<br>The timer instance to which the action is associated will be passed as function's parameterif <a href="module-chronoman-Timer.html#setPassToAction">passToAction</a> property is set to <code>true</code>.
-    </div>
-    
-    
-    
-        <h5>Type:</h5>
-        <ul>
-            <li>
-                
-<span class="param-type">Function</span>
+<h4 class="name" id="_action"><span class="type-signature">(protected) </span>_action<span class="type-signature"> :function</span></h4>
 
 
-            </li>
-        </ul>
-    
 
-    
+
+<div class="description">
+    Related action that should be executed after time period is elapsed.<br>The timer instance to which the action is associated will be passed as function's parameterif <a href="module-chronoman-Timer.html#setPassToAction">passToAction</a> property is set to <code>true</code>.
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">function</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
 <dl class="details">
-    
-        
-    
-    
+
     
 
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
-    
+
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
         <a href="chronoman.js.html">chronoman.js</a>, <a href="chronoman.js.html#line367">line 367</a>
     </li></ul></dd>
     
+
     
-    
-    
+
     
     <dt class="tag-see">See:</dt>
     <dd class="tag-see">
@@ -253,69 +272,77 @@
         </ul>
     </dd>
     
-    
+
     
 </dl>
 
-    
-    
-</dd>
+
+
+
+
 
         
             
-<dt>
-    <h4 class="name" id="_active"><span class="type-signature">&lt;protected> </span>_active<span class="type-signature"> :Boolean</span></h4>
-    
-    
-</dt>
-<dd>
-    
-    <div class="description">
-        Indicates whether timer is in use.
-    </div>
-    
-    
-    
-        <h5>Type:</h5>
-        <ul>
-            <li>
-                
+<h4 class="name" id="_active"><span class="type-signature">(protected) </span>_active<span class="type-signature"> :Boolean</span></h4>
+
+
+
+
+<div class="description">
+    Indicates whether timer is in use.
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
 <span class="param-type">Boolean</span>
 
 
-            </li>
-        </ul>
-    
+        </li>
+    </ul>
 
-    
+
+
+
+
 <dl class="details">
-    
-        
-    
-    
+
     
 
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
-    
+
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
         <a href="chronoman.js.html">chronoman.js</a>, <a href="chronoman.js.html#line274">line 274</a>
     </li></ul></dd>
     
+
     
-    
-    
+
     
     <dt class="tag-see">See:</dt>
     <dd class="tag-see">
@@ -324,69 +351,77 @@
         </ul>
     </dd>
     
-    
+
     
 </dl>
 
-    
-    
-</dd>
+
+
+
+
 
         
             
-<dt>
-    <h4 class="name" id="_executionQty"><span class="type-signature">&lt;protected> </span>_executionQty<span class="type-signature"> :Integer</span></h4>
-    
-    
-</dt>
-<dd>
-    
-    <div class="description">
-        Specifies how many times action was executed.
-    </div>
-    
-    
-    
-        <h5>Type:</h5>
-        <ul>
-            <li>
-                
+<h4 class="name" id="_executionQty"><span class="type-signature">(protected) </span>_executionQty<span class="type-signature"> :Integer</span></h4>
+
+
+
+
+<div class="description">
+    Specifies how many times action was executed.
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
 <span class="param-type">Integer</span>
 
 
-            </li>
-        </ul>
-    
+        </li>
+    </ul>
 
-    
+
+
+
+
 <dl class="details">
-    
-        
-    
-    
+
     
 
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
-    
+
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
         <a href="chronoman.js.html">chronoman.js</a>, <a href="chronoman.js.html#line202">line 202</a>
     </li></ul></dd>
     
+
     
-    
-    
+
     
     <dt class="tag-see">See:</dt>
     <dd class="tag-see">
@@ -397,69 +432,77 @@
         </ul>
     </dd>
     
-    
+
     
 </dl>
 
-    
-    
-</dd>
+
+
+
+
 
         
             
-<dt>
-    <h4 class="name" id="_passToAction"><span class="type-signature">&lt;protected> </span>_passToAction<span class="type-signature"> :Boolean</span></h4>
-    
-    
-</dt>
-<dd>
-    
-    <div class="description">
-        Indicates whether the timer instance (<code>this</code>) should be passed into action function when the function is called.
-    </div>
-    
-    
-    
-        <h5>Type:</h5>
-        <ul>
-            <li>
-                
+<h4 class="name" id="_passToAction"><span class="type-signature">(protected) </span>_passToAction<span class="type-signature"> :Boolean</span></h4>
+
+
+
+
+<div class="description">
+    Indicates whether the timer instance (<code>this</code>) should be passed into action function when the function is called.
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
 <span class="param-type">Boolean</span>
 
 
-            </li>
-        </ul>
-    
+        </li>
+    </ul>
 
-    
+
+
+
+
 <dl class="details">
-    
-        
-    
-    
+
     
 
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
-    
+
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
         <a href="chronoman.js.html">chronoman.js</a>, <a href="chronoman.js.html#line403">line 403</a>
     </li></ul></dd>
     
+
     
-    
-    
+
     
     <dt class="tag-see">See:</dt>
     <dd class="tag-see">
@@ -468,69 +511,77 @@
         </ul>
     </dd>
     
-    
+
     
 </dl>
 
-    
-    
-</dd>
+
+
+
+
 
         
             
-<dt>
-    <h4 class="name" id="_period"><span class="type-signature">&lt;protected> </span>_period<span class="type-signature"> :Integer</span></h4>
-    
-    
-</dt>
-<dd>
-    
-    <div class="description">
-        Time period in milliseconds.A related action will be executed when the period is elapsed.
-    </div>
-    
-    
-    
-        <h5>Type:</h5>
-        <ul>
-            <li>
-                
+<h4 class="name" id="_period"><span class="type-signature">(protected) </span>_period<span class="type-signature"> :Integer</span></h4>
+
+
+
+
+<div class="description">
+    Time period in milliseconds.A related action will be executed when the period is elapsed.
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
 <span class="param-type">Integer</span>
 
 
-            </li>
-        </ul>
-    
+        </li>
+    </ul>
 
-    
+
+
+
+
 <dl class="details">
-    
-        
-    
-    
+
     
 
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
-    
+
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
         <a href="chronoman.js.html">chronoman.js</a>, <a href="chronoman.js.html#line50">line 50</a>
     </li></ul></dd>
     
+
     
-    
-    
+
     
     <dt class="tag-see">See:</dt>
     <dd class="tag-see">
@@ -541,69 +592,77 @@
         </ul>
     </dd>
     
-    
+
     
 </dl>
 
-    
-    
-</dd>
+
+
+
+
 
         
             
-<dt>
-    <h4 class="name" id="_recurrent"><span class="type-signature">&lt;protected> </span>_recurrent<span class="type-signature"> :Boolean</span></h4>
-    
-    
-</dt>
-<dd>
-    
-    <div class="description">
-        Indicates whether related action should be executed repeatedly.
-    </div>
-    
-    
-    
-        <h5>Type:</h5>
-        <ul>
-            <li>
-                
+<h4 class="name" id="_recurrent"><span class="type-signature">(protected) </span>_recurrent<span class="type-signature"> :Boolean</span></h4>
+
+
+
+
+<div class="description">
+    Indicates whether related action should be executed repeatedly.
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
 <span class="param-type">Boolean</span>
 
 
-            </li>
-        </ul>
-    
+        </li>
+    </ul>
 
-    
+
+
+
+
 <dl class="details">
-    
-        
-    
-    
+
     
 
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
-    
+
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
         <a href="chronoman.js.html">chronoman.js</a>, <a href="chronoman.js.html#line87">line 87</a>
     </li></ul></dd>
     
+
     
-    
-    
+
     
     <dt class="tag-see">See:</dt>
     <dd class="tag-see">
@@ -614,69 +673,77 @@
         </ul>
     </dd>
     
-    
+
     
 </dl>
 
-    
-    
-</dd>
+
+
+
+
 
         
             
-<dt>
-    <h4 class="name" id="_repeatQty"><span class="type-signature">&lt;protected> </span>_repeatQty<span class="type-signature"> :Integer</span></h4>
-    
-    
-</dt>
-<dd>
-    
-    <div class="description">
-        Specifies how many times related action should be repeated after first execution.
-    </div>
-    
-    
-    
-        <h5>Type:</h5>
-        <ul>
-            <li>
-                
+<h4 class="name" id="_repeatQty"><span class="type-signature">(protected) </span>_repeatQty<span class="type-signature"> :Integer</span></h4>
+
+
+
+
+<div class="description">
+    Specifies how many times related action should be repeated after first execution.
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
 <span class="param-type">Integer</span>
 
 
-            </li>
-        </ul>
-    
+        </li>
+    </ul>
 
-    
+
+
+
+
 <dl class="details">
-    
-        
-    
-    
+
     
 
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
-    
+
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
         <a href="chronoman.js.html">chronoman.js</a>, <a href="chronoman.js.html#line124">line 124</a>
     </li></ul></dd>
     
+
     
-    
-    
+
     
     <dt class="tag-see">See:</dt>
     <dd class="tag-see">
@@ -687,69 +754,77 @@
         </ul>
     </dd>
     
-    
+
     
 </dl>
 
-    
-    
-</dd>
+
+
+
+
 
         
             
-<dt>
-    <h4 class="name" id="_repeatTest"><span class="type-signature">&lt;protected> </span>_repeatTest<span class="type-signature"> :Function</span></h4>
-    
-    
-</dt>
-<dd>
-    
-    <div class="description">
-        Specifies function that should be called after first action execution to determinewhether execution should be repeated.If the function returns a true value it means that execution will be repeated.<br>The timer instance to which the test is associated will be passed as function's parameter.
-    </div>
-    
-    
-    
-        <h5>Type:</h5>
-        <ul>
-            <li>
-                
-<span class="param-type">Function</span>
+<h4 class="name" id="_repeatTest"><span class="type-signature">(protected) </span>_repeatTest<span class="type-signature"> :function</span></h4>
 
 
-            </li>
-        </ul>
-    
 
-    
+
+<div class="description">
+    Specifies function that should be called after first action execution to determinewhether execution should be repeated.If the function returns a true value it means that execution will be repeated.<br>The timer instance to which the test is associated will be passed as function's parameter.
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">function</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
 <dl class="details">
-    
-        
-    
-    
+
     
 
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
-    
+
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
         <a href="chronoman.js.html">chronoman.js</a>, <a href="chronoman.js.html#line165">line 165</a>
     </li></ul></dd>
     
+
     
-    
-    
+
     
     <dt class="tag-see">See:</dt>
     <dd class="tag-see">
@@ -760,69 +835,77 @@
         </ul>
     </dd>
     
-    
+
     
 </dl>
 
-    
-    
-</dd>
+
+
+
+
 
         
             
-<dt>
-    <h4 class="name" id="_timeoutId"><span class="type-signature">&lt;protected> </span>_timeoutId<span class="type-signature"> :Integer</span></h4>
-    
-    
-</dt>
-<dd>
-    
-    <div class="description">
-        Timer id.
-    </div>
-    
-    
-    
-        <h5>Type:</h5>
-        <ul>
-            <li>
-                
+<h4 class="name" id="_timeoutId"><span class="type-signature">(protected) </span>_timeoutId<span class="type-signature"> :Integer</span></h4>
+
+
+
+
+<div class="description">
+    Timer id.
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
 <span class="param-type">Integer</span>
 
 
-            </li>
-        </ul>
-    
+        </li>
+    </ul>
 
-    
+
+
+
+
 <dl class="details">
-    
-        
-    
-    
+
     
 
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
-    
+
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
         <a href="chronoman.js.html">chronoman.js</a>, <a href="chronoman.js.html#line224">line 224</a>
     </li></ul></dd>
     
+
     
-    
-    
+
     
     <dt class="tag-see">See:</dt>
     <dd class="tag-see">
@@ -833,69 +916,77 @@
         </ul>
     </dd>
     
-    
+
     
 </dl>
 
-    
-    
-</dd>
+
+
+
+
 
         
             
-<dt>
-    <h4 class="name" id="onExecute"><span class="type-signature"></span>onExecute<span class="type-signature"> :Function</span></h4>
-    
-    
-</dt>
-<dd>
-    
-    <div class="description">
-        Function that should be executed after time period is elapsed.<br>The timer instance to which the function is associated will be passed as function's parameterif <a href="module-chronoman-Timer.html#setPassToAction">passToAction</a> property is set to <code>true</code>.
-    </div>
-    
-    
-    
-        <h5>Type:</h5>
-        <ul>
-            <li>
-                
-<span class="param-type">Function</span>
+<h4 class="name" id="onExecute"><span class="type-signature"></span>onExecute<span class="type-signature"> :function</span></h4>
 
 
-            </li>
-        </ul>
-    
 
-    
+
+<div class="description">
+    Function that should be executed after time period is elapsed.<br>The timer instance to which the function is associated will be passed as function's parameterif <a href="module-chronoman-Timer.html#setPassToAction">passToAction</a> property is set to <code>true</code>.
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">function</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
 <dl class="details">
-    
-        
-    
-    
+
     
 
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
-    
+
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
         <a href="chronoman.js.html">chronoman.js</a>, <a href="chronoman.js.html#line528">line 528</a>
     </li></ul></dd>
     
+
     
-    
-    
+
     
     <dt class="tag-see">See:</dt>
     <dd class="tag-see">
@@ -904,70 +995,83 @@
         </ul>
     </dd>
     
-    
+
     
 </dl>
 
-    
-    
-</dd>
 
-        </dl>
+
+
+
+
+        
     
-    
+
     
         <h3 class="subsection-title">Methods</h3>
+
         
-        <dl>
             
-<dt>
-    <h4 class="name" id="_clearTimeout"><span class="type-signature">&lt;protected> </span>_clearTimeout<span class="signature">()</span><span class="type-signature"> &rarr; {Object}</span></h4>
-    
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        Cancel execution of scheduled action.
-    </div>
-    
 
     
+
+    <h4 class="name" id="_clearTimeout"><span class="type-signature">(protected) </span>_clearTimeout<span class="signature">()</span><span class="type-signature"> &rarr; {Object}</span></h4>
+
     
-    
-    
-    
-    
-    
+
+
+
+<div class="description">
+    Cancel execution of scheduled action.
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
 <dl class="details">
-    
-        
-    
-    
+
     
 
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
-    
+
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
         <a href="chronoman.js.html">chronoman.js</a>, <a href="chronoman.js.html#line258">line 258</a>
     </li></ul></dd>
     
+
     
-    
-    
+
     
     <dt class="tag-see">See:</dt>
     <dd class="tag-see">
@@ -978,23 +1082,25 @@
         </ul>
     </dd>
     
-    
+
     
 </dl>
 
-    
-    
 
-    
 
-    
-    
-    
-    
-    
-    <h5>Returns:</h5>
-    
-            
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
 <div class="param-desc">
     Reference to <code>this</code> object.
 </div>
@@ -1002,72 +1108,83 @@
 
 
 <dl>
-	<dt>
-		Type
-	</dt>
-	<dd>
-		
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
 <span class="param-type">Object</span>
 
 
-	</dd>
+    </dd>
 </dl>
 
-        
     
-    
-</dd>
+
+
 
         
             
-<dt>
-    <h4 class="name" id="_onTimeoutEnd"><span class="type-signature">&lt;protected> </span>_onTimeoutEnd<span class="signature">()</span><span class="type-signature"></span></h4>
-    
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        Handle timeout's end.
-    </div>
-    
 
     
+
+    <h4 class="name" id="_onTimeoutEnd"><span class="type-signature">(protected) </span>_onTimeoutEnd<span class="signature">()</span><span class="type-signature"></span></h4>
+
     
-    
-    
-    
-    
-    
+
+
+
+<div class="description">
+    Handle timeout's end.
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
 <dl class="details">
-    
-        
-    
-    
+
     
 
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
-    
+
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
         <a href="chronoman.js.html">chronoman.js</a>, <a href="chronoman.js.html#line30">line 30</a>
     </li></ul></dd>
     
+
     
-    
-    
+
     
     <dt class="tag-see">See:</dt>
     <dd class="tag-see">
@@ -1078,74 +1195,87 @@
         </ul>
     </dd>
     
-    
+
     
 </dl>
 
-    
-    
 
-    
 
-    
-    
-    
-    
-    
-    
-    
-</dd>
+
+
+
+
+
+
+
+
+
+
+
+
 
         
             
-<dt>
-    <h4 class="name" id="_setTimeout"><span class="type-signature">&lt;protected> </span>_setTimeout<span class="signature">()</span><span class="type-signature"> &rarr; {Object}</span></h4>
-    
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        Schedule related action execution.
-    </div>
-    
 
     
+
+    <h4 class="name" id="_setTimeout"><span class="type-signature">(protected) </span>_setTimeout<span class="signature">()</span><span class="type-signature"> &rarr; {Object}</span></h4>
+
     
-    
-    
-    
-    
-    
+
+
+
+<div class="description">
+    Schedule related action execution.
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
 <dl class="details">
-    
-        
-    
-    
+
     
 
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
-    
+
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
         <a href="chronoman.js.html">chronoman.js</a>, <a href="chronoman.js.html#line239">line 239</a>
     </li></ul></dd>
     
+
     
-    
-    
+
     
     <dt class="tag-see">See:</dt>
     <dd class="tag-see">
@@ -1162,23 +1292,25 @@
         </ul>
     </dd>
     
-    
+
     
 </dl>
 
-    
-    
 
-    
 
-    
-    
-    
-    
-    
-    <h5>Returns:</h5>
-    
-            
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
 <div class="param-desc">
     Reference to <code>this</code> object.
 </div>
@@ -1186,141 +1318,165 @@
 
 
 <dl>
-	<dt>
-		Type
-	</dt>
-	<dd>
-		
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
 <span class="param-type">Object</span>
 
 
-	</dd>
+    </dd>
 </dl>
 
-        
     
-    
-</dd>
+
+
 
         
             
-<dt>
+
+    
+
     <h4 class="name" id="dispose"><span class="type-signature"></span>dispose<span class="signature">()</span><span class="type-signature"></span></h4>
-    
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        Free resources that are allocated for object.
-    </div>
-    
 
     
-    
-    
-    
-    
-    
-    
+
+
+
+<div class="description">
+    Free resources that are allocated for object.
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
 <dl class="details">
-    
-        
-    
-    
+
     
 
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
-    
+
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
         <a href="chronoman.js.html">chronoman.js</a>, <a href="chronoman.js.html#line593">line 593</a>
     </li></ul></dd>
     
+
     
+
     
-    
-    
-    
+
     
 </dl>
 
-    
-    
 
-    
 
-    
-    
-    
-    
-    
-    
-    
-</dd>
+
+
+
+
+
+
+
+
+
+
+
+
 
         
             
-<dt>
+
+    
+
     <h4 class="name" id="execute"><span class="type-signature"></span>execute<span class="signature">()</span><span class="type-signature"> &rarr; {Object}</span></h4>
-    
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        Execute related action (function).<br>The timer instance to which the action is associated will be passed as function's parameterif <a href="module-chronoman-Timer.html#setPassToAction">passToAction</a> property is set to <code>true</code>.<br>Action's next execution will be scheduled when one of the following conditions is true:<ul><li>timer is set as recurrent (see <a href="module-chronoman-Timer.html#isRecurrent">isRecurrent</a>);<li>specified quantity of repeats is not reached (see <a href="module-chronoman-Timer.html#getRepeatQty">getRepeatQty</a>);<li>specified repeat test is passed i.e. the test function returns true value (see <a href="module-chronoman-Timer.html#getRepeatTest">getRepeatTest</a>);</ul>
-    </div>
-    
 
     
-    
-    
-    
-    
-    
-    
+
+
+
+<div class="description">
+    Execute related action (function).<br>The timer instance to which the action is associated will be passed as function's parameterif <a href="module-chronoman-Timer.html#setPassToAction">passToAction</a> property is set to <code>true</code>.<br>Action's next execution will be scheduled when one of the following conditions is true:<ul><li>timer is set as recurrent (see <a href="module-chronoman-Timer.html#isRecurrent">isRecurrent</a>);<li>specified quantity of repeats is not reached (see <a href="module-chronoman-Timer.html#getRepeatQty">getRepeatQty</a>);<li>specified repeat test is passed i.e. the test function returns true value (see <a href="module-chronoman-Timer.html#getRepeatTest">getRepeatTest</a>);</ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
 <dl class="details">
-    
-        
-    
-    
+
     
 
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
-    
+
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
         <a href="chronoman.js.html">chronoman.js</a>, <a href="chronoman.js.html#line556">line 556</a>
     </li></ul></dd>
     
+
     
-    
-    
+
     
     <dt class="tag-see">See:</dt>
     <dd class="tag-see">
@@ -1345,23 +1501,25 @@
         </ul>
     </dd>
     
-    
+
     
 </dl>
 
-    
-    
 
-    
 
-    
-    
-    
-    
-    
-    <h5>Returns:</h5>
-    
-            
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
 <div class="param-desc">
     Reference to <code>this</code> object.
 </div>
@@ -1369,72 +1527,83 @@
 
 
 <dl>
-	<dt>
-		Type
-	</dt>
-	<dd>
-		
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
 <span class="param-type">Object</span>
 
 
-	</dd>
+    </dd>
 </dl>
 
-        
     
-    
-</dd>
+
+
 
         
             
-<dt>
-    <h4 class="name" id="getAction"><span class="type-signature"></span>getAction<span class="signature">()</span><span class="type-signature"> &rarr; {Function}</span></h4>
-    
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        Return function that represents action.
-    </div>
-    
 
     
+
+    <h4 class="name" id="getAction"><span class="type-signature"></span>getAction<span class="signature">()</span><span class="type-signature"> &rarr; {function}</span></h4>
+
     
-    
-    
-    
-    
-    
+
+
+
+<div class="description">
+    Return function that represents action.
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
 <dl class="details">
-    
-        
-    
-    
+
     
 
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
-    
+
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
         <a href="chronoman.js.html">chronoman.js</a>, <a href="chronoman.js.html#line377">line 377</a>
     </li></ul></dd>
     
+
     
-    
-    
+
     
     <dt class="tag-see">See:</dt>
     <dd class="tag-see">
@@ -1443,23 +1612,25 @@
         </ul>
     </dd>
     
-    
+
     
 </dl>
 
-    
-    
 
-    
 
-    
-    
-    
-    
-    
-    <h5>Returns:</h5>
-    
-            
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
 <div class="param-desc">
     Function that represents action.
 </div>
@@ -1467,72 +1638,83 @@
 
 
 <dl>
-	<dt>
-		Type
-	</dt>
-	<dd>
-		
-<span class="param-type">Function</span>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">function</span>
 
 
-	</dd>
+    </dd>
 </dl>
 
-        
     
-    
-</dd>
+
+
 
         
             
-<dt>
+
+    
+
     <h4 class="name" id="getExecutionQty"><span class="type-signature"></span>getExecutionQty<span class="signature">()</span><span class="type-signature"> &rarr; {Integer}</span></h4>
-    
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        Return the value that indicates how many times action was executed.
-    </div>
-    
 
     
-    
-    
-    
-    
-    
-    
+
+
+
+<div class="description">
+    Return the value that indicates how many times action was executed.
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
 <dl class="details">
-    
-        
-    
-    
+
     
 
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
-    
+
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
         <a href="chronoman.js.html">chronoman.js</a>, <a href="chronoman.js.html#line212">line 212</a>
     </li></ul></dd>
     
+
     
-    
-    
+
     
     <dt class="tag-see">See:</dt>
     <dd class="tag-see">
@@ -1541,23 +1723,25 @@
         </ul>
     </dd>
     
-    
+
     
 </dl>
 
-    
-    
 
-    
 
-    
-    
-    
-    
-    
-    <h5>Returns:</h5>
-    
-            
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
 <div class="param-desc">
     Value that indicates how many times action was executed.
 </div>
@@ -1565,72 +1749,83 @@
 
 
 <dl>
-	<dt>
-		Type
-	</dt>
-	<dd>
-		
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
 <span class="param-type">Integer</span>
 
 
-	</dd>
+    </dd>
 </dl>
 
-        
     
-    
-</dd>
+
+
 
         
             
-<dt>
+
+    
+
     <h4 class="name" id="getPeriod"><span class="type-signature"></span>getPeriod<span class="signature">()</span><span class="type-signature"> &rarr; {Integer}</span></h4>
-    
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        Return time period that is used to schedule related action execution.
-    </div>
-    
 
     
-    
-    
-    
-    
-    
-    
+
+
+
+<div class="description">
+    Return time period that is used to schedule related action execution.
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
 <dl class="details">
-    
-        
-    
-    
+
     
 
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
-    
+
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
         <a href="chronoman.js.html">chronoman.js</a>, <a href="chronoman.js.html#line60">line 60</a>
     </li></ul></dd>
     
+
     
-    
-    
+
     
     <dt class="tag-see">See:</dt>
     <dd class="tag-see">
@@ -1639,23 +1834,25 @@
         </ul>
     </dd>
     
-    
+
     
 </dl>
 
-    
-    
 
-    
 
-    
-    
-    
-    
-    
-    <h5>Returns:</h5>
-    
-            
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
 <div class="param-desc">
     Time period in milliseconds.
 </div>
@@ -1663,72 +1860,83 @@
 
 
 <dl>
-	<dt>
-		Type
-	</dt>
-	<dd>
-		
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
 <span class="param-type">Integer</span>
 
 
-	</dd>
+    </dd>
 </dl>
 
-        
     
-    
-</dd>
+
+
 
         
             
-<dt>
+
+    
+
     <h4 class="name" id="getRepeatQty"><span class="type-signature"></span>getRepeatQty<span class="signature">()</span><span class="type-signature"> &rarr; {Integer}</span></h4>
-    
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        Return the value that indicates how many times related action should be repeated after first execution.
-    </div>
-    
 
     
-    
-    
-    
-    
-    
-    
+
+
+
+<div class="description">
+    Return the value that indicates how many times related action should be repeated after first execution.
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
 <dl class="details">
-    
-        
-    
-    
+
     
 
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
-    
+
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
         <a href="chronoman.js.html">chronoman.js</a>, <a href="chronoman.js.html#line134">line 134</a>
     </li></ul></dd>
     
+
     
-    
-    
+
     
     <dt class="tag-see">See:</dt>
     <dd class="tag-see">
@@ -1737,23 +1945,25 @@
         </ul>
     </dd>
     
-    
+
     
 </dl>
 
-    
-    
 
-    
 
-    
-    
-    
-    
-    
-    <h5>Returns:</h5>
-    
-            
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
 <div class="param-desc">
     Value that indicates how many times related action should be repeated after first execution.
 </div>
@@ -1761,72 +1971,83 @@
 
 
 <dl>
-	<dt>
-		Type
-	</dt>
-	<dd>
-		
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
 <span class="param-type">Integer</span>
 
 
-	</dd>
+    </dd>
 </dl>
 
-        
     
-    
-</dd>
+
+
 
         
             
-<dt>
-    <h4 class="name" id="getRepeatTest"><span class="type-signature"></span>getRepeatTest<span class="signature">()</span><span class="type-signature"> &rarr; {Function}</span></h4>
-    
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        Return the function that is used to determine whether action execution should be repeated.
-    </div>
-    
 
     
+
+    <h4 class="name" id="getRepeatTest"><span class="type-signature"></span>getRepeatTest<span class="signature">()</span><span class="type-signature"> &rarr; {function}</span></h4>
+
     
-    
-    
-    
-    
-    
+
+
+
+<div class="description">
+    Return the function that is used to determine whether action execution should be repeated.
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
 <dl class="details">
-    
-        
-    
-    
+
     
 
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
-    
+
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
         <a href="chronoman.js.html">chronoman.js</a>, <a href="chronoman.js.html#line175">line 175</a>
     </li></ul></dd>
     
+
     
-    
-    
+
     
     <dt class="tag-see">See:</dt>
     <dd class="tag-see">
@@ -1835,23 +2056,25 @@
         </ul>
     </dd>
     
-    
+
     
 </dl>
 
-    
-    
 
-    
 
-    
-    
-    
-    
-    
-    <h5>Returns:</h5>
-    
-            
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
 <div class="param-desc">
     Function that is used to determine whether action execution should be repeated.
 </div>
@@ -1859,72 +2082,83 @@
 
 
 <dl>
-	<dt>
-		Type
-	</dt>
-	<dd>
-		
-<span class="param-type">Function</span>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">function</span>
 
 
-	</dd>
+    </dd>
 </dl>
 
-        
     
-    
-</dd>
+
+
 
         
             
-<dt>
+
+    
+
     <h4 class="name" id="isActive"><span class="type-signature"></span>isActive<span class="signature">()</span><span class="type-signature"> &rarr; {Boolean}</span></h4>
-    
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        Test whether timer is in use.
-    </div>
-    
 
     
-    
-    
-    
-    
-    
-    
+
+
+
+<div class="description">
+    Test whether timer is in use.
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
 <dl class="details">
-    
-        
-    
-    
+
     
 
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
-    
+
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
         <a href="chronoman.js.html">chronoman.js</a>, <a href="chronoman.js.html#line284">line 284</a>
     </li></ul></dd>
     
+
     
-    
-    
+
     
     <dt class="tag-see">See:</dt>
     <dd class="tag-see">
@@ -1933,23 +2167,25 @@
         </ul>
     </dd>
     
-    
+
     
 </dl>
 
-    
-    
 
-    
 
-    
-    
-    
-    
-    
-    <h5>Returns:</h5>
-    
-            
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
 <div class="param-desc">
     <code>true</code>, if timer is in use, otherwise <code>false</code>.
 </div>
@@ -1957,72 +2193,83 @@
 
 
 <dl>
-	<dt>
-		Type
-	</dt>
-	<dd>
-		
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
 <span class="param-type">Boolean</span>
 
 
-	</dd>
+    </dd>
 </dl>
 
-        
     
-    
-</dd>
+
+
 
         
             
-<dt>
+
+    
+
     <h4 class="name" id="isPassToAction"><span class="type-signature"></span>isPassToAction<span class="signature">()</span><span class="type-signature"> &rarr; {Boolean}</span></h4>
-    
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        Test whether the timer instance should be passed into action function when the function is called.
-    </div>
-    
 
     
-    
-    
-    
-    
-    
-    
+
+
+
+<div class="description">
+    Test whether the timer instance should be passed into action function when the function is called.
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
 <dl class="details">
-    
-        
-    
-    
+
     
 
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
-    
+
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
         <a href="chronoman.js.html">chronoman.js</a>, <a href="chronoman.js.html#line413">line 413</a>
     </li></ul></dd>
     
+
     
-    
-    
+
     
     <dt class="tag-see">See:</dt>
     <dd class="tag-see">
@@ -2031,23 +2278,25 @@
         </ul>
     </dd>
     
-    
+
     
 </dl>
 
-    
-    
 
-    
 
-    
-    
-    
-    
-    
-    <h5>Returns:</h5>
-    
-            
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
 <div class="param-desc">
     <code>true</code>, if the timer instance should be passed, otherwise <code>false</code>.
 </div>
@@ -2055,72 +2304,83 @@
 
 
 <dl>
-	<dt>
-		Type
-	</dt>
-	<dd>
-		
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
 <span class="param-type">Boolean</span>
 
 
-	</dd>
+    </dd>
 </dl>
 
-        
     
-    
-</dd>
+
+
 
         
             
-<dt>
+
+    
+
     <h4 class="name" id="isRecurrent"><span class="type-signature"></span>isRecurrent<span class="signature">()</span><span class="type-signature"> &rarr; {Boolean}</span></h4>
-    
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        Test whether related action should be executed repeatedly.
-    </div>
-    
 
     
-    
-    
-    
-    
-    
-    
+
+
+
+<div class="description">
+    Test whether related action should be executed repeatedly.
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
 <dl class="details">
-    
-        
-    
-    
+
     
 
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
-    
+
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
         <a href="chronoman.js.html">chronoman.js</a>, <a href="chronoman.js.html#line97">line 97</a>
     </li></ul></dd>
     
+
     
-    
-    
+
     
     <dt class="tag-see">See:</dt>
     <dd class="tag-see">
@@ -2129,23 +2389,25 @@
         </ul>
     </dd>
     
-    
+
     
 </dl>
 
-    
-    
 
-    
 
-    
-    
-    
-    
-    
-    <h5>Returns:</h5>
-    
-            
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
 <div class="param-desc">
     <code>true</code>, if related action should be executed repeatedly, otherwise <code>false</code>.
 </div>
@@ -2153,120 +2415,132 @@
 
 
 <dl>
-	<dt>
-		Type
-	</dt>
-	<dd>
-		
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
 <span class="param-type">Boolean</span>
 
 
-	</dd>
+    </dd>
 </dl>
 
-        
     
-    
-</dd>
+
+
 
         
             
-<dt>
-    <h4 class="name" id="setAction"><span class="type-signature"></span>setAction<span class="signature">(action)</span><span class="type-signature"> &rarr; {Object}</span></h4>
-    
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        Set function which represents action that should be executed after time period is elapsed.
-    </div>
-    
 
     
+
+    <h4 class="name" id="setAction"><span class="type-signature"></span>setAction<span class="signature">(action)</span><span class="type-signature"> &rarr; {Object}</span></h4>
+
     
+
+
+
+<div class="description">
+    Set function which represents action that should be executed after time period is elapsed.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
     
-    
-    
-        <h5>Parameters:</h5>
-        
 
 <table class="params">
     <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-		
-		<th>Type</th>
-		
-		
-		
-		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
         <tr>
             
                 <td class="name"><code>action</code></td>
             
-            
+
             <td class="type">
             
                 
-<span class="param-type">Function</span>
+<span class="param-type">function</span>
 
 
             
             </td>
+
             
+
             
-            
-            
-            
+
             <td class="description last">Function that represents action.</td>
         </tr>
-	
-	
-	</tbody>
+
+    
+    </tbody>
 </table>
-    
-    
-    
+
+
+
+
+
+
 <dl class="details">
-    
-        
-    
-    
+
     
 
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
-    
+
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
         <a href="chronoman.js.html">chronoman.js</a>, <a href="chronoman.js.html#line391">line 391</a>
     </li></ul></dd>
     
+
     
-    
-    
+
     
     <dt class="tag-see">See:</dt>
     <dd class="tag-see">
@@ -2275,23 +2549,25 @@
         </ul>
     </dd>
     
-    
+
     
 </dl>
 
-    
-    
 
-    
 
-    
-    
-    
-    
-    
-    <h5>Returns:</h5>
-    
-            
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
 <div class="param-desc">
     Reference to <code>this</code> object.
 </div>
@@ -2299,70 +2575,72 @@
 
 
 <dl>
-	<dt>
-		Type
-	</dt>
-	<dd>
-		
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
 <span class="param-type">Object</span>
 
 
-	</dd>
+    </dd>
 </dl>
 
-        
     
-    
-</dd>
+
+
 
         
             
-<dt>
-    <h4 class="name" id="setActive"><span class="type-signature"></span>setActive<span class="signature">(bActive)</span><span class="type-signature"> &rarr; {Object}</span></h4>
-    
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        Set or cancel timer usage.Depending of this schedules related action execution or cancels action execution.<br>Consecutive calling with <code>bActive = true</code> leads to related action execution delaying.
-    </div>
-    
 
     
+
+    <h4 class="name" id="setActive"><span class="type-signature"></span>setActive<span class="signature">(bActive)</span><span class="type-signature"> &rarr; {Object}</span></h4>
+
     
+
+
+
+<div class="description">
+    Set or cancel timer usage.Depending of this schedules related action execution or cancels action execution.<br>Consecutive calling with <code>bActive = true</code> leads to related action execution delaying.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
     
-    
-    
-        <h5>Parameters:</h5>
-        
 
 <table class="params">
     <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-		
-		<th>Type</th>
-		
-		
-		
-		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
         <tr>
             
                 <td class="name"><code>bActive</code></td>
             
-            
+
             <td class="type">
             
                 
@@ -2371,48 +2649,58 @@
 
             
             </td>
+
             
+
             
-            
-            
-            
+
             <td class="description last"><code>true</code> to schedule related action execution, <code>false</code> to cancel action execution.</td>
         </tr>
-	
-	
-	</tbody>
+
+    
+    </tbody>
 </table>
-    
-    
-    
+
+
+
+
+
+
 <dl class="details">
-    
-        
-    
-    
+
     
 
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
-    
+
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
         <a href="chronoman.js.html">chronoman.js</a>, <a href="chronoman.js.html#line303">line 303</a>
     </li></ul></dd>
     
+
     
-    
-    
+
     
     <dt class="tag-see">See:</dt>
     <dd class="tag-see">
@@ -2425,23 +2713,25 @@
         </ul>
     </dd>
     
-    
+
     
 </dl>
 
-    
-    
 
-    
 
-    
-    
-    
-    
-    
-    <h5>Returns:</h5>
-    
-            
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
 <div class="param-desc">
     Reference to <code>this</code> object.
 </div>
@@ -2449,70 +2739,72 @@
 
 
 <dl>
-	<dt>
-		Type
-	</dt>
-	<dd>
-		
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
 <span class="param-type">Object</span>
 
 
-	</dd>
+    </dd>
 </dl>
 
-        
     
-    
-</dd>
+
+
 
         
             
-<dt>
-    <h4 class="name" id="setPassToAction"><span class="type-signature"></span>setPassToAction<span class="signature">(bPass)</span><span class="type-signature"> &rarr; {Object}</span></h4>
-    
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        Set or cancel passing of timer instance into action function.
-    </div>
-    
 
     
+
+    <h4 class="name" id="setPassToAction"><span class="type-signature"></span>setPassToAction<span class="signature">(bPass)</span><span class="type-signature"> &rarr; {Object}</span></h4>
+
     
+
+
+
+<div class="description">
+    Set or cancel passing of timer instance into action function.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
     
-    
-    
-        <h5>Parameters:</h5>
-        
 
 <table class="params">
     <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-		
-		<th>Type</th>
-		
-		
-		
-		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
         <tr>
             
                 <td class="name"><code>bPass</code></td>
             
-            
+
             <td class="type">
             
                 
@@ -2521,48 +2813,58 @@
 
             
             </td>
+
             
+
             
-            
-            
-            
+
             <td class="description last"><code>true</code>, if the timer instance should be passed into action function,      <code>false</code>, if the instance should not be passed.</td>
         </tr>
-	
-	
-	</tbody>
+
+    
+    </tbody>
 </table>
-    
-    
-    
+
+
+
+
+
+
 <dl class="details">
-    
-        
-    
-    
+
     
 
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
-    
+
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
         <a href="chronoman.js.html">chronoman.js</a>, <a href="chronoman.js.html#line428">line 428</a>
     </li></ul></dd>
     
+
     
-    
-    
+
     
     <dt class="tag-see">See:</dt>
     <dd class="tag-see">
@@ -2571,23 +2873,25 @@
         </ul>
     </dd>
     
-    
+
     
 </dl>
 
-    
-    
 
-    
 
-    
-    
-    
-    
-    
-    <h5>Returns:</h5>
-    
-            
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
 <div class="param-desc">
     Reference to <code>this</code> object.
 </div>
@@ -2595,70 +2899,72 @@
 
 
 <dl>
-	<dt>
-		Type
-	</dt>
-	<dd>
-		
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
 <span class="param-type">Object</span>
 
 
-	</dd>
+    </dd>
 </dl>
 
-        
     
-    
-</dd>
+
+
 
         
             
-<dt>
-    <h4 class="name" id="setPeriod"><span class="type-signature"></span>setPeriod<span class="signature">(nPeriod)</span><span class="type-signature"> &rarr; {Object}</span></h4>
-    
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        Set time period that is used to schedule related action execution.
-    </div>
-    
 
     
+
+    <h4 class="name" id="setPeriod"><span class="type-signature"></span>setPeriod<span class="signature">(nPeriod)</span><span class="type-signature"> &rarr; {Object}</span></h4>
+
     
+
+
+
+<div class="description">
+    Set time period that is used to schedule related action execution.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
     
-    
-    
-        <h5>Parameters:</h5>
-        
 
 <table class="params">
     <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-		
-		<th>Type</th>
-		
-		
-		
-		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
         <tr>
             
                 <td class="name"><code>nPeriod</code></td>
             
-            
+
             <td class="type">
             
                 
@@ -2667,48 +2973,58 @@
 
             
             </td>
+
             
+
             
-            
-            
-            
+
             <td class="description last">Time period in milliseconds.</td>
         </tr>
-	
-	
-	</tbody>
+
+    
+    </tbody>
 </table>
-    
-    
-    
+
+
+
+
+
+
 <dl class="details">
-    
-        
-    
-    
+
     
 
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
-    
+
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
         <a href="chronoman.js.html">chronoman.js</a>, <a href="chronoman.js.html#line74">line 74</a>
     </li></ul></dd>
     
+
     
-    
-    
+
     
     <dt class="tag-see">See:</dt>
     <dd class="tag-see">
@@ -2717,23 +3033,25 @@
         </ul>
     </dd>
     
-    
+
     
 </dl>
 
-    
-    
 
-    
 
-    
-    
-    
-    
-    
-    <h5>Returns:</h5>
-    
-            
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
 <div class="param-desc">
     Reference to <code>this</code> object.
 </div>
@@ -2741,70 +3059,72 @@
 
 
 <dl>
-	<dt>
-		Type
-	</dt>
-	<dd>
-		
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
 <span class="param-type">Object</span>
 
 
-	</dd>
+    </dd>
 </dl>
 
-        
     
-    
-</dd>
+
+
 
         
             
-<dt>
-    <h4 class="name" id="setProperties"><span class="type-signature"></span>setProperties<span class="signature">(propMap)</span><span class="type-signature"> &rarr; {Object}</span></h4>
-    
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        Set timer properties.
-    </div>
-    
 
     
+
+    <h4 class="name" id="setProperties"><span class="type-signature"></span>setProperties<span class="signature">(propMap)</span><span class="type-signature"> &rarr; {Object}</span></h4>
+
     
+
+
+
+<div class="description">
+    Set timer properties.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
     
-    
-    
-        <h5>Parameters:</h5>
-        
 
 <table class="params">
     <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-		
-		<th>Type</th>
-		
-		
-		
-		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
         <tr>
             
                 <td class="name"><code>propMap</code></td>
             
-            
+
             <td class="type">
             
                 
@@ -2813,48 +3133,58 @@
 
             
             </td>
+
             
+
             
-            
-            
-            
+
             <td class="description last">Specifies property values. Keys are property names, their values are values of corresponding properties.     The following keys (properties) can be specified:     <table>         <tr>             <th>Name</th>             <th>Type</th>             <th>Description</th>         </tr>         <tr>             <td>action</td>             <td>Function</td>             <td>Related action that should be executed after time period is elapsed.</td>         </tr>         <tr>             <td>active</td>             <td>Boolean</td>             <td>Whether timer usage should be immediately started.</td>         </tr>         <tr>             <td>passToAction</td>             <td>Boolean</td>             <td>Whether the timer instance should be passed into action function when the function is called.</td>         </tr>         <tr>             <td>period</td>             <td>Integer</td>             <td>Time period in milliseconds that is used to schedule related action execution.</td>         </tr>         <tr>             <td>recurrent</td>             <td>Boolean</td>             <td>Whether related action should be executed repeatedly.</td>         </tr>         <tr>             <td>repeatQty</td>             <td>Integer</td>             <td>How many times related action should be repeated after first execution.</td>         </tr>         <tr>             <td>repeatTest</td>             <td>Function</td>             <td>Function that should be used to determine whether action execution should be repeated.</td>         </tr>     </table></td>
         </tr>
-	
-	
-	</tbody>
+
+    
+    </tbody>
 </table>
-    
-    
-    
+
+
+
+
+
+
 <dl class="details">
-    
-        
-    
-    
+
     
 
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
-    
+
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
         <a href="chronoman.js.html">chronoman.js</a>, <a href="chronoman.js.html#line492">line 492</a>
     </li></ul></dd>
     
+
     
-    
-    
+
     
     <dt class="tag-see">See:</dt>
     <dd class="tag-see">
@@ -2875,23 +3205,25 @@
         </ul>
     </dd>
     
-    
+
     
 </dl>
 
-    
-    
 
-    
 
-    
-    
-    
-    
-    
-    <h5>Returns:</h5>
-    
-            
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
 <div class="param-desc">
     Reference to <code>this</code> object.
 </div>
@@ -2899,70 +3231,72 @@
 
 
 <dl>
-	<dt>
-		Type
-	</dt>
-	<dd>
-		
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
 <span class="param-type">Object</span>
 
 
-	</dd>
+    </dd>
 </dl>
 
-        
     
-    
-</dd>
+
+
 
         
             
-<dt>
-    <h4 class="name" id="setRecurrent"><span class="type-signature"></span>setRecurrent<span class="signature">(bRecurrent)</span><span class="type-signature"> &rarr; {Object}</span></h4>
-    
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        Set or cancel repeating of related action execution.
-    </div>
-    
 
     
+
+    <h4 class="name" id="setRecurrent"><span class="type-signature"></span>setRecurrent<span class="signature">(bRecurrent)</span><span class="type-signature"> &rarr; {Object}</span></h4>
+
     
+
+
+
+<div class="description">
+    Set or cancel repeating of related action execution.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
     
-    
-    
-        <h5>Parameters:</h5>
-        
 
 <table class="params">
     <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-		
-		<th>Type</th>
-		
-		
-		
-		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
         <tr>
             
                 <td class="name"><code>bRecurrent</code></td>
             
-            
+
             <td class="type">
             
                 
@@ -2971,48 +3305,58 @@
 
             
             </td>
+
             
+
             
-            
-            
-            
+
             <td class="description last"><code>true</code>, if action should be executed repeatedly, <code>false</code>, if action repeating should be off.</td>
         </tr>
-	
-	
-	</tbody>
+
+    
+    </tbody>
 </table>
-    
-    
-    
+
+
+
+
+
+
 <dl class="details">
-    
-        
-    
-    
+
     
 
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
-    
+
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
         <a href="chronoman.js.html">chronoman.js</a>, <a href="chronoman.js.html#line111">line 111</a>
     </li></ul></dd>
     
+
     
-    
-    
+
     
     <dt class="tag-see">See:</dt>
     <dd class="tag-see">
@@ -3021,23 +3365,25 @@
         </ul>
     </dd>
     
-    
+
     
 </dl>
 
-    
-    
 
-    
 
-    
-    
-    
-    
-    
-    <h5>Returns:</h5>
-    
-            
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
 <div class="param-desc">
     Reference to <code>this</code> object.
 </div>
@@ -3045,70 +3391,72 @@
 
 
 <dl>
-	<dt>
-		Type
-	</dt>
-	<dd>
-		
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
 <span class="param-type">Object</span>
 
 
-	</dd>
+    </dd>
 </dl>
 
-        
     
-    
-</dd>
+
+
 
         
             
-<dt>
-    <h4 class="name" id="setRepeatQty"><span class="type-signature"></span>setRepeatQty<span class="signature">(nQty)</span><span class="type-signature"> &rarr; {Object}</span></h4>
-    
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        Set how many times related action should be repeated after first execution.
-    </div>
-    
 
     
+
+    <h4 class="name" id="setRepeatQty"><span class="type-signature"></span>setRepeatQty<span class="signature">(nQty)</span><span class="type-signature"> &rarr; {Object}</span></h4>
+
     
+
+
+
+<div class="description">
+    Set how many times related action should be repeated after first execution.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
     
-    
-    
-        <h5>Parameters:</h5>
-        
 
 <table class="params">
     <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-		
-		<th>Type</th>
-		
-		
-		
-		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
         <tr>
             
                 <td class="name"><code>nQty</code></td>
             
-            
+
             <td class="type">
             
                 
@@ -3117,48 +3465,58 @@
 
             
             </td>
+
             
+
             
-            
-            
-            
+
             <td class="description last">Value that indicates how many times related action should be repeated after first execution.</td>
         </tr>
-	
-	
-	</tbody>
+
+    
+    </tbody>
 </table>
-    
-    
-    
+
+
+
+
+
+
 <dl class="details">
-    
-        
-    
-    
+
     
 
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
-    
+
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
         <a href="chronoman.js.html">chronoman.js</a>, <a href="chronoman.js.html#line148">line 148</a>
     </li></ul></dd>
     
+
     
-    
-    
+
     
     <dt class="tag-see">See:</dt>
     <dd class="tag-see">
@@ -3167,23 +3525,25 @@
         </ul>
     </dd>
     
-    
+
     
 </dl>
 
-    
-    
 
-    
 
-    
-    
-    
-    
-    
-    <h5>Returns:</h5>
-    
-            
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
 <div class="param-desc">
     Reference to <code>this</code> object.
 </div>
@@ -3191,120 +3551,132 @@
 
 
 <dl>
-	<dt>
-		Type
-	</dt>
-	<dd>
-		
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
 <span class="param-type">Object</span>
 
 
-	</dd>
+    </dd>
 </dl>
 
-        
     
-    
-</dd>
+
+
 
         
             
-<dt>
-    <h4 class="name" id="setRepeatTest"><span class="type-signature"></span>setRepeatTest<span class="signature">(test)</span><span class="type-signature"> &rarr; {Object}</span></h4>
-    
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        Set the function that should be used to determine whether action execution should be repeated.
-    </div>
-    
 
     
+
+    <h4 class="name" id="setRepeatTest"><span class="type-signature"></span>setRepeatTest<span class="signature">(test)</span><span class="type-signature"> &rarr; {Object}</span></h4>
+
     
+
+
+
+<div class="description">
+    Set the function that should be used to determine whether action execution should be repeated.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
     
-    
-    
-        <h5>Parameters:</h5>
-        
 
 <table class="params">
     <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-		
-		<th>Type</th>
-		
-		
-		
-		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
         <tr>
             
                 <td class="name"><code>test</code></td>
             
-            
+
             <td class="type">
             
                 
-<span class="param-type">Function</span>
+<span class="param-type">function</span>
 
 
             
             </td>
+
             
+
             
-            
-            
-            
+
             <td class="description last">Function that should be used to determine whether action execution should be repeated.</td>
         </tr>
-	
-	
-	</tbody>
+
+    
+    </tbody>
 </table>
-    
-    
-    
+
+
+
+
+
+
 <dl class="details">
-    
-        
-    
-    
+
     
 
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
-    
+
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
         <a href="chronoman.js.html">chronoman.js</a>, <a href="chronoman.js.html#line189">line 189</a>
     </li></ul></dd>
     
+
     
-    
-    
+
     
     <dt class="tag-see">See:</dt>
     <dd class="tag-see">
@@ -3313,23 +3685,25 @@
         </ul>
     </dd>
     
-    
+
     
 </dl>
 
-    
-    
 
-    
 
-    
-    
-    
-    
-    
-    <h5>Returns:</h5>
-    
-            
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
 <div class="param-desc">
     Reference to <code>this</code> object.
 </div>
@@ -3337,72 +3711,74 @@
 
 
 <dl>
-	<dt>
-		Type
-	</dt>
-	<dd>
-		
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
 <span class="param-type">Object</span>
 
 
-	</dd>
+    </dd>
 </dl>
 
-        
     
-    
-</dd>
+
+
 
         
             
-<dt>
-    <h4 class="name" id="start"><span class="type-signature"></span>start<span class="signature">(<span class="optional">property</span>)</span><span class="type-signature"> &rarr; {Object}</span></h4>
-    
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        Start timer usage (make it active).
-    </div>
-    
 
     
+
+    <h4 class="name" id="start"><span class="type-signature"></span>start<span class="signature">(property<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Object}</span></h4>
+
     
+
+
+
+<div class="description">
+    Start timer usage (make it active).
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
     
-    
-    
-        <h5>Parameters:</h5>
-        
 
 <table class="params">
     <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-		
-		<th>Type</th>
-		
-		
-		<th>Argument</th>
-		
-		
-		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
         <tr>
             
                 <td class="name"><code>property</code></td>
             
-            
+
             <td class="type">
             
                 
@@ -3414,58 +3790,68 @@
 
             
             </td>
-            
+
             
                 <td class="attributes">
                 
                     &lt;optional><br>
                 
-                    
+
                 
-                    
+
                 
                 </td>
             
+
             
-            
-            
+
             <td class="description last">Time period in milliseconds that is used to schedule related action execution     (new value for <a href="module-chronoman-Timer.html#setPeriod">period</a> property)     or object that specifies new values for timer properties (see <a href="module-chronoman-Timer.html#setProperties">setProperties</a>).     The current value of <a href="module-chronoman-Timer.html#getPeriod">period</a> property is used by default.</td>
         </tr>
-	
-	
-	</tbody>
+
+    
+    </tbody>
 </table>
-    
-    
-    
+
+
+
+
+
+
 <dl class="details">
-    
-        
-    
-    
+
     
 
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
-    
+
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
         <a href="chronoman.js.html">chronoman.js</a>, <a href="chronoman.js.html#line333">line 333</a>
     </li></ul></dd>
     
+
     
-    
-    
+
     
     <dt class="tag-see">See:</dt>
     <dd class="tag-see">
@@ -3480,23 +3866,25 @@
         </ul>
     </dd>
     
-    
+
     
 </dl>
 
-    
-    
 
-    
 
-    
-    
-    
-    
-    
-    <h5>Returns:</h5>
-    
-            
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
 <div class="param-desc">
     Reference to <code>this</code> object.
 </div>
@@ -3504,72 +3892,83 @@
 
 
 <dl>
-	<dt>
-		Type
-	</dt>
-	<dd>
-		
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
 <span class="param-type">Object</span>
 
 
-	</dd>
+    </dd>
 </dl>
 
-        
     
-    
-</dd>
+
+
 
         
             
-<dt>
+
+    
+
     <h4 class="name" id="stop"><span class="type-signature"></span>stop<span class="signature">()</span><span class="type-signature"> &rarr; {Object}</span></h4>
-    
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        Stop timer usage (make it inactive).
-    </div>
-    
 
     
-    
-    
-    
-    
-    
-    
+
+
+
+<div class="description">
+    Stop timer usage (make it inactive).
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
 <dl class="details">
-    
-        
-    
-    
+
     
 
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
-    
+
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
         <a href="chronoman.js.html">chronoman.js</a>, <a href="chronoman.js.html#line353">line 353</a>
     </li></ul></dd>
     
+
     
-    
-    
+
     
     <dt class="tag-see">See:</dt>
     <dd class="tag-see">
@@ -3580,23 +3979,25 @@
         </ul>
     </dd>
     
-    
+
     
 </dl>
 
-    
-    
 
-    
 
-    
-    
-    
-    
-    
-    <h5>Returns:</h5>
-    
-            
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
 <div class="param-desc">
     Reference to <code>this</code> object.
 </div>
@@ -3604,100 +4005,112 @@
 
 
 <dl>
-	<dt>
-		Type
-	</dt>
-	<dd>
-		
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
 <span class="param-type">Object</span>
 
 
-	</dd>
+    </dd>
 </dl>
 
-        
     
-    
-</dd>
+
+
 
         
             
-<dt>
+
+    
+
     <h4 class="name" id="toString"><span class="type-signature"></span>toString<span class="signature">()</span><span class="type-signature"></span></h4>
-    
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        Convert object into string.
-    </div>
-    
 
     
-    
-    
-    
-    
-    
-    
+
+
+
+<div class="description">
+    Convert object into string.
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
 <dl class="details">
-    
-        
-    
-    
+
     
 
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
+
     
-    
+
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
         <a href="chronoman.js.html">chronoman.js</a>, <a href="chronoman.js.html#line607">line 607</a>
     </li></ul></dd>
     
+
     
+
     
-    
-    
-    
+
     
 </dl>
 
-    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
     
 
     
 
-    
-    
-    
-    
-    
-    
-    
-</dd>
-
-        </dl>
-    
-    
-    
-    
     
 </article>
 
-</section>  
+</section>
 
 
 
@@ -3705,13 +4118,13 @@
 </div>
 
 <nav>
-    <h2><a href="index.html">Index</a></h2><h3>Modules</h3><ul><li><a href="module-chronoman.html">chronoman</a></li></ul><h3>Classes</h3><ul><li><a href="module-chronoman-Timer.html">Timer</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-chronoman.html">chronoman</a></li></ul><h3>Classes</h3><ul><li><a href="module-chronoman-Timer.html">Timer</a></li></ul>
 </nav>
 
-<br clear="both">
+<br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.2.0</a> on Sun May 15 2016 14:13:15 GMT+0400 (MSK)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Mon Jul 11 2016 23:44:23 GMT+0300 (RTZ 2 (зима))
 </footer>
 
 <script> prettyPrint(); </script>
