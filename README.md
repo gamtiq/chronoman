@@ -31,7 +31,9 @@ Use `dist/chronoman.js` or `dist/chronoman.min.js` (minified version).
 
 ### ECMAScript 6/2015
 
+```js
 import Timer from "chronoman";
+```
 
 ### Node, JSPM
 

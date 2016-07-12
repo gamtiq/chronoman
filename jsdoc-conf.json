@@ -1,0 +1,15 @@
+{
+    "plugins": ["plugins/markdown"],
+
+    "markdown": {
+        "parser": "marked"
+    },
+    
+    "templates": {
+        "outputSourceFiles": true,
+        "systemName": "chronoman",
+        "copyright": "Copyright (c) 2013-2016 Denis Sikuler",
+        "theme": "spacelab",
+        "linenums": true
+    }
+}

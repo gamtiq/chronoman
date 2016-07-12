@@ -1,5 +1,7 @@
 module.exports = function(grunt) {
     
+    var matchdep = require("matchdep");
+    
     // Configuration
     grunt.initConfig({
         
@@ -41,9 +43,11 @@ module.exports = function(grunt) {
         
         jsdoc: {
             dist: {
-                src: ["chronoman.js"],
+                src: ["chronoman.js", "README.md"],
                 options: {
-                    destination: "doc"
+                    destination: "doc",
+                    template: "node_modules/ink-docstrap/template",
+                    configure: "jsdoc-conf.json"
                 }
             }
         },
@@ -80,12 +84,7 @@ module.exports = function(grunt) {
     });
     
     // Plugins
-    grunt.loadNpmTasks("grunt-contrib-jshint");
-    grunt.loadNpmTasks("grunt-contrib-uglify");
-    grunt.loadNpmTasks("grunt-babel");
-    grunt.loadNpmTasks("grunt-jsdoc");
-    grunt.loadNpmTasks("grunt-mocha-cli");
-    grunt.loadNpmTasks("grunt-umd");
+    matchdep.filterDev("grunt-*").forEach(grunt.loadNpmTasks);
     
     // Tasks
     grunt.registerTask("build", ["babel", "umd", "uglify"]);
