@@ -79,6 +79,17 @@ module.exports = function(grunt) {
         
         mochacli: {
             all: {}
+        },
+        
+        bump: {
+            options: {
+                files: ["package.json", "bower.json", "component.json"],
+                commitMessage: "Release version %VERSION%",
+                commitFiles: ["-a"],
+                tagName: "%VERSION%",
+                tagMessage: "Version %VERSION%",
+                pushTo: "origin"
+            }
         }
         
     });
@@ -92,4 +103,8 @@ module.exports = function(grunt) {
     grunt.registerTask("test", ["mochacli"]);
     grunt.registerTask("default", ["jshint", "test"]);
     grunt.registerTask("all", ["default", "build", "doc"]);
+    
+    grunt.registerTask("release", ["bump"]);
+    grunt.registerTask("release-minor", ["bump:minor"]);
+    grunt.registerTask("release-major", ["bump:major"]);
 };
