@@ -1,7 +1,7 @@
 {
   "name": "chronoman",
   "main": ["dist/chronoman.js", "dist/chronoman.min.js"],
-  "version": "0.1.0",
+  "version": "1.0.0",
   "homepage": "https://github.com/gamtiq/chronoman",
   "authors": [
     "Denis Sikuler"

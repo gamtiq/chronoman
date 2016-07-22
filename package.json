@@ -1,6 +1,6 @@
 {
   "name": "chronoman",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Utility class to simplify use of timers created by setTimeout",
   "main": "dist/chronoman.js",
   "jsnext:main": "chronoman.js",
