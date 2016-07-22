@@ -107,4 +107,7 @@ module.exports = function(grunt) {
     grunt.registerTask("release", ["bump"]);
     grunt.registerTask("release-minor", ["bump:minor"]);
     grunt.registerTask("release-major", ["bump:major"]);
+    
+    // For Travis CI service
+    grunt.registerTask("travis", ["all"]);
 };

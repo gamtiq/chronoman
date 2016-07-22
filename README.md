@@ -3,6 +3,7 @@
 Utility class to simplify use of timers created by setTimeout.
 
 [![NPM version](https://badge.fury.io/js/chronoman.png)](http://badge.fury.io/js/chronoman)
+[![Build Status](https://secure.travis-ci.org/gamtiq/chronoman.png?branch=master)](http://travis-ci.org/gamtiq/chronoman)
 [![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
 
 ## Installation
