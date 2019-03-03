@@ -45,16 +45,18 @@
 			</li>
 			
 		</ul>
-		<div class="col-sm-3 col-md-3">
-            <form class="navbar-form" role="search">
-                <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Search" name="q" id="search-input">
-                    <div class="input-group-btn">
-                        <button class="btn btn-default" id="search-submit"><i class="glyphicon glyphicon-search"></i></button>
+        
+            <div class="col-sm-3 col-md-3">
+                <form class="navbar-form" role="search">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search" name="q" id="search-input">
+                        <div class="input-group-btn">
+                            <button class="btn btn-default" id="search-submit"><i class="glyphicon glyphicon-search"></i></button>
+                        </div>
                     </div>
-                </div>
-            </form>
-        </div>
+                </form>
+            </div>
+        
 	</div>
 
 </div>
@@ -265,7 +267,7 @@
             
 <hr>
 <dt class="name" id="_action">
-    <h4><span class="type-signature">&lt;protected> </span>_action<span class="type-signature"> :function</span></h4>
+    <h4 id="_action"><span class="type-signature">&lt;protected> </span>_action<span class="type-signature"> :function</span></h4>
 
     
 </dt>
@@ -356,7 +358,7 @@ if <a href="module-chronoman-Timer.html#setPassToAction">passToAction</a> proper
             
 <hr>
 <dt class="name" id="_active">
-    <h4><span class="type-signature">&lt;protected> </span>_active<span class="type-signature"> :Boolean</span></h4>
+    <h4 id="_active"><span class="type-signature">&lt;protected> </span>_active<span class="type-signature"> :Boolean</span></h4>
 
     
 </dt>
@@ -444,7 +446,7 @@ if <a href="module-chronoman-Timer.html#setPassToAction">passToAction</a> proper
             
 <hr>
 <dt class="name" id="_executionQty">
-    <h4><span class="type-signature">&lt;protected> </span>_executionQty<span class="type-signature"> :Integer</span></h4>
+    <h4 id="_executionQty"><span class="type-signature">&lt;protected> </span>_executionQty<span class="type-signature"> :Integer</span></h4>
 
     
 </dt>
@@ -534,7 +536,7 @@ if <a href="module-chronoman-Timer.html#setPassToAction">passToAction</a> proper
             
 <hr>
 <dt class="name" id="_passToAction">
-    <h4><span class="type-signature">&lt;protected> </span>_passToAction<span class="type-signature"> :Boolean</span></h4>
+    <h4 id="_passToAction"><span class="type-signature">&lt;protected> </span>_passToAction<span class="type-signature"> :Boolean</span></h4>
 
     
 </dt>
@@ -622,7 +624,7 @@ if <a href="module-chronoman-Timer.html#setPassToAction">passToAction</a> proper
             
 <hr>
 <dt class="name" id="_period">
-    <h4><span class="type-signature">&lt;protected> </span>_period<span class="type-signature"> :Integer</span></h4>
+    <h4 id="_period"><span class="type-signature">&lt;protected> </span>_period<span class="type-signature"> :Integer</span></h4>
 
     
 </dt>
@@ -713,7 +715,7 @@ A related action will be executed when the period is elapsed.</p>
             
 <hr>
 <dt class="name" id="_recurrent">
-    <h4><span class="type-signature">&lt;protected> </span>_recurrent<span class="type-signature"> :Boolean</span></h4>
+    <h4 id="_recurrent"><span class="type-signature">&lt;protected> </span>_recurrent<span class="type-signature"> :Boolean</span></h4>
 
     
 </dt>
@@ -803,7 +805,7 @@ A related action will be executed when the period is elapsed.</p>
             
 <hr>
 <dt class="name" id="_repeatQty">
-    <h4><span class="type-signature">&lt;protected> </span>_repeatQty<span class="type-signature"> :Integer</span></h4>
+    <h4 id="_repeatQty"><span class="type-signature">&lt;protected> </span>_repeatQty<span class="type-signature"> :Integer</span></h4>
 
     
 </dt>
@@ -893,7 +895,7 @@ A related action will be executed when the period is elapsed.</p>
             
 <hr>
 <dt class="name" id="_repeatTest">
-    <h4><span class="type-signature">&lt;protected> </span>_repeatTest<span class="type-signature"> :function</span></h4>
+    <h4 id="_repeatTest"><span class="type-signature">&lt;protected> </span>_repeatTest<span class="type-signature"> :function</span></h4>
 
     
 </dt>
@@ -987,7 +989,7 @@ The timer instance to which the test is associated will be passed as function's 
             
 <hr>
 <dt class="name" id="_timeoutId">
-    <h4><span class="type-signature">&lt;protected> </span>_timeoutId<span class="type-signature"> :Integer</span></h4>
+    <h4 id="_timeoutId"><span class="type-signature">&lt;protected> </span>_timeoutId<span class="type-signature"> :Integer</span></h4>
 
     
 </dt>
@@ -1077,7 +1079,7 @@ The timer instance to which the test is associated will be passed as function's 
             
 <hr>
 <dt class="name" id="onExecute">
-    <h4><span class="type-signature"></span>onExecute<span class="type-signature"> :function</span></h4>
+    <h4 id="onExecute"><span class="type-signature"></span>onExecute<span class="type-signature"> :function</span></h4>
 
     
 </dt>
@@ -4544,32 +4546,34 @@ Consecutive calling with <code>bActive = true</code> leads to related action exe
 </div>
 </div>
 
-<div class="modal fade" id="searchResults">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title">Search results</h4>
-      </div>
-      <div class="modal-body"></div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
-    </div><!-- /.modal-content -->
-  </div><!-- /.modal-dialog -->
-</div>
+
+    <div class="modal fade" id="searchResults">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Search results</h4>
+          </div>
+          <div class="modal-body"></div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div>
+
 
 <footer>
 
 
 	<span class="copyright">
-	Copyright (c) 2013-2016 Denis Sikuler
+	Copyright (c) 2013-2019 Denis Sikuler
 	</span>
 
 <span class="jsdoc-message">
-	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a>
+	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a>
 	
-		on 2016-07-19T00:18:33+03:00
+		on 2019-03-03T16:33:18+03:00
 	
 	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
 </span>
@@ -4577,7 +4581,9 @@ Consecutive calling with <code>bActive = true</code> leads to related action exe
 
 <script src="scripts/docstrap.lib.js"></script>
 <script src="scripts/toc.js"></script>
-<script type="text/javascript" src="scripts/fulltext-search-ui.js"></script>
+
+    <script type="text/javascript" src="scripts/fulltext-search-ui.js"></script>
+
 
 <script>
 $( function () {
@@ -4587,7 +4593,7 @@ $( function () {
 		$this.attr( "id", $this.attr( "id" ).replace( "$", "__" ) );
 	} );
 
-	$( ".tutorial-section pre, .readme-section pre" ).each( function () {
+	$( ".tutorial-section pre, .readme-section pre, pre.prettyprint.source" ).each( function () {
 		var $this = $( this );
 
 		var example = $this.find( "code" );
@@ -4623,8 +4629,7 @@ $( function () {
 	} );
 	$( "#toc" ).toc( {
 		anchorName  : function ( i, heading, prefix ) {
-			var id = $( heading ).attr( "id" );
-			return id && id.replace(/\~/g, '-inner-').replace(/\./g, '-static-') || ( prefix + i );
+			return $( heading ).attr( "id" ) || ( prefix + i );
 		},
 		selectors   : "#toc-content h1,#toc-content h2,#toc-content h3,#toc-content h4",
 		showAndHide : false,
@@ -4650,11 +4655,13 @@ $( function () {
 <!--Google Analytics-->
 
 
-<script type="text/javascript">
-	$(document).ready(function() {
-		SearcherDisplay.init();
-	});
-</script>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            SearcherDisplay.init();
+        });
+    </script>
+
 
 </body>
 </html>

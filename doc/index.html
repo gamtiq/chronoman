@@ -45,16 +45,18 @@
 			</li>
 			
 		</ul>
-		<div class="col-sm-3 col-md-3">
-            <form class="navbar-form" role="search">
-                <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Search" name="q" id="search-input">
-                    <div class="input-group-btn">
-                        <button class="btn btn-default" id="search-submit"><i class="glyphicon glyphicon-search"></i></button>
+        
+            <div class="col-sm-3 col-md-3">
+                <form class="navbar-form" role="search">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search" name="q" id="search-input">
+                        <div class="input-group-btn">
+                            <button class="btn btn-default" id="search-submit"><i class="glyphicon glyphicon-search"></i></button>
+                        </div>
                     </div>
-                </div>
-            </form>
-        </div>
+                </form>
+            </div>
+        
 	</div>
 
 </div>
@@ -93,11 +95,10 @@
     <section class="readme-section">
         <article><h1>chronoman</h1><p>Utility class to simplify use of timers created by setTimeout.</p>
 <p><a href="http://badge.fury.io/js/chronoman"><img src="https://badge.fury.io/js/chronoman.png" alt="NPM version"></a>
+<a href="http://travis-ci.org/gamtiq/chronoman"><img src="https://secure.travis-ci.org/gamtiq/chronoman.png?branch=master" alt="Build Status"></a>
 <a href="http://gruntjs.com/"><img src="https://cdn.gruntjs.com/builtwith.png" alt="Built with Grunt"></a></p>
-<h2>Installation</h2><h3>Node</h3><pre class="prettyprint source"><code>npm install chronoman</code></pre><h3><a href="http://jspm.io">JSPM</a></h3><pre class="prettyprint source"><code>jspm install chronoman</code></pre><h3><a href="http://bower.io">Bower</a></h3><pre class="prettyprint source"><code>bower install chronoman</code></pre><h3><a href="http://jamjs.org">Jam</a></h3><pre class="prettyprint source"><code>jam install chronoman</code></pre><h3>AMD, &lt;script&gt;</h3><p>Use <code>dist/chronoman.js</code> or <code>dist/chronoman.min.js</code> (minified version).</p>
-<h2>Usage</h2><h3>ECMAScript 6/2015</h3><pre class="prettyprint source lang-js"><code>import Timer from &quot;chronoman&quot;;</code></pre><h3>Node, JSPM</h3><pre class="prettyprint source lang-js"><code>var Timer = require(&quot;chronoman&quot;);</code></pre><h3><a href="http://duojs.org">Duo</a></h3><pre class="prettyprint source lang-js"><code>var Timer = require(&quot;gamtiq/chronoman&quot;);</code></pre><h3>JSPM</h3><pre class="prettyprint source lang-js"><code>System.import(&quot;chronoman&quot;).then(function(Timer) {
-    ...
-});</code></pre><h3>Jam</h3><pre class="prettyprint source lang-js"><code>require([&quot;chronoman&quot;], function(Timer) {
+<h2>Installation</h2><h3>Node</h3><pre class="prettyprint source"><code>npm install chronoman</code></pre><h3><a href="http://jspm.io">JSPM</a></h3><pre class="prettyprint source"><code>jspm install chronoman</code></pre><h3><a href="http://bower.io">Bower</a></h3><pre class="prettyprint source"><code>bower install chronoman</code></pre><h3>AMD, &lt;script&gt;</h3><p>Use <code>dist/chronoman.js</code> or <code>dist/chronoman.min.js</code> (minified version).</p>
+<h2>Usage</h2><h3>ECMAScript 6/2015</h3><pre class="prettyprint source lang-js"><code>import Timer from &quot;chronoman&quot;;</code></pre><h3>Node, JSPM</h3><pre class="prettyprint source lang-js"><code>var Timer = require(&quot;chronoman&quot;);</code></pre><h3>JSPM</h3><pre class="prettyprint source lang-js"><code>System.import(&quot;chronoman&quot;).then(function(Timer) {
     ...
 });</code></pre><h3>AMD</h3><pre class="prettyprint source lang-js"><code>define([&quot;path/to/dist/chronoman.js&quot;], function(Timer) {
     ...
@@ -140,7 +141,7 @@ tmrThree.onExecute = function() {
 
 tmrTwo.start();</code></pre><h2>API</h2><p>See <code>doc</code> folder.</p>
 <h2>Inspiration</h2><p>This module is inspired by <a href="http://qooxdoo.org">qooxdoo</a>'s <code>qx.event.Timer</code> class.</p>
-<h2>Licence</h2><p>Copyright (c) 2013-2016 Denis Sikuler<br>Licensed under the MIT license.</p></article>
+<h2>Licence</h2><p>Copyright (c) 2013-2019 Denis Sikuler<br>Licensed under the MIT license.</p></article>
     </section>
 
 
@@ -163,32 +164,34 @@ tmrTwo.start();</code></pre><h2>API</h2><p>See <code>doc</code> folder.</p>
 </div>
 </div>
 
-<div class="modal fade" id="searchResults">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title">Search results</h4>
-      </div>
-      <div class="modal-body"></div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
-    </div><!-- /.modal-content -->
-  </div><!-- /.modal-dialog -->
-</div>
+
+    <div class="modal fade" id="searchResults">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Search results</h4>
+          </div>
+          <div class="modal-body"></div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div>
+
 
 <footer>
 
 
 	<span class="copyright">
-	Copyright (c) 2013-2016 Denis Sikuler
+	Copyright (c) 2013-2019 Denis Sikuler
 	</span>
 
 <span class="jsdoc-message">
-	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a>
+	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a>
 	
-		on 2016-07-19T00:18:33+03:00
+		on 2019-03-03T16:33:18+03:00
 	
 	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
 </span>
@@ -196,7 +199,9 @@ tmrTwo.start();</code></pre><h2>API</h2><p>See <code>doc</code> folder.</p>
 
 <script src="scripts/docstrap.lib.js"></script>
 <script src="scripts/toc.js"></script>
-<script type="text/javascript" src="scripts/fulltext-search-ui.js"></script>
+
+    <script type="text/javascript" src="scripts/fulltext-search-ui.js"></script>
+
 
 <script>
 $( function () {
@@ -206,7 +211,7 @@ $( function () {
 		$this.attr( "id", $this.attr( "id" ).replace( "$", "__" ) );
 	} );
 
-	$( ".tutorial-section pre, .readme-section pre" ).each( function () {
+	$( ".tutorial-section pre, .readme-section pre, pre.prettyprint.source" ).each( function () {
 		var $this = $( this );
 
 		var example = $this.find( "code" );
@@ -242,8 +247,7 @@ $( function () {
 	} );
 	$( "#toc" ).toc( {
 		anchorName  : function ( i, heading, prefix ) {
-			var id = $( heading ).attr( "id" );
-			return id && id.replace(/\~/g, '-inner-').replace(/\./g, '-static-') || ( prefix + i );
+			return $( heading ).attr( "id" ) || ( prefix + i );
 		},
 		selectors   : "#toc-content h1,#toc-content h2,#toc-content h3,#toc-content h4",
 		showAndHide : false,
@@ -269,11 +273,13 @@ $( function () {
 <!--Google Analytics-->
 
 
-<script type="text/javascript">
-	$(document).ready(function() {
-		SearcherDisplay.init();
-	});
-</script>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            SearcherDisplay.init();
+        });
+    </script>
+
 
 </body>
 </html>
