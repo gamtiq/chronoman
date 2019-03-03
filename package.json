@@ -4,6 +4,7 @@
   "description": "Utility class to simplify use of timers created by setTimeout",
   "main": "dist/chronoman.js",
   "jsnext:main": "chronoman.js",
+  "types": "./index.d.ts",
   "scripts": {
     "test": "grunt test"
   },
