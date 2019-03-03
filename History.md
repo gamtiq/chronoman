@@ -1,3 +1,8 @@
+### 1.1.0 / 2019-03-03
+
+* remove Jam support
+* add types declaration file
+
 ### 1.0.0 / 2016-07-23
 
 * add `repeatQty` and `repeatTest` properties to customize ability to repeat action
