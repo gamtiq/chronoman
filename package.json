@@ -22,7 +22,10 @@
     "periodic",
     "management",
     "utility",
-    "chrono"
+    "chrono",
+    "run",
+    "execute",
+    "action"
   ],
   "author": "Denis Sikuler",
   "license": "MIT",
@@ -43,11 +46,5 @@
     "grunt-umd": "~1.7.0",
     "ink-docstrap": "^1.2.1",
     "matchdep": "^1.0.1"
-  },
-  "jam": {
-    "main": "dist/chronoman.js"
-  },
-  "categories": [
-    "Utilities"
-  ]
+  }
 }

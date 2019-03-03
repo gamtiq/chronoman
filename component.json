@@ -14,7 +14,10 @@
 	    "periodic",
 	    "management",
 	    "utility",
-	    "chrono"
+	    "chrono",
+        "run",
+        "execute",
+        "action"
     ],
     "dependencies": {},
     "development": {},

@@ -8,7 +8,7 @@
     "templates": {
         "outputSourceFiles": true,
         "systemName": "chronoman",
-        "copyright": "Copyright (c) 2013-2016 Denis Sikuler",
+        "copyright": "Copyright (c) 2013-2019 Denis Sikuler",
         "theme": "spacelab",
         "linenums": true
     }

@@ -18,7 +18,10 @@
     "periodic",
     "management",
     "utility",
-    "chrono"
+    "chrono",
+    "run",
+    "execute",
+    "action"
   ],
   "license": "MIT",
   "ignore": [

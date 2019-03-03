@@ -20,10 +20,6 @@ Utility class to simplify use of timers created by setTimeout.
 
     bower install chronoman
 
-### [Jam](http://jamjs.org)
-
-    jam install chronoman
-
 ### AMD, &lt;script&gt;
 
 Use `dist/chronoman.js` or `dist/chronoman.min.js` (minified version).
@@ -42,24 +38,10 @@ import Timer from "chronoman";
 var Timer = require("chronoman");
 ```
 
-### [Duo](http://duojs.org)
-
-```js
-var Timer = require("gamtiq/chronoman");
-```
-
 ### JSPM
 
 ```js
 System.import("chronoman").then(function(Timer) {
-    ...
-});
-```
-
-### Jam
-
-```js
-require(["chronoman"], function(Timer) {
     ...
 });
 ```
@@ -131,5 +113,5 @@ This module is inspired by [qooxdoo](http://qooxdoo.org)'s `qx.event.Timer` clas
 
 ## Licence
 
-Copyright (c) 2013-2016 Denis Sikuler  
+Copyright (c) 2013-2019 Denis Sikuler  
 Licensed under the MIT license.
