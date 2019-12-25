@@ -7,9 +7,10 @@ export = Timer;
 declare class Timer {
     constructor(initValue?: Timer.Properties);
 
-    protected _period: number | null;
-    getPeriod(): number | null;
-    setPeriod(period: number | null): Timer;
+    protected _period: Timer.Period | null;
+    getPeriod(): Timer.Period | null;
+    setPeriod(period: Timer.Period | null): Timer;
+    getPeriodValue(): number;
 
     protected _recurrent: boolean;
     isRecurrent(): boolean;
@@ -23,11 +24,15 @@ declare class Timer {
     getRepeatTest(): Timer.RepeatTest | null;
     setRepeatTest(test: Timer.RepeatTest | null): Timer;
 
+    protected _data: any;
+    getData(): any;
+    setData(data: any): Timer;
+
     protected _executionQty: number;
     getExecutionQty(): number;
 
     protected _timeoutId: number | null;
-    protected _setTimeout(): Timer;
+    protected _setTimeout(timeout?: number): Timer;
     protected _clearTimeout(): Timer;
 
     protected _active: boolean;
@@ -47,7 +52,7 @@ declare class Timer {
 
     setProperties(propMap: Timer.Properties): Timer;
 
-    onExecute: Timer.Action | null;
+    onExecute: Timer.ActionFunction | null;
 
     execute(): Timer;
 
@@ -57,15 +62,29 @@ declare class Timer {
 }
 
 declare namespace Timer {
-    export type Action = (timer?: Timer) => any;
+    export type ActionFunction = (timer?: Timer) => any;
 
-    export type RepeatTest = (timer: Timer) => boolean;
+    export interface ActionObject {
+        execute: ActionFunction;
+        [field: string]: any;
+    }
+
+    export type Action = ActionFunction | ActionObject;
+
+    export type PeriodValue = number | number[];
+
+    export type PeriodFunction = (timer?: Timer) => PeriodValue;
+
+    export type Period = PeriodValue | PeriodFunction;
+
+    export type RepeatTest = (timer: Timer) => boolean | number;
 
     export interface Properties {
         action?: Action;
         active?: boolean;
+        data?: any;
         passToAction?: boolean;
-        period?: number;
+        period?: Period;
         recurrent?: boolean;
         repeatQty?: number;
         repeatTest?: RepeatTest;

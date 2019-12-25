@@ -27,6 +27,38 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
  * @author Denis Sikuler
  */
 
+if (!Array.isArray) {
+    Array.isArray = function (value) {
+        return Object.prototype.toString.call(value) === "[object Array]";
+    };
+}
+
+/**
+ * @callback module:chronoman~GetPeriodValue
+ * @param {module:chronoman~Timer} [timer]
+ * @return {Integer | Integer[]}
+ */
+
+/**
+ * Value determining time period in milliseconds that is used to schedule related action execution.
+ *
+ * @typedef {Integer | Integer[] | module:chronoman~GetPeriodValue} module:chronoman~PeriodValue
+ */
+
+/**
+ * Object describing action that should be executed after time period is elapsed.
+ *
+ * @typedef {Object} module:chronoman~ActionObject
+ * @property {Function} execute
+ *      Function that should be executed.
+ */
+
+/**
+ * Action that should be executed after time period is elapsed.
+ *
+ * @typedef {Function | module:chronoman~ActionObject} module:chronoman~Action
+ */
+
 /**
  * Utility class to simplify use of timers created by setTimeout.
  * 
@@ -60,21 +92,33 @@ var Timer = function Timer(initValue) {
 };
 
 /**
- * Time period in milliseconds.
+ * Time period in milliseconds, array of periods or function that returns period or array of periods.
  * A related action will be executed when the period is elapsed.
+ * <br>
+ * When array of periods is set the used period is selected in the following way:
+ * first array item (with index 0) specifies period before first action's execution,
+ * second array item (with index 1) specifies period before second action's execution,
+ * and so on.
+ * When quantity of action executions is more than array's length
+ * the last item of array is used as period for subsequent executions.
+ * <br>
+ * When function is set its returned value is used to determine next period.
+ * The timer instance to which the function is associated will be passed as function's parameter.
+ * When function returns an array of periods the array is used to select period before next execution
+ * according to rules described above.
  *
  * @protected
- * @type {Integer}
+ * @type {module:chronoman~PeriodValue}
  * @see {@link module:chronoman~Timer#execute execute}
  * @see {@link module:chronoman~Timer#setActive setActive}
  */
 Timer.prototype._period = null;
 
 /**
- * Return time period that is used to schedule related action execution.
+ * Return value determining time period that is used to schedule related action execution.
  *
- * @return {Integer}
- *      Time period in milliseconds.
+ * @return {module:chronoman~PeriodValue}
+ *      Value determining time period.
  * @method
  * @see {@link module:chronoman~Timer#_period _period}
  */
@@ -83,18 +127,41 @@ Timer.prototype.getPeriod = function () {
 };
 
 /**
- * Set time period that is used to schedule related action execution.
+ * Set value determining time period that is used to schedule related action execution.
  *
- * @param {Integer} nPeriod
- *      Time period in milliseconds.
+ * @param {module:chronoman~PeriodValue} period
+ *      Value determining time period.
  * @return {Object}
  *      Reference to <code>this</code> object.
  * @method
  * @see {@link module:chronoman~Timer#_period _period}
  */
-Timer.prototype.setPeriod = function (nPeriod) {
-    this._period = nPeriod;
+Timer.prototype.setPeriod = function (period) {
+    this._period = period;
     return this;
+};
+
+/**
+ * Return time period that will be used to schedule related action execution.
+ *
+ * @return {Integer}
+ *      Time period in milliseconds.
+ * @method
+ * @see {@link module:chronoman~Timer#_period _period}
+ * @see {@link module:chronoman~Timer#getPeriod getPeriod}
+ * @see {@link module:chronoman~Timer#getExecutionQty getExecutionQty}
+ */
+Timer.prototype.getPeriodValue = function () {
+    var execQty;
+    var period = this.getPeriod();
+    if (typeof period === "function") {
+        period = period(this);
+    }
+    if (Array.isArray(period)) {
+        execQty = this.getExecutionQty();
+        period = period[execQty < period.length ? execQty : period.length - 1];
+    }
+    return period;
 };
 
 /**
@@ -172,9 +239,11 @@ Timer.prototype.setRepeatQty = function (nQty) {
 };
 
 /**
- * Specifies function that should be called after first action execution to determine
+ * Specifies function that should be called after action execution to determine
  * whether execution should be repeated.
- * If the function returns a true value it means that execution will be repeated.
+ * If the function returns a true value or non-negative number it means that execution will be repeated.
+ * When the function returns non-negative number this number will be used
+ * as time period in milliseconds to schedule next action execution.
  * <br>
  * The timer instance to which the test is associated will be passed as function's parameter.
  *
@@ -213,6 +282,41 @@ Timer.prototype.setRepeatTest = function (test) {
 };
 
 /**
+ * Auxiliary data associated with the timer instance.
+ *
+ * @protected
+ * @type {*}
+ */
+Timer.prototype._data = null;
+
+/**
+ * Return auxiliary data associated with the timer instance.
+ *
+ * @return {*}
+ *      Auxiliary data associated with the timer instance.
+ * @method
+ * @see {@link module:chronoman~Timer#_data _data}
+ */
+Timer.prototype.getData = function () {
+    return this._data;
+};
+
+/**
+ * Set auxiliary data associated with the timer instance.
+ *
+ * @param {*} data
+ *      Auxiliary data associated with the timer instance.
+ * @return {Object}
+ *      Reference to <code>this</code> object.
+ * @method
+ * @see {@link module:chronoman~Timer#_data _data}
+ */
+Timer.prototype.setData = function (data) {
+    this._data = data;
+    return this;
+};
+
+/**
  * Specifies how many times action was executed.
  *
  * @protected
@@ -247,6 +351,10 @@ Timer.prototype._timeoutId = null;
 /**
  * Schedule related action execution.
  *
+ * @param {Integer} [nTimeout]
+ *      Time period in milliseconds that is used to schedule action execution.
+ *      By default the current value of {@link module:chronoman~Timer#getPeriod period} property is used
+ *      to determine time period.
  * @return {Object}
  *      Reference to <code>this</code> object.
  * @method
@@ -255,14 +363,19 @@ Timer.prototype._timeoutId = null;
  * @see {@link module:chronoman~Timer#_onTimeoutEnd _onTimeoutEnd}
  * @see {@link module:chronoman~Timer#_timeoutId _timeoutId}
  * @see {@link module:chronoman~Timer#execute execute}
- * @see {@link module:chronoman~Timer#getPeriod getPeriod}
+ * @see {@link module:chronoman~Timer#getPeriodValue getPeriodValue}
  */
-Timer.prototype._setTimeout = function () {
+Timer.prototype._setTimeout = function (nTimeout) {
     "use strict";
 
-    var nPeriod = this.getPeriod();
-    if (typeof nPeriod === "number") {
-        this._timeoutId = setTimeout(this._onTimeoutEnd, nPeriod);
+    var period;
+    if (typeof nTimeout === "number") {
+        period = nTimeout;
+    } else {
+        period = this.getPeriodValue();
+    }
+    if (typeof period === "number") {
+        this._timeoutId = setTimeout(this._onTimeoutEnd, period);
     }
     return this;
 };
@@ -341,7 +454,7 @@ Timer.prototype.setActive = function (bActive) {
 /**
  * Start timer usage (make it active).
  *
- * @param {Integer | Object} [property]
+ * @param {module:chronoman~PeriodValue | Object} [property]
  *      Time period in milliseconds that is used to schedule related action execution
  *      (new value for {@link module:chronoman~Timer#setPeriod period} property)
  *      or object that specifies new values for timer properties (see {@link module:chronoman~Timer#setProperties setProperties}).
@@ -357,9 +470,10 @@ Timer.prototype.setActive = function (bActive) {
 Timer.prototype.start = function (property) {
     "use strict";
 
-    if (typeof property === "number") {
+    var propType = typeof property === "undefined" ? "undefined" : _typeof(property);
+    if (propType === "number" || propType === "function" || Array.isArray(property)) {
         this.setPeriod(property);
-    } else if (property && (typeof property === "undefined" ? "undefined" : _typeof(property)) === "object") {
+    } else if (property && propType === "object") {
         this.setProperties(property);
     }
     return this.setActive(true);
@@ -381,19 +495,21 @@ Timer.prototype.stop = function () {
 /**
  * Related action that should be executed after time period is elapsed.
  * <br>
- * The timer instance to which the action is associated will be passed as function's parameter
+ * Can be a function or an object having <code>execute</code> method.
+ * <br>
+ * The timer instance to which the action is associated will be passed as function's/method's parameter
  * if {@link module:chronoman~Timer#setPassToAction passToAction} property is set to <code>true</code>.
  *
  * @protected
- * @type {Function}
+ * @type {module:chronoman~Action}
  * @see {@link module:chronoman~Timer#execute execute}
  */
 Timer.prototype._action = null;
 
 /**
- * Return function that represents action.
+ * Return value that represents action.
  *
- * @return {Function}
+ * @return {module:chronoman~Action}
  *      Function that represents action.
  * @method
  * @see {@link module:chronoman~Timer#_action _action}
@@ -403,10 +519,10 @@ Timer.prototype.getAction = function () {
 };
 
 /**
- * Set function which represents action that should be executed after time period is elapsed.
+ * Set value which represents action that should be executed after time period is elapsed.
  *
- * @param {Function} action
- *      Function that represents action.
+ * @param {module:chronoman~Action} action
+ *      Value that represents action.
  * @return {Object}
  *      Reference to <code>this</code> object.
  * @method
@@ -477,14 +593,19 @@ Timer.prototype.setPassToAction = function (bPass) {
  *              <td>Whether timer usage should be immediately started.</td>
  *          </tr>
  *          <tr>
+ *              <td>data</td>
+ *              <td>Any</td>
+ *              <td>Auxiliary data associated with the timer instance.</td>
+ *          </tr>
+ *          <tr>
  *              <td>passToAction</td>
  *              <td>Boolean</td>
  *              <td>Whether the timer instance should be passed into action function when the function is called.</td>
  *          </tr>
  *          <tr>
  *              <td>period</td>
- *              <td>Integer</td>
- *              <td>Time period in milliseconds that is used to schedule related action execution.</td>
+ *              <td>module:chronoman~PeriodValue</td>
+ *              <td>Value determining time period in milliseconds that is used to schedule related action execution.</td>
  *          </tr>
  *          <tr>
  *              <td>recurrent</td>
@@ -507,6 +628,7 @@ Timer.prototype.setPassToAction = function (bPass) {
  * @method
  * @see {@link module:chronoman~Timer#setAction setAction}
  * @see {@link module:chronoman~Timer#setActive setActive}
+ * @see {@link module:chronoman~Timer#setData setData}
  * @see {@link module:chronoman~Timer#setPassToAction setPassToAction}
  * @see {@link module:chronoman~Timer#setPeriod setPeriod}
  * @see {@link module:chronoman~Timer#setRecurrent setRecurrent}
@@ -535,6 +657,9 @@ Timer.prototype.setProperties = function (propMap) {
         }
         if ("passToAction" in propMap) {
             this.setPassToAction(propMap.passToAction);
+        }
+        if ("data" in propMap) {
+            this.setData(propMap.data);
         }
     }
     return this;
@@ -584,18 +709,23 @@ Timer.prototype.execute = function () {
     var action = this.getAction(),
         bPassToAction = this.isPassToAction(),
         repeatTest = this.getRepeatTest(),
-        bActive;
+        bActive,
+        period;
     this._clearTimeout();
     if (action) {
-        bPassToAction ? action(this) : action();
+        if (typeof action === "function") {
+            bPassToAction ? action(this) : action();
+        } else if (typeof action.execute === "function") {
+            bPassToAction ? action.execute(this) : action.execute();
+        }
     }
     if (typeof this.onExecute === "function") {
         bPassToAction ? this.onExecute(this) : this.onExecute();
     }
     this._executionQty++;
     bActive = this.isActive();
-    if (bActive && (this.isRecurrent() || this.getRepeatQty() >= this._executionQty || repeatTest && repeatTest(this))) {
-        this._setTimeout();
+    if (bActive && (this.isRecurrent() || this.getRepeatQty() >= this._executionQty || repeatTest && ((period = repeatTest(this)) || period === 0) && (typeof period !== "number" || period >= 0))) {
+        this._setTimeout(period);
     } else if (bActive && !this._timeoutId) {
         this._active = false;
     }
@@ -611,7 +741,7 @@ Timer.prototype.dispose = function () {
     "use strict";
 
     this._clearTimeout();
-    this._action = this._repeatTest = this.onExecute = null;
+    this._action = this._data = this._period = this._repeatTest = this.onExecute = null;
 };
 
 /**
@@ -622,7 +752,8 @@ Timer.prototype.dispose = function () {
 Timer.prototype.toString = function () {
     "use strict";
 
-    return ["Timer: ", "active - ", this.isActive(), ", period - ", this.getPeriod(), ", recurrent - ", this.isRecurrent(), ", repeat qty - ", this.getRepeatQty(), ", repeat test - ", this.getRepeatTest() ? "specified" : "no", ", pass to action - ", this.isPassToAction(), ", action - ", this.getAction() ? "specified" : "no", ", execution qty - ", this.getExecutionQty()].join("");
+    var period = this.getPeriod();
+    return ["Timer: ", "active - ", this.isActive(), ", period - ", typeof period === "function" ? "function" : period, ", recurrent - ", this.isRecurrent(), ", repeat qty - ", this.getRepeatQty(), ", repeat test - ", this.getRepeatTest() ? "specified" : "no", ", pass to action - ", this.isPassToAction(), ", action - ", this.getAction() ? "specified" : "no", ", execution qty - ", this.getExecutionQty(), ", data - ", this.getData()].join("");
 };
 
 // Exports

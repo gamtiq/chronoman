@@ -1,6 +1,20 @@
 # chronoman
 
-Utility class to simplify use of timers created by setTimeout.
+Utility class to simplify use of timers created by `setTimeout`.
+
+```js
+var timer = new Timer({
+    period: [100, 200, 300, 400, 500],
+    repeatQty: 100,
+    passToAction: true,
+    action: function(tmr) {
+        console.log("#", tmr.getExecutionQty() + 1, ":", new Date());
+    },
+    active: true
+});
+...
+timer.stop();
+```
 
 [![NPM version](https://badge.fury.io/js/chronoman.png)](http://badge.fury.io/js/chronoman)
 [![Build Status](https://secure.travis-ci.org/gamtiq/chronoman.png?branch=master)](http://travis-ci.org/gamtiq/chronoman)
@@ -69,10 +83,10 @@ define(["path/to/dist/chronoman.js"], function(Timer) {
 ### Example
 
 ```js
-var nI = 0;
-
 var tmrOne = new Timer({
-    period: 1000,
+    period: function(timer) {
+        return 1000 + (timer.getExecutionQty() * 100);
+    },
     action: function(timer) {
         console.log("---> Timer one. ", timer);
         if (! tmrThree.isActive()) {
@@ -82,13 +96,16 @@ var tmrOne = new Timer({
 });
 
 var tmrTwo = new Timer();
-tmrTwo.setPeriod(2000)
+tmrTwo.setPeriod([2000, 1500])
     .setRepeatQty(9)
     .setPassToAction(true)
-    .setAction(function(timer) {
-        nI++;
-        console.log("Timer two. #", nI, timer);
-        tmrOne.setActive(nI % 2 === 1);
+    .setAction({
+        i: 0,
+        execute: function(timer) {
+            var nI = ++this.i;
+            console.log("Timer two. #", nI, timer);
+            tmrOne.setActive(nI % 2 === 1);
+        }
     });
 
 var tmrThree = new Timer()
@@ -103,9 +120,17 @@ tmrThree.onExecute = function() {
 tmrTwo.start();
 ```
 
+See `test/chronoman.js` for additional examples.
+
+
 ## API
 
 See `doc` folder.
+
+## Related projects
+
+* [NumGen](https://github.com/gamtiq/numgen)
+* [povtor](https://github.com/gamtiq/povtor)
 
 ## Inspiration
 

@@ -31,7 +31,7 @@ describe("chronoman", function() {
         if (! (timer instanceof Timer)) {
             timer = new Timer(timer);
         }
-        nTimeout = typeof data.timeout === "number" ? data.timeout : timer.getPeriod() + 1000;
+        nTimeout = typeof data.timeout === "number" ? data.timeout : timer.getPeriodValue() + 1000;
         if (data.testContext) {
             data.testContext.timeout(nTimeout + 1000);
         }
@@ -128,6 +128,45 @@ describe("chronoman", function() {
         });
     });
     
+    describe("getPeriodValue()", function() {
+        it("should return period value", function() {
+            var timer = new Timer();
+            var period;
+
+            timer.setPeriod(5);
+
+            expect( timer.getPeriodValue() )
+                .equal( timer.getPeriod() );
+
+            timer.setPeriod([1, 2, 3, 4]);
+
+            expect( timer.getPeriodValue() )
+                .equal( timer.getPeriod()[0] );
+
+            timer._executionQty = 2;
+
+            expect( timer.getPeriodValue() )
+                .equal( timer.getPeriod()[2] );
+
+            period = 9000;
+            timer.setPeriod(function() {
+                return period;
+            });
+
+            expect( timer.getPeriodValue() )
+                .equal( period );
+
+            period = [700, 500, 300];
+            timer.setPeriod(function() {
+                return period;
+            });
+            timer._executionQty = 1;
+
+            expect( timer.getPeriodValue() )
+                .equal( period[1] );
+        });
+    });
+
     describe("Timer features", function() {
         it("should change timer properties", function(done) {
             var nPeriod = 300,
@@ -192,6 +231,77 @@ describe("chronoman", function() {
                     timer: timer2,
                     result: 0,
                     timeout: nPause + nPeriod2
+                    });
+        });
+
+        it("should use different periods from array", function(done) {
+            var period = [400, 100, 100, 200];
+            check({
+                    timer: {
+                                period: period,
+                                recurrent: true,
+                                action: incCounter
+                            },
+                    done: done,
+                    result: period.length,
+                    finalActiveState: true,
+                    timeout: 1000,
+                    testContext: this
+                    });
+        });
+
+        it("should use period returned from function", function(done) {
+            check({
+                    timer: {
+                                period: function(timer) {
+                                    return timer.getExecutionQty() * 1000;
+                                },
+                                recurrent: true,
+                                action: incCounter
+                            },
+                    done: done,
+                    result: 3,
+                    finalActiveState: true,
+                    timeout: 3500,
+                    testContext: this
+                    });
+        });
+
+        it("should use value returned from repeatTest as period", function(done) {
+            check({
+                    timer: {
+                                period: 100,
+                                data: 300,
+                                repeatTest: function(timer) {
+                                    return timer.getData() - (timer.getExecutionQty() * 100);
+                                },
+                                action: incCounter
+                            },
+                    done: done,
+                    result: 4,
+                    timeout: 500,
+                    testContext: this
+                    });
+        });
+
+        it("should call execute method of action object", function(done) {
+            check({
+                    timer: {
+                                period: 100,
+                                passToAction: true,
+                                action: {
+                                    i: 2,
+                                    execute: function(timer) {
+                                        nCounter = timer.getPeriod();
+                                        timer.setPeriod( nCounter * this.i );
+                                    }
+                                },
+                                repeatQty: 3
+                            },
+                    done: done,
+                    result: 800,
+                    timeout: 1600,
+                    testContext: this
                     });
         });
     });
