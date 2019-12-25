@@ -1,3 +1,10 @@
+### 1.2.0 / 2019-12-26
+
+* support of array and function values for `period` property
+* support of `action` objects having `execute` method
+* `repeatTest` function can return number to control next execution scheduling
+* add `data` property
+
 ### 1.1.0 / 2019-03-03
 
 * remove Jam support
