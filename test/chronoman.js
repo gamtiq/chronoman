@@ -148,6 +148,11 @@ describe("chronoman", function() {
             expect( timer.getPeriodValue() )
                 .equal( timer.getPeriod()[2] );
 
+            timer._executionQty = 74;
+
+            expect( timer.getPeriodValue() )
+                .equal( timer.getPeriod()[3] );
+
             period = 9000;
             timer.setPeriod(function() {
                 return period;
@@ -164,6 +169,11 @@ describe("chronoman", function() {
 
             expect( timer.getPeriodValue() )
                 .equal( period[1] );
+
+            timer._executionQty = 3;
+
+            expect( timer.getPeriodValue() )
+                .equal( period[2] );
         });
     });
 

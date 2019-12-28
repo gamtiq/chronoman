@@ -63,6 +63,9 @@ module.exports = function(grunt) {
             minify: {
                 src: "dist/chronoman.js",
                 dest: "dist/chronoman.min.js"
+            },
+            options: {
+                sourceMap: true
             }
         },
         

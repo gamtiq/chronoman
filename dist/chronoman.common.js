@@ -671,7 +671,7 @@ Timer.prototype.onExecute = null;
  * <ul>
  * <li>timer is set as recurrent (see {@link module:chronoman~Timer#isRecurrent isRecurrent});
  * <li>specified quantity of repeats is not reached (see {@link module:chronoman~Timer#getRepeatQty getRepeatQty});
- * <li>specified repeat test is passed i.e. the test function returns true value (see {@link module:chronoman~Timer#getRepeatTest getRepeatTest});
+ * <li>specified repeat test is passed i.e. the test function returns true value or non-negative number (see {@link module:chronoman~Timer#getRepeatTest getRepeatTest});
  * </ul>
  *
  * @return {Object}
@@ -745,3 +745,4 @@ Timer.prototype.toString = function () {
 
 exports.default = Timer;
 module.exports = exports.default;
+//# sourceMappingURL=chronoman.common.js.map

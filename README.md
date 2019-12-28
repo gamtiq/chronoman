@@ -18,7 +18,7 @@ timer.stop();
 
 [![NPM version](https://badge.fury.io/js/chronoman.png)](http://badge.fury.io/js/chronoman)
 [![Build Status](https://secure.travis-ci.org/gamtiq/chronoman.png?branch=master)](http://travis-ci.org/gamtiq/chronoman)
-[![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
+[![Built with Grunt](https://gruntjs.com/cdn/builtwith.png)](http://gruntjs.com/)
 
 ## Installation
 
