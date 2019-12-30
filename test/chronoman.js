@@ -48,9 +48,16 @@ describe("chronoman", function() {
         }
         setTimeout(function checkTimer() {
             expect( nCounter )
-                .equal(data.result);
+                .equal(data.result || 0);
             expect( timer.isActive() )
                 .equal(data.finalActiveState || false);
+            if ("actionResult" in data) {
+                expect( timer.actionResult )
+                    .equal( data.actionResult );
+            }
+            if (typeof data.test === "function") {
+                data.test(timer);
+            }
             timer.stop();
             if (typeof done === "function") {
                 done();
@@ -143,12 +150,12 @@ describe("chronoman", function() {
             expect( timer.getPeriodValue() )
                 .equal( timer.getPeriod()[0] );
 
-            timer._executionQty = 2;
+            timer.setExecutionQty(2);
 
             expect( timer.getPeriodValue() )
                 .equal( timer.getPeriod()[2] );
 
-            timer._executionQty = 74;
+            timer.setExecutionQty(74);
 
             expect( timer.getPeriodValue() )
                 .equal( timer.getPeriod()[3] );
@@ -165,12 +172,12 @@ describe("chronoman", function() {
             timer.setPeriod(function() {
                 return period;
             });
-            timer._executionQty = 1;
+            timer.setExecutionQty(1);
 
             expect( timer.getPeriodValue() )
                 .equal( period[1] );
 
-            timer._executionQty = 3;
+            timer.setExecutionQty(3);
 
             expect( timer.getPeriodValue() )
                 .equal( period[2] );
@@ -199,17 +206,24 @@ describe("chronoman", function() {
         it("should schedule next execution inside onExecute function", function(done) {
             var nPeriod = 1000,
                 nQty = 5,
-                timer = new Timer({period: nPeriod});
+                timer = new Timer({period: nPeriod}),
+                nValue = 1;
             timer.onExecute = function() {
                 incCounter();
                 if (this.getExecutionQty() < nQty - 1) {
                     this.start(this.getPeriod() - 100);
                 }
+                nValue *= 2;
+                return nValue;
             };
             check({
                     timer: timer,
                     done: done,
                     result: nQty,
+                    test: function(timer) {
+                        expect( timer.onExecuteResult )
+                            .equal( nValue );
+                    },
                     timeout: (nPeriod * nQty) + 2000,
                     testContext: this
                     });
@@ -311,6 +325,45 @@ describe("chronoman", function() {
                     done: done,
                     result: 800,
                     timeout: 1600,
+                    testContext: this
+                    });
+        });
+
+        it("should save action result when action is function", function(done) {
+            var nI = 10;
+            check({
+                    timer: {
+                                period: 100,
+                                repeatQty: 3,
+                                action: function() {
+                                    nI += 10;
+                                    return nI;
+                                }
+                            },
+                    test: function(timer) {
+                        expect( timer.actionResult )
+                            .equal( nI );
+                    },
+                    done: done,
+                    timeout: 500,
+                    testContext: this
+                    });
+        });
+
+        it("should save action result when action is object", function(done) {
+            check({
+                    timer: {
+                                period: 100,
+                                action: {
+                                    value: 3,
+                                    execute: function() {
+                                        return ++this.value;
+                                    }
+                                }
+                            },
+                    actionResult: 4,
+                    done: done,
+                    timeout: 200,
                     testContext: this
                     });
         });

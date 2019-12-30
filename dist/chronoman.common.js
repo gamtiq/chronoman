@@ -324,6 +324,21 @@ Timer.prototype.getExecutionQty = function () {
 };
 
 /**
+ * Set the value that indicates how many times action was executed.
+ *
+ * @param {Integer} nQty
+ *      Value that indicates how many times action was executed.
+ * @return {Object}
+ *      Reference to <code>this</code> object.
+ * @method
+ * @see {@link module:chronoman~Timer#_executionQty _executionQty}
+ */
+Timer.prototype.setExecutionQty = function (nQty) {
+    this._executionQty = nQty > 0 ? nQty : 0;
+    return this;
+};
+
+/**
  * Timer id.
  * 
  * @protected
@@ -651,6 +666,14 @@ Timer.prototype.setProperties = function (propMap) {
 };
 
 /**
+ * Result of action's last execution.
+ *
+ * @type {*}
+ * @see {@link module:chronoman~Timer#_action action}
+ */
+Timer.prototype.actionResult = void 0;
+
+/**
  * Function that should be executed after time period is elapsed.
  * <br>
  * The timer instance to which the function is associated will be passed as function's parameter
@@ -660,6 +683,14 @@ Timer.prototype.setProperties = function (propMap) {
  * @see {@link module:chronoman~Timer#execute execute}
  */
 Timer.prototype.onExecute = null;
+
+/**
+ * Result of {@link module:chronoman~Timer#onExecute onExecute} last execution.
+ *
+ * @type {*}
+ * @see {@link module:chronoman~Timer#onExecute onExecute}
+ */
+Timer.prototype.onExecuteResult = void 0;
 
 /**
  * Execute related action (function).
@@ -699,13 +730,13 @@ Timer.prototype.execute = function () {
     this._clearTimeout();
     if (action) {
         if (typeof action === "function") {
-            bPassToAction ? action(this) : action();
+            this.actionResult = bPassToAction ? action(this) : action();
         } else if (typeof action.execute === "function") {
-            bPassToAction ? action.execute(this) : action.execute();
+            this.actionResult = bPassToAction ? action.execute(this) : action.execute();
         }
     }
     if (typeof this.onExecute === "function") {
-        bPassToAction ? this.onExecute(this) : this.onExecute();
+        this.onExecuteResult = bPassToAction ? this.onExecute(this) : this.onExecute();
     }
     this._executionQty++;
     bActive = this.isActive();

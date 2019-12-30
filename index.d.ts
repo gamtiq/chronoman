@@ -30,6 +30,7 @@ declare class Timer {
 
     protected _executionQty: number;
     getExecutionQty(): number;
+    setExecutionQty(qty: number): Timer;
 
     protected _timeoutId: number | null;
     protected _setTimeout(timeout?: number): Timer;
@@ -52,7 +53,10 @@ declare class Timer {
 
     setProperties(propMap: Timer.Properties): Timer;
 
+    actionResult: any;
+
     onExecute: Timer.ActionFunction | null;
+    onExecuteResult: any;
 
     execute(): Timer;
 
