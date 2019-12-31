@@ -57,6 +57,8 @@ var Timer = function Timer(initValue) {
 
     var that = this;
 
+    this._executeTime = [];
+
     /**
      * Handle timeout's end.
      *
@@ -401,6 +403,72 @@ Timer.prototype._clearTimeout = function () {
 };
 
 /**
+ * Time when timer was set {@link module:chronoman~Timer#_active active}
+ * (was {@link module:chronoman~Timer#start started}).
+ * 
+ * @protected
+ * @type {Integer}
+ * @see {@link module:chronoman~Timer#setActive setActive}
+ * @see {@link module:chronoman~Timer#start start}
+ */
+Timer.prototype._startTime = null;
+
+/**
+ * Return time when timer was set active.
+ *
+ * @return {Integer}
+ *      Time when timer was set active.
+ * @method
+ * @see {@link module:chronoman~Timer#_startTime _startTime}
+ */
+Timer.prototype.getStartTime = function () {
+    return this._startTime;
+};
+
+/**
+ * Time when timer was set {@link module:chronoman~Timer#_active inactive}
+ * (was {@link module:chronoman~Timer#start stopped}).
+ * 
+ * @protected
+ * @type {Integer}
+ * @see {@link module:chronoman~Timer#setActive setActive}
+ * @see {@link module:chronoman~Timer#start stop}
+ */
+Timer.prototype._stopTime = null;
+
+/**
+ * Return time when timer was set inactive.
+ *
+ * @return {Integer}
+ *      Time when timer was set inactive.
+ * @method
+ * @see {@link module:chronoman~Timer#_stopTime _stopTime}
+ */
+Timer.prototype.getStopTime = function () {
+    return this._stopTime;
+};
+
+/**
+ * List that contain times when {@link module:chronoman~Timer#execute execute} was called.
+ *
+ * @type {Integer[]}
+ * @see {@link module:chronoman~Timer#execute execute}
+ */
+Timer.prototype._executeTime = null;
+
+/**
+ * Return list that contain times when {@link module:chronoman~Timer#execute execute} was called.
+ *
+ * @return {Integer[]}
+ *      List that contain times when {@link module:chronoman~Timer#execute execute} was called.
+ * @method
+ * @see {@link module:chronoman~Timer#_executeTime _executeTime}
+ */
+Timer.prototype.getExecuteTime = function () {
+    return this._executeTime;
+};
+
+/**
  * Indicates whether timer is in use.
  * 
  * @protected
@@ -446,8 +514,10 @@ Timer.prototype.setActive = function (bActive) {
     // Consecutive calling with bActive = true leads to action execution delaying
     this._clearTimeout();
     if (bActive) {
+        this._executeTime.length = 0;
         this._setTimeout();
     }
+    this[bActive ? "_startTime" : "_stopTime"] = new Date().getTime();
     return this;
 };
 
@@ -666,7 +736,7 @@ Timer.prototype.setProperties = function (propMap) {
 };
 
 /**
- * Result of action's last execution.
+ * Result of {@link module:chronoman~Timer#_action action}'s last execution.
  *
  * @type {*}
  * @see {@link module:chronoman~Timer#_action action}
@@ -739,11 +809,12 @@ Timer.prototype.execute = function () {
         this.onExecuteResult = bPassToAction ? this.onExecute(this) : this.onExecute();
     }
     this._executionQty++;
+    this._executeTime.push(new Date().getTime());
     bActive = this.isActive();
     if (bActive && (this.isRecurrent() || this.getRepeatQty() >= this._executionQty || repeatTest && ((period = repeatTest(this)) || period === 0) && (typeof period !== "number" || period >= 0))) {
         this._setTimeout(period);
     } else if (bActive && !this._timeoutId) {
-        this._active = false;
+        this.setActive(false);
     }
     return this;
 };
@@ -757,7 +828,7 @@ Timer.prototype.dispose = function () {
     "use strict";
 
     this._clearTimeout();
-    this._action = this._data = this._period = this._repeatTest = this.onExecute = null;
+    this._action = this.actionResult = this._data = this._executeTime = this._period = this._repeatTest = this.onExecute = this.onExecuteResult = null;
 };
 
 /**
@@ -767,9 +838,21 @@ Timer.prototype.dispose = function () {
  */
 Timer.prototype.toString = function () {
     "use strict";
+    /*jshint laxbreak:true*/
 
-    var period = this.getPeriod();
-    return ["Timer: ", "active - ", this.isActive(), ", period - ", typeof period === "function" ? "function" : period, ", recurrent - ", this.isRecurrent(), ", repeat qty - ", this.getRepeatQty(), ", repeat test - ", this.getRepeatTest() ? "specified" : "no", ", pass to action - ", this.isPassToAction(), ", action - ", this.getAction() ? "specified" : "no", ", execution qty - ", this.getExecutionQty(), ", data - ", this.getData()].join("");
+    var period = this.getPeriod(),
+        startTime = this.getStartTime(),
+        stopTime = this.getStopTime(),
+        executeTime = this.getExecuteTime(),
+        nL = executeTime.length,
+        execTime = "",
+        nI;
+    if (nL) {
+        for (nI = 0; nI < nL; nI++) {
+            execTime += (nI ? "; " : "") + new Date(executeTime[nI]);
+        }
+    }
+    return ["Timer: ", "active - ", this.isActive(), ", period - ", typeof period === "function" ? "function" : period, ", recurrent - ", this.isRecurrent(), ", repeat qty - ", this.getRepeatQty(), ", repeat test - ", this.getRepeatTest() ? "specified" : "no", ", pass to action - ", this.isPassToAction(), ", action - ", this.getAction() ? "specified" : "no", ", execution qty - ", this.getExecutionQty(), typeof startTime === "number" ? ", start time - " + new Date(startTime) : "", execTime ? ", execute time - " + execTime : "", typeof stopTime === "number" ? ", stop time - " + new Date(stopTime) : "", ", action result - ", this.actionResult, ", onExecuteResult - ", this.onExecuteResult, ", data - ", this.getData()].join("");
 };
 
 // Exports

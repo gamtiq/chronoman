@@ -31,6 +31,10 @@ describe("chronoman", function() {
         if (! (timer instanceof Timer)) {
             timer = new Timer(timer);
         }
+        if (typeof data.before === "function") {
+            data.before(timer);
+        }
+
         nTimeout = typeof data.timeout === "number" ? data.timeout : timer.getPeriodValue() + 1000;
         if (data.testContext) {
             data.testContext.timeout(nTimeout + 1000);
@@ -46,6 +50,7 @@ describe("chronoman", function() {
                 timer.stop();
             }
         }
+
         setTimeout(function checkTimer() {
             expect( nCounter )
                 .equal(data.result || 0);
@@ -363,9 +368,60 @@ describe("chronoman", function() {
                             },
                     actionResult: 4,
                     done: done,
-                    timeout: 200,
+                    timeout: 150,
                     testContext: this
                     });
+        });
+
+        it("should save start, execute and stop time", function(done) {
+            check({
+                timer: {
+                    period: 100,
+                    repeatQty: 2,
+                    action: incCounter
+                },
+                before: function(timer) {
+                    expect( timer.getStartTime() )
+                        .equal( null );
+                    expect( timer.getStopTime() )
+                        .equal( null );
+                    expect( timer.getExecuteTime() )
+                        .eql( [] );
+                },
+                result: 3,
+                test: function(timer) {
+                    var startTime = timer.getStartTime(),
+                        stopTime = timer.getStopTime(),
+                        executeTime = timer.getExecuteTime(),
+                        nL = executeTime.length,
+                        nI, nTime;
+
+                    expect( startTime )
+                        .a( "number" );
+                    expect( stopTime )
+                        .a( "number" );
+                    expect( nL )
+                        .equal( 3 );
+
+                    for (nI = 0; nI < nL; nI++) {
+                        nTime = executeTime[nI];
+                        expect( nTime )
+                            .a( "number" );
+                        if (nI) {
+                            expect( executeTime[nI - 1] < nTime )
+                                .equal( true );
+                        }
+                    }
+
+                    expect( startTime < executeTime[0] )
+                        .equal( true );
+                    expect( executeTime[nL - 1] <= stopTime )
+                        .equal( true );
+                },
+                done: done,
+                timeout: 350,
+                testContext: this
+            });
         });
     });
 });

@@ -36,6 +36,13 @@ declare class Timer {
     protected _setTimeout(timeout?: number): Timer;
     protected _clearTimeout(): Timer;
 
+    protected _startTime: number | null;
+    getStartTime(): number | null;
+    protected _stopTime: number | null;
+    getStopTime(): number | null;
+    protected _executeTime: number[];
+    getExecuteTime(): number[];
+
     protected _active: boolean;
     isActive(): boolean;
     setActive(active: boolean): Timer;
