@@ -1,3 +1,11 @@
+### 1.3.0 / 2020-01-01
+
+* support object values for `period` property to have ability to get random time periods
+* add fields `actionResult` and `onExecuteResult` to save results of calling `action` and `onExecute`
+* add properties `startTime`, `executeTime` and `stopTime` to save start, execution and stop time
+* `repeatTest` function can return any value that is supported for `period` property to control next execution scheduling
+* export `getRandomValue` function
+
 ### 1.2.0 / 2019-12-26
 
 * support of array and function values for `period` property
