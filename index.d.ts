@@ -4,13 +4,15 @@ export as namespace Chronoman;
 
 export = Timer;
 
-declare class Timer {
+export function getRandomValue(start: any[] | number, end?: number, bInteger?: boolean): any;
+
+export class Timer {
     constructor(initValue?: Timer.Properties);
 
     protected _period: Timer.Period | null;
     getPeriod(): Timer.Period | null;
     setPeriod(period: Timer.Period | null): Timer;
-    getPeriodValue(): number;
+    getPeriodValue(period?: Timer.Period): number;
 
     protected _recurrent: boolean;
     isRecurrent(): boolean;
@@ -33,7 +35,7 @@ declare class Timer {
     setExecutionQty(qty: number): Timer;
 
     protected _timeoutId: number | null;
-    protected _setTimeout(timeout?: number): Timer;
+    protected _setTimeout(timeout?: Timer.Period): Timer;
     protected _clearTimeout(): Timer;
 
     protected _startTime: number | null;
@@ -82,13 +84,20 @@ declare namespace Timer {
 
     export type Action = ActionFunction | ActionObject;
 
-    export type PeriodValue = number | number[];
+    export interface RandomPeriod {
+        list?: number[];
+        start?: number;
+        end?: number;
+    }
+
+    export type SinglePeriodValue = number | RandomPeriod;
+    export type PeriodValue = SinglePeriodValue | SinglePeriodValue[];
 
     export type PeriodFunction = (timer?: Timer) => PeriodValue;
 
     export type Period = PeriodValue | PeriodFunction;
 
-    export type RepeatTest = (timer: Timer) => boolean | number;
+    export type RepeatTest = (timer: Timer) => boolean | Period;
 
     export interface Properties {
         action?: Action;

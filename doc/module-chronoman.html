@@ -166,6 +166,274 @@
     
 
     
+        <h3 class="subsection-title">Methods</h3>
+
+        <dl>
+            
+<hr>
+<dt>
+    <h4 class="name" id=".getRandomValue"><span class="type-signature">&lt;static> </span>getRandomValue(start [, end] [, bInteger])</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Generate random number or randomly select item from specified array.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Argument</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>start</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array</span>
+|
+
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>Array from which an item should be selected
+     or minimal point of interval from which random number should be generated.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>end</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    start+1
+                
+                </td>
+            
+
+            <td class="description last"><p>Maximal point of interval from which random number should be generated.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>bInteger</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    true
+                
+                </td>
+            
+
+            <td class="description last"><p>Whether integer number should be returned.
+     This parameter can be used when value of <code>start</code> parameter is a number.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="chronoman.js.html">chronoman.js</a>,
+				 <a href="chronoman.js.html#sunlight-1-line-29">line 29</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    <p>Random number when <code>start</code> parameter is a number
+     or randomly selected item when <code>start</code> parameter is an array.</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">*</span>
+
+
+
+    </dd>
+</dl>
+
+
+        
+
+    
+</dd>
+
+        </dl>
+    
 
     
         <h3 class="subsection-title">Type Definitions</h3>
@@ -229,7 +497,7 @@
 		<ul class="dummy">
 			<li>
 				<a href="chronoman.js.html">chronoman.js</a>,
-				 <a href="chronoman.js.html#sunlight-1-line-34">line 34</a>
+				 <a href="chronoman.js.html#sunlight-1-line-88">line 88</a>
 			</li>
 		</ul>
 	</dd>
@@ -375,7 +643,7 @@
 		<ul class="dummy">
 			<li>
 				<a href="chronoman.js.html">chronoman.js</a>,
-				 <a href="chronoman.js.html#sunlight-1-line-26">line 26</a>
+				 <a href="chronoman.js.html#sunlight-1-line-80">line 80</a>
 			</li>
 		</ul>
 	</dd>
@@ -509,7 +777,7 @@
 		<ul class="dummy">
 			<li>
 				<a href="chronoman.js.html">chronoman.js</a>,
-				 <a href="chronoman.js.html#sunlight-1-line-14">line 14</a>
+				 <a href="chronoman.js.html#sunlight-1-line-50">line 50</a>
 			</li>
 		</ul>
 	</dd>
@@ -545,10 +813,10 @@
     </dt>
     <dd>
         
-<span class="param-type">Integer</span>
+<span class="param-type"><a href="module-chronoman.html#~SinglePeriodValue">module:chronoman~SinglePeriodValue</a></span>
 |
 
-<span class="param-type">Array.&lt;Integer></span>
+<span class="param-type">Array.&lt;<a href="module-chronoman.html#~SinglePeriodValue">module:chronoman~SinglePeriodValue</a>></span>
 
 
 
@@ -581,10 +849,10 @@
         <ul>
             <li>
                 
-<span class="param-type">Integer</span>
+<span class="param-type"><a href="module-chronoman.html#~SinglePeriodValue">module:chronoman~SinglePeriodValue</a></span>
 |
 
-<span class="param-type">Array.&lt;Integer></span>
+<span class="param-type">Array.&lt;<a href="module-chronoman.html#~SinglePeriodValue">module:chronoman~SinglePeriodValue</a>></span>
 |
 
 <span class="param-type"><a href="module-chronoman.html#~GetPeriodValue">module:chronoman~GetPeriodValue</a></span>
@@ -631,7 +899,299 @@
 		<ul class="dummy">
 			<li>
 				<a href="chronoman.js.html">chronoman.js</a>,
-				 <a href="chronoman.js.html#sunlight-1-line-20">line 20</a>
+				 <a href="chronoman.js.html#sunlight-1-line-74">line 74</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+            
+                
+<hr>
+<dt class="name" id="~RandomPeriod">
+    <h4 id="~RandomPeriod">RandomPeriod</h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>Object describing properties for generating random time period.</p>
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">Object</span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    <dl>
+
+<table class="props table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Argument</th>
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>end</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Integer</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Maximal point of interval from which random time period should be generated.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>list</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;Integer></span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Array from which a time period should be selected randomly.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>start</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Integer</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Minimal point of interval from which random time period should be generated.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+</dl>
+
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="chronoman.js.html">chronoman.js</a>,
+				 <a href="chronoman.js.html#sunlight-1-line-56">line 56</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+            
+                
+<hr>
+<dt class="name" id="~SinglePeriodValue">
+    <h4 id="~SinglePeriodValue">SinglePeriodValue</h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>Single value determining time period in milliseconds that is used to schedule related action execution.</p>
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">Integer</span>
+|
+
+<span class="param-type"><a href="module-chronoman.html#~RandomPeriod">module:chronoman~RandomPeriod</a></span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="chronoman.js.html">chronoman.js</a>,
+				 <a href="chronoman.js.html#sunlight-1-line-68">line 68</a>
 			</li>
 		</ul>
 	</dd>
@@ -694,13 +1254,13 @@
 
 
 	<span class="copyright">
-	Copyright (c) 2013-2019 Denis Sikuler
+	Copyright (c) 2013-2020 Denis Sikuler
 	</span>
 
 <span class="jsdoc-message">
 	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.3</a>
 	
-		on 2019-12-31T16:29:37+03:00
+		on 2020-01-01T21:31:19+03:00
 	
 	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
 </span>

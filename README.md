@@ -4,7 +4,7 @@ Utility class to simplify use of timers created by `setTimeout`.
 
 ```js
 var timer = new Timer({
-    period: [100, 200, 300, 400, 500],
+    period: [100, 200, 300, 400, 500, {start: 100, end: 500}],
     repeatQty: 100,
     passToAction: true,
     action: function(tmr) {
@@ -26,10 +26,6 @@ timer.stop();
 
     npm install chronoman
 
-### [JSPM](http://jspm.io)
-
-    jspm install chronoman
-
 ### [Bower](http://bower.io)
 
     bower install chronoman
@@ -46,24 +42,17 @@ Use `dist/chronoman.js` or `dist/chronoman.min.js` (minified version).
 import Timer from "chronoman";
 ```
 
-### Node, JSPM
+### Node
 
 ```js
-var Timer = require("chronoman");
-```
-
-### JSPM
-
-```js
-System.import("chronoman").then(function(Timer) {
-    ...
-});
+var Timer = require("chronoman").Timer;
 ```
 
 ### AMD
 
 ```js
-define(["path/to/dist/chronoman.js"], function(Timer) {
+define(["path/to/dist/chronoman.js"], function(chronoman) {
+    var Timer = chronoman.Timer;
     ...
 });
 ```
@@ -75,7 +64,7 @@ define(["path/to/dist/chronoman.js"], function(Timer) {
 <script type="text/javascript" src="path/to/dist/chronoman.js"></script>
 <script type="text/javascript">
     // сhronoman is available via Chronoman field of window object
-    var Timer = Chronoman;
+    var Timer = Chronoman.Timer;
     ...
 </script>
 ```
@@ -96,7 +85,7 @@ var tmrOne = new Timer({
 });
 
 var tmrTwo = new Timer();
-tmrTwo.setPeriod([2000, 1500])
+tmrTwo.setPeriod([2000, , {start: 1000, end: 1500}])
     .setRepeatQty(9)
     .setPassToAction(true)
     .setAction({
@@ -138,5 +127,5 @@ This module is inspired by [qooxdoo](http://qooxdoo.org)'s `qx.event.Timer` clas
 
 ## Licence
 
-Copyright (c) 2013-2019 Denis Sikuler  
+Copyright (c) 2013-2020 Denis Sikuler  
 Licensed under the MIT license.

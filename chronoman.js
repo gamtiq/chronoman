@@ -12,15 +12,69 @@ if (! Array.isArray) {
 }
 
 /**
+ * Generate random number or randomly select item from specified array.
+ *
+ * @param {Array | number} start
+ *      Array from which an item should be selected
+ *      or minimal point of interval from which random number should be generated.
+ * @param {number} [end=start+1]
+ *      Maximal point of interval from which random number should be generated.
+ * @param {boolean} [bInteger=true]
+ *      Whether integer number should be returned.
+ *      This parameter can be used when value of <code>start</code> parameter is a number.
+ * @return {*}
+ *      Random number when <code>start</code> parameter is a number
+ *      or randomly selected item when <code>start</code> parameter is an array.
+ */
+export function getRandomValue(start, end, bInteger) {
+    var nL, result;
+    if (Array.isArray(start)) {
+        nL = start.length;
+        if (nL) {
+            return start[ nL > 1 ? getRandomValue(0, nL - 1) : 0 ];
+        }
+        return result;
+    }
+
+    if (typeof end !== "number") {
+        end = start + 1;
+    }
+    if (arguments.length < 3) {
+        bInteger = true;
+    }
+    nL = start + ((end - start) * Math.random());
+
+    return bInteger ? Math.round(nL) : nL;
+}
+
+/**
  * @callback module:chronoman~GetPeriodValue
  * @param {module:chronoman~Timer} [timer]
- * @return {Integer | Integer[]}
+ * @return {module:chronoman~SinglePeriodValue | module:chronoman~SinglePeriodValue[]}
+ */
+
+/**
+ * Object describing properties for generating random time period.
+ *
+ * @typedef {Object} module:chronoman~RandomPeriod
+ * @property {Integer} [end]
+ *      Maximal point of interval from which random time period should be generated.
+ * @property {Integer[]} [list]
+ *      Array from which a time period should be selected randomly.
+ * @property {Integer} [start]
+ *      Minimal point of interval from which random time period should be generated.
+ */
+
+/**
+ * Single value determining time period in milliseconds that is used to schedule related action execution.
+ *
+ * @typedef {Integer | module:chronoman~RandomPeriod} module:chronoman~SinglePeriodValue
  */
 
 /**
  * Value determining time period in milliseconds that is used to schedule related action execution.
  *
- * @typedef {Integer | Integer[] | module:chronoman~GetPeriodValue} module:chronoman~PeriodValue
+ * @typedef {module:chronoman~SinglePeriodValue | module:chronoman~SinglePeriodValue[] | module:chronoman~GetPeriodValue} module:chronoman~PeriodValue
  */
 
 /**
@@ -74,8 +128,18 @@ var Timer = function Timer(initValue) {
 
 
 /**
- * Time period in milliseconds, array of periods or function that returns period or array of periods.
+ * Time period in milliseconds, object specifying random time period, array of periods
+ * or function that returns period or array of periods.
  * A related action will be executed when the period is elapsed.
+ * <br>
+ * When an object is set the used period is selected randomly.
+ * The object can have the following properties:
+ * - <code>list</code> - a non-empty array of integer numbers from which the period will be selected randomly.
+ * - <code>start</code> - an integer number representing minimal point of interval
+ *      from which random time period should be generated; default value - 0.
+ * - <code>end</code> - an integer number representing maximal point of interval
+ *      from which random time period should be generated; default value - <code>start + 1000</code>.
+ * 
  * <br>
  * When array of periods is set the used period is selected in the following way:
  * first array item (with index 0) specifies period before first action's execution,
@@ -126,6 +190,8 @@ Timer.prototype.setPeriod = function(period) {
 /**
  * Return time period that will be used to schedule related action execution.
  *
+ * @param {module:chronoman~PeriodValue} [value=this.getPeriod()]
+ *      Value that is used to calculation.
  * @return {Integer}
  *      Time period in milliseconds.
  * @method
@@ -133,15 +199,32 @@ Timer.prototype.setPeriod = function(period) {
  * @see {@link module:chronoman~Timer#getPeriod getPeriod}
  * @see {@link module:chronoman~Timer#getExecutionQty getExecutionQty}
  */
-Timer.prototype.getPeriodValue = function() {
+Timer.prototype.getPeriodValue = function(value) {
+    /*jshint laxbreak:true*/
     var execQty;
-    var period = this.getPeriod();
+    var period = value || value === 0
+        ? value
+        : this.getPeriod();
     if (typeof period === "function") {
         period = period(this);
     }
     if (Array.isArray(period)) {
         execQty = this.getExecutionQty();
         period = period[ execQty < period.length ? execQty : period.length - 1 ];
+    }
+    if (period && typeof period === "object") {
+        if (period.list && period.list.length) {
+            period = getRandomValue(period.list);
+        }
+        else {
+            if (typeof period.start !== "number") {
+                period.start = 0;
+            }
+            if (typeof period.end !== "number") {
+                period.end = period.start + 1000;
+            }
+            period = getRandomValue(period.start, period.end);
+        }
     }
     return period;
 };
@@ -224,8 +307,9 @@ Timer.prototype.setRepeatQty = function(nQty) {
  * Specifies function that should be called after action execution to determine
  * whether execution should be repeated.
  * If the function returns a true value or non-negative number it means that execution will be repeated.
- * When the function returns non-negative number this number will be used
- * as time period in milliseconds to schedule next action execution.
+ * When the function returns non-negative number, array, object or function this value will be used
+ * to calculate time period in milliseconds to schedule next action execution
+ * (see {@link module:chronoman~Timer#getPeriodValue getPeriodValue}).
  * <br>
  * The timer instance to which the test is associated will be passed as function's parameter.
  *
@@ -348,8 +432,8 @@ Timer.prototype._timeoutId = null;
 /**
  * Schedule related action execution.
  *
- * @param {Integer} [nTimeout]
- *      Time period in milliseconds that is used to schedule action execution.
+ * @param {module:chronoman~PeriodValue} [timeout]
+ *      Time period that is used to schedule action execution.
  *      By default the current value of {@link module:chronoman~Timer#getPeriod period} property is used
  *      to determine time period.
  * @return {Object}
@@ -362,15 +446,9 @@ Timer.prototype._timeoutId = null;
  * @see {@link module:chronoman~Timer#execute execute}
  * @see {@link module:chronoman~Timer#getPeriodValue getPeriodValue}
  */
-Timer.prototype._setTimeout = function(nTimeout) {
+Timer.prototype._setTimeout = function(timeout) {
     "use strict";
-    var period;
-    if (typeof nTimeout === "number") {
-        period = nTimeout;
-    }
-    else {
-        period = this.getPeriodValue();
-    }
+    var period = this.getPeriodValue(timeout);
     if (typeof period === "number") {
         this._timeoutId = setTimeout(this._onTimeoutEnd, period);
     }
@@ -787,7 +865,7 @@ Timer.prototype.execute = function() {
     var action = this.getAction(),
         bPassToAction = this.isPassToAction(),
         repeatTest = this.getRepeatTest(),
-        bActive, period;
+        bActive, period, sType;
     this._clearTimeout();
     if (action) {
         if (typeof action === "function") {
@@ -814,9 +892,14 @@ Timer.prototype.execute = function() {
                     || this.getRepeatQty() >= this._executionQty
                     || (repeatTest
                         && ( (period = repeatTest(this)) || period === 0 )
-                        && (typeof period !== "number" || period >= 0))
+                        && (sType = typeof period)
+                        && (sType !== "number" || period >= 0))
                 ) ) {
-        this._setTimeout(period);
+        this._setTimeout(
+            sType === "number" || sType === "object" || sType === "function"
+                ? period
+                : null
+        );
     }
     else if (bActive && ! this._timeoutId) {
         this.setActive(false);
@@ -889,5 +972,5 @@ Timer.prototype.toString = function() {
 };
 
 // Exports
-
+export { Timer };
 export default Timer;
