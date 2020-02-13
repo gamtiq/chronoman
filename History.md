@@ -1,3 +1,7 @@
+### 1.3.1 / 2020-02-14
+
+* support of `action` objects having `func` and `context` fields
+
 ### 1.3.0 / 2020-01-01
 
 * support object values for `period` property to have ability to get random time periods
