@@ -94,9 +94,19 @@ function getRandomValue(start, end, bInteger) {
  */
 
 /**
+ * Object describing action that should be executed after time period is elapsed.
+ *
+ * @typedef {Object} module:chronoman~ActionSpec
+ * @property {Object} [context]
+ *      <code>this</code> for function's call.
+ * @property {Function} func
+ *      Function that should be executed.
+ */
+
+/**
  * Action that should be executed after time period is elapsed.
  *
- * @typedef {Function | module:chronoman~ActionObject} module:chronoman~Action
+ * @typedef {Function | module:chronoman~ActionObject | module:chronoman~ActionSpec} module:chronoman~Action
  */
 
 /**
@@ -145,6 +155,7 @@ var Timer = function Timer(initValue) {
  *      from which random time period should be generated; default value - 0.
  * - <code>end</code> - an integer number representing maximal point of interval
  *      from which random time period should be generated; default value - <code>start + 1000</code>.
+ * 
  * <br>
  * When array of periods is set the used period is selected in the following way:
  * first array item (with index 0) specifies period before first action's execution,
@@ -309,8 +320,9 @@ Timer.prototype.setRepeatQty = function (nQty) {
  * Specifies function that should be called after action execution to determine
  * whether execution should be repeated.
  * If the function returns a true value or non-negative number it means that execution will be repeated.
- * When the function returns non-negative number this number will be used
- * as time period in milliseconds to schedule next action execution.
+ * When the function returns non-negative number, array, object or function this value will be used
+ * to calculate time period in milliseconds to schedule next action execution
+ * (see {@link module:chronoman~Timer#getPeriodValue getPeriodValue}).
  * <br>
  * The timer instance to which the test is associated will be passed as function's parameter.
  *
@@ -640,7 +652,9 @@ Timer.prototype.stop = function () {
 /**
  * Related action that should be executed after time period is elapsed.
  * <br>
- * Can be a function or an object having <code>execute</code> method.
+ * Can be a function, an object having <code>execute</code> method
+ * or an object with fields <code>func</code> (function that will be executed)
+ * and <code>context</code> (<code>this</code> for function's call).
  * <br>
  * The timer instance to which the action is associated will be passed as function's/method's parameter
  * if {@link module:chronoman~Timer#setPassToAction passToAction} property is set to <code>true</code>.
@@ -879,6 +893,8 @@ Timer.prototype.execute = function () {
             this.actionResult = bPassToAction ? action(this) : action();
         } else if (typeof action.execute === "function") {
             this.actionResult = bPassToAction ? action.execute(this) : action.execute();
+        } else if (typeof action.func === "function") {
+            this.actionResult = action.func.apply(action.context || action, bPassToAction ? [this] : []);
         }
     }
     if (typeof this.onExecute === "function") {

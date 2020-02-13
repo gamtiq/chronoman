@@ -75,6 +75,7 @@ export class Timer {
 }
 
 declare namespace Timer {
+    export type ActionContext = {[field in number | string]: any};
     export type ActionFunction = (timer?: Timer) => any;
 
     export interface ActionObject {
@@ -82,7 +83,13 @@ declare namespace Timer {
         [field: string]: any;
     }
 
-    export type Action = ActionFunction | ActionObject;
+    export interface ActionSpec {
+        context?: ActionContext;
+        func: ActionFunction;
+        [field: string]: any;
+    }
+
+    export type Action = ActionFunction | ActionObject | ActionSpec;
 
     export interface RandomPeriod {
         list?: number[];

@@ -86,9 +86,19 @@ export function getRandomValue(start, end, bInteger) {
  */
 
 /**
+ * Object describing action that should be executed after time period is elapsed.
+ *
+ * @typedef {Object} module:chronoman~ActionSpec
+ * @property {Object} [context]
+ *      <code>this</code> for function's call.
+ * @property {Function} func
+ *      Function that should be executed.
+ */
+
+/**
  * Action that should be executed after time period is elapsed.
  *
- * @typedef {Function | module:chronoman~ActionObject} module:chronoman~Action
+ * @typedef {Function | module:chronoman~ActionObject | module:chronoman~ActionSpec} module:chronoman~Action
  */
 
 
@@ -636,7 +646,9 @@ Timer.prototype.stop = function() {
 /**
  * Related action that should be executed after time period is elapsed.
  * <br>
- * Can be a function or an object having <code>execute</code> method.
+ * Can be a function, an object having <code>execute</code> method
+ * or an object with fields <code>func</code> (function that will be executed)
+ * and <code>context</code> (<code>this</code> for function's call).
  * <br>
  * The timer instance to which the action is associated will be passed as function's/method's parameter
  * if {@link module:chronoman~Timer#setPassToAction passToAction} property is set to <code>true</code>.
@@ -877,6 +889,12 @@ Timer.prototype.execute = function() {
             this.actionResult = bPassToAction
                 ? action.execute(this)
                 : action.execute();
+        }
+        else if (typeof action.func === "function") {
+            this.actionResult = action.func.apply(
+                action.context || action,
+                bPassToAction ? [this] : []
+            );
         }
     }
     if (typeof this.onExecute === "function") {

@@ -10,7 +10,7 @@ Utility class to simplify use of timers created by `setTimeout`.
   result of control function (`repeatTest` property).
 * Time period (timeout) can be: a fixed value, a random value, an item selected from a list
   depending on action's execution number, or a value returned from specified function.
-* Action that is called can be a function or an object having `execute` method.
+* Action that is called can be a function or an object specifying function and its call's context.
 * Action result is saved in timer's field for further access.
 * Timer's start time, stop time and action execution times are saved in
   `startTime`, `stopTime` and `executeTime` properties correspondingly.

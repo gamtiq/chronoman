@@ -558,43 +558,112 @@ describe("chronoman", function() {
                         });
             });
 
+            it("should call func method of action object", function(done) {
+                check({
+                    timer: {
+                        period: 150,
+                        passToAction: true,
+                        action: {
+                            i: 3,
+                            func: function(timer) {
+                                nCounter = timer.getPeriod();
+                                timer.setPeriod( nCounter * this.i );
+                            }
+                        },
+                        repeatQty: 1
+                    },
+                    done: done,
+                    result: 450,
+                    timeout: 800,
+                    testContext: this
+                });
+            });
+
+            it("should call func method of action object with specified context", function(done) {
+                var obj = {
+                    i: 3,
+                    change: function() {
+                        nCounter += this.i;
+                    }
+                };
+
+                check({
+                    timer: {
+                        period: 100,
+                        action: {
+                            func: obj.change,
+                            context: obj
+                        },
+                        repeatQty: 2
+                    },
+                    done: done,
+                    result: 9,
+                    timeout: 400,
+                    testContext: this
+                });
+            });
+
             it("should save action result when action is function", function(done) {
                 var nI = 10;
                 check({
-                        timer: {
-                                    period: 100,
-                                    repeatQty: 3,
-                                    action: function() {
-                                        nI += 10;
-                                        return nI;
-                                    }
-                                },
-                        test: function(timer) {
-                            expect( timer.actionResult )
-                                .equal( nI );
-                        },
-                        done: done,
-                        timeout: 500,
-                        testContext: this
-                        });
+                    timer: {
+                        period: 100,
+                        repeatQty: 3,
+                        action: function() {
+                            nI += 10;
+                            return nI;
+                        }
+                    },
+                    test: function(timer) {
+                        expect( timer.actionResult )
+                            .equal( nI );
+                    },
+                    done: done,
+                    timeout: 500,
+                    testContext: this
+                });
             });
 
-            it("should save action result when action is object", function(done) {
+            it("should save action result when action is object with execute method", function(done) {
                 check({
-                        timer: {
-                                    period: 100,
-                                    action: {
-                                        value: 3,
-                                        execute: function() {
-                                            return ++this.value;
-                                        }
-                                    }
-                                },
-                        actionResult: 4,
-                        done: done,
-                        timeout: 150,
-                        testContext: this
-                        });
+                    timer: {
+                        period: 100,
+                        action: {
+                            value: 3,
+                            execute: function() {
+                                return ++this.value;
+                            }
+                        }
+                    },
+                    actionResult: 4,
+                    done: done,
+                    timeout: 150,
+                    testContext: this
+                });
+            });
+
+            it("should save action result when action is object with func method", function(done) {
+                var obj = {
+                    value: 8,
+                    change: function() {
+                        return --this.value;
+                    }
+                };
+
+                check({
+                    timer: {
+                        period: 100,
+                        action: {
+                            func: obj.change,
+                            context: obj
+                        },
+                        repeatQty: 2
+                    },
+                    actionResult: 5,
+                    done: done,
+                    timeout: 400,
+                    testContext: this
+                });
             });
 
             it("should save start, execute and stop time", function(done) {
