@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="utf-8">
+    <title>Home - chronoman</title>
+    
+    <meta name="description" content="Utility class to simplify use of timers created by setTimeout" />
+    
+    
+    
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+    <script src="scripts/nav.js" defer></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav >
+    
+    <h2><a href="index.html">Home</a></h2><h2><a href="https://github.com/gamtiq/chronoman/" target="_blank" id="github_link" >GitHub repo</a></h2><h3>Classes</h3><ul><li><a href="module-chronoman-Timer.html">Timer</a><ul class='methods'><li data-type='method'><a href="module-chronoman-Timer.html#_clearTimeout">_clearTimeout</a></li><li data-type='method'><a href="module-chronoman-Timer.html#_onTimeoutEnd">_onTimeoutEnd</a></li><li data-type='method'><a href="module-chronoman-Timer.html#_setTimeout">_setTimeout</a></li><li data-type='method'><a href="module-chronoman-Timer.html#dispose">dispose</a></li><li data-type='method'><a href="module-chronoman-Timer.html#execute">execute</a></li><li data-type='method'><a href="module-chronoman-Timer.html#getAction">getAction</a></li><li data-type='method'><a href="module-chronoman-Timer.html#getData">getData</a></li><li data-type='method'><a href="module-chronoman-Timer.html#getExecuteTime">getExecuteTime</a></li><li data-type='method'><a href="module-chronoman-Timer.html#getExecutionQty">getExecutionQty</a></li><li data-type='method'><a href="module-chronoman-Timer.html#getPeriod">getPeriod</a></li><li data-type='method'><a href="module-chronoman-Timer.html#getPeriodValue">getPeriodValue</a></li><li data-type='method'><a href="module-chronoman-Timer.html#getRepeatQty">getRepeatQty</a></li><li data-type='method'><a href="module-chronoman-Timer.html#getRepeatTest">getRepeatTest</a></li><li data-type='method'><a href="module-chronoman-Timer.html#getStartTime">getStartTime</a></li><li data-type='method'><a href="module-chronoman-Timer.html#getStopTime">getStopTime</a></li><li data-type='method'><a href="module-chronoman-Timer.html#isActive">isActive</a></li><li data-type='method'><a href="module-chronoman-Timer.html#isPassToAction">isPassToAction</a></li><li data-type='method'><a href="module-chronoman-Timer.html#isRecurrent">isRecurrent</a></li><li data-type='method'><a href="module-chronoman-Timer.html#setAction">setAction</a></li><li data-type='method'><a href="module-chronoman-Timer.html#setActive">setActive</a></li><li data-type='method'><a href="module-chronoman-Timer.html#setData">setData</a></li><li data-type='method'><a href="module-chronoman-Timer.html#setExecutionQty">setExecutionQty</a></li><li data-type='method'><a href="module-chronoman-Timer.html#setPassToAction">setPassToAction</a></li><li data-type='method'><a href="module-chronoman-Timer.html#setPeriod">setPeriod</a></li><li data-type='method'><a href="module-chronoman-Timer.html#setProperties">setProperties</a></li><li data-type='method'><a href="module-chronoman-Timer.html#setRecurrent">setRecurrent</a></li><li data-type='method'><a href="module-chronoman-Timer.html#setRepeatQty">setRepeatQty</a></li><li data-type='method'><a href="module-chronoman-Timer.html#setRepeatTest">setRepeatTest</a></li><li data-type='method'><a href="module-chronoman-Timer.html#start">start</a></li><li data-type='method'><a href="module-chronoman-Timer.html#stop">stop</a></li><li data-type='method'><a href="module-chronoman-Timer.html#toString">toString</a></li></ul></li></ul><h3>Modules</h3><ul><li><a href="module-chronoman.html">chronoman</a><ul class='methods'><li data-type='method'><a href="module-chronoman.html#.getRandomValue">getRandomValue</a></li></ul></li></ul>
+</nav>
+
+<div id="main">
+    
+
+    
+
+
+
+    
+
+
+    <section class="package">
+        <h3> </h3>		
+    </section>
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    <section class="readme usertext">
+        <article><h1>chronoman</h1><p><a href="http://badge.fury.io/js/chronoman"><img src="https://badge.fury.io/js/chronoman.png" alt="NPM version"></a>
+<a href="http://travis-ci.org/gamtiq/chronoman"><img src="https://secure.travis-ci.org/gamtiq/chronoman.png?branch=master" alt="Build Status"></a>
+<a href="http://gruntjs.com/"><img src="https://gruntjs.com/cdn/builtwith.png" alt="Built with Grunt"></a></p>
+<p>Utility class to simplify use of timers created by <code>setTimeout</code>.</p>
+<h3>Features</h3><ul>
+<li>Support for one-time (like <code>setTimeout</code>) or recurrent (like <code>setInterval</code>) timers.</li>
+<li>It is possible to repeat action indefinitely (<code>recurrent</code> property),
+specified number of times (<code>repeatQty</code> property) or depending on
+result of control function (<code>repeatTest</code> property).</li>
+<li>Time period (timeout) can be: a fixed value, a random value, an item selected from a list
+depending on action's execution number, or a value returned from specified function.</li>
+<li>Action that is called can be a function or an object specifying function and its call's context.</li>
+<li>Action result is saved in timer's field for further access.</li>
+<li>Timer's start time, stop time and action execution times are saved in
+<code>startTime</code>, <code>stopTime</code> and <code>executeTime</code> properties correspondingly.</li>
+</ul>
+<pre class="prettyprint source lang-js"><code>var timer = new Timer({
+    period: [100, 200, 300, 400, 500, {start: 100, end: 500}],
+    repeatQty: 100,
+    passToAction: true,
+    action: function(tmr) {
+        console.log(&quot;#&quot;, tmr.getExecutionQty() + 1, &quot;:&quot;, new Date());
+    },
+    active: true
+});
+...
+timer.stop();</code></pre><h2>Installation</h2><h3>Node</h3><pre class="prettyprint source"><code>npm install chronoman</code></pre><h3><a href="https://bower.io">Bower</a></h3><pre class="prettyprint source"><code>bower install chronoman</code></pre><h3>AMD, &lt;script&gt;</h3><p>Use <code>dist/chronoman.js</code> or <code>dist/chronoman.min.js</code> (minified version).</p>
+<h2>Usage</h2><h3>ECMAScript 6/2015</h3><pre class="prettyprint source lang-js"><code>import Timer from &quot;chronoman&quot;;</code></pre><h3>Node</h3><pre class="prettyprint source lang-js"><code>var Timer = require(&quot;chronoman&quot;).Timer;</code></pre><h3>AMD</h3><pre class="prettyprint source lang-js"><code>define([&quot;path/to/dist/chronoman.js&quot;], function(chronoman) {
+    var Timer = chronoman.Timer;
+    ...
+});</code></pre><h3>Bower, &lt;script&gt;</h3><pre class="prettyprint source lang-html"><code>&lt;!-- Use bower_components/chronoman/dist/chronoman.js if the library was installed by Bower -->
+&lt;script type=&quot;text/javascript&quot; src=&quot;path/to/dist/chronoman.js&quot;>&lt;/script>
+&lt;script type=&quot;text/javascript&quot;>
+    // сhronoman is available via Chronoman field of window object
+    var Timer = Chronoman.Timer;
+    ...
+&lt;/script></code></pre><h3>Example</h3><pre class="prettyprint source lang-js"><code>var tmrOne = new Timer({
+    period: function(timer) {
+        return 1000 + (timer.getExecutionQty() * 100);
+    },
+    action: function(timer) {
+        console.log(&quot;---> Timer one. &quot;, timer);
+        if (! tmrThree.isActive()) {
+            tmrThree.start();
+        }
+    }
+});
+
+var tmrTwo = new Timer();
+tmrTwo.setPeriod([2000, {start: 1000, end: 1500}])
+    .setRepeatQty(9)
+    .setPassToAction(true)
+    .setAction({
+        i: 0,
+        execute: function(timer) {
+            var nI = ++this.i;
+            console.log(&quot;Timer two. #&quot;, nI, timer);
+            tmrOne.setActive(nI % 2 === 1);
+        }
+    });
+
+var tmrThree = new Timer()
+                    .setPeriod(3000)
+                    .setRepeatTest(function() {
+                        return tmrTwo.isActive();
+                    });
+tmrThree.onExecute = function() {
+    console.log(&quot;* Timer three. #&quot;, this.getExecutionQty() + 1);
+};
+
+tmrTwo.start();</code></pre><p>See <code>test/chronoman.js</code> for additional examples.</p>
+<h2>API</h2><p>See <a href="https://gamtiq.github.io/chronoman/"><code>docs</code></a>.</p>
+<h2>Related projects</h2><ul>
+<li><a href="https://github.com/gamtiq/numgen">NumGen</a></li>
+<li><a href="https://github.com/gamtiq/povtor">povtor</a></li>
+</ul>
+<h2>Inspiration</h2><p>This module is inspired by <a href="http://qooxdoo.org">qooxdoo</a>'s <code>qx.event.Timer</code> class.</p>
+<h2>Licence</h2><p>Copyright (c) 2013-2020 Denis Sikuler<br>Licensed under the MIT license.</p></article>
+    </section>
+
+
+
+
+
+
+    
+    
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.3</a> on Wed May 06 2020 22:59:41 GMT+0300 (GMT+03:00) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/polyfill.js"></script>
+<script src="scripts/linenumber.js"></script>
+
+
+
+</body>
+</html>

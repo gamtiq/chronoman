@@ -1,5 +1,9 @@
 # chronoman
 
+[![NPM version](https://badge.fury.io/js/chronoman.png)](http://badge.fury.io/js/chronoman)
+[![Build Status](https://secure.travis-ci.org/gamtiq/chronoman.png?branch=master)](http://travis-ci.org/gamtiq/chronoman)
+[![Built with Grunt](https://gruntjs.com/cdn/builtwith.png)](http://gruntjs.com/)
+
 Utility class to simplify use of timers created by `setTimeout`.
 
 ### Features
@@ -29,17 +33,13 @@ var timer = new Timer({
 timer.stop();
 ```
 
-[![NPM version](https://badge.fury.io/js/chronoman.png)](http://badge.fury.io/js/chronoman)
-[![Build Status](https://secure.travis-ci.org/gamtiq/chronoman.png?branch=master)](http://travis-ci.org/gamtiq/chronoman)
-[![Built with Grunt](https://gruntjs.com/cdn/builtwith.png)](http://gruntjs.com/)
-
 ## Installation
 
 ### Node
 
     npm install chronoman
 
-### [Bower](http://bower.io)
+### [Bower](https://bower.io)
 
     bower install chronoman
 
@@ -98,7 +98,7 @@ var tmrOne = new Timer({
 });
 
 var tmrTwo = new Timer();
-tmrTwo.setPeriod([2000, , {start: 1000, end: 1500}])
+tmrTwo.setPeriod([2000, {start: 1000, end: 1500}])
     .setRepeatQty(9)
     .setPassToAction(true)
     .setAction({
@@ -127,7 +127,7 @@ See `test/chronoman.js` for additional examples.
 
 ## API
 
-See `doc` folder.
+See [`docs`](https://gamtiq.github.io/chronoman/).
 
 ## Related projects
 

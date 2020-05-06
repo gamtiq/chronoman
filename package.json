@@ -37,12 +37,14 @@
   ],
   "author": "Denis Sikuler",
   "license": "MIT",
+  "homepage": "https://github.com/gamtiq/chronoman/",
   "bugs": {
     "url": "https://github.com/gamtiq/chronoman/issues"
   },
   "devDependencies": {
     "babel-core": "6.26.3",
     "babel-preset-es2015": "6.24.1",
+    "docdash": "1.2.0",
     "grunt": "1.0.4",
     "grunt-babel": "7.0.0",
     "grunt-bump": "^0.8.0",
@@ -51,7 +53,7 @@
     "grunt-jsdoc": "2.4.1",
     "grunt-mocha-cli": "5.0.0",
     "grunt-umd": "3.0.0",
-    "ink-docstrap": "1.3.2",
+    "jsdoc-file": "1.0.0",
     "matchdep": "2.0.0"
   }
 }
